@@ -1,0 +1,67 @@
+<nav
+  class="fixed top-4 left-1/2 z-50 -translate-x-1/2 w-[90%] md:w-[80%] max-w-6xl flex items-center justify-between px-4 py-2 bg-background-base/80 dark:bg-background-light/80 text-text-base dark:text-text-light backdrop-blur-lg rounded-xl shadow-lg transition-all duration-300"
+>
+  <div class="flex items-center text-action-default dark:text-action-hover">
+    <img
+      src="/assets/img/logos/logo.png"
+      alt="Logo Diego Arnanz"
+      class="h-12 w-auto"
+    />
+  </div>
+
+  <ul
+    class="hidden md:flex space-x-6 text-action-default font-medium text-base leading-relaxed"
+  >
+    <li><a href="#home" class="hover:text-action-hover">Inicio</a></li>
+    <li><a href="#projects" class="hover:text-action-hover">Proyectos</a></li>
+    <li>
+      <a href="#experience" class="hover:text-action-hover">Experiencia</a>
+    </li>
+    <li><a href="#skills" class="hover:text-action-hover">Skills</a></li>
+    <li><a href="#contact" class="hover:text-action-hover">Contacto</a></li>
+  </ul>
+
+  <button
+    (click)="toggleTheme()"
+    class="ml-4 w-14 h-7 flex items-center px-1 rounded-full bg-background-card dark:bg-background-input border border-border-base dark:border-border-focus/30 transition-all duration-300 relative shadow-inner"
+    aria-label="Cambiar tema"
+  >
+    <div
+      class="absolute inset-y-0 left-0 w-1/2 flex items-center justify-center transition-all duration-300 z-10"
+      [class.opacity-100]="!isDark"
+      [class.opacity-0]="isDark"
+      [class.scale-100]="!isDark"
+      [class.scale-75]="isDark"
+    >
+      <img
+        src="/assets/img/icons/icon-sun.svg"
+        alt="Sol"
+        class="w-4 h-4"
+        style="
+          filter: brightness(0) saturate(100%) invert(60%) sepia(100%)
+            saturate(1000%) hue-rotate(25deg) brightness(1.1) contrast(1);
+        "
+      />
+    </div>
+
+    <div
+      class="absolute inset-y-0 right-0 w-1/2 flex items-center justify-center transition-all duration-300 z-10"
+      [class.opacity-100]="isDark"
+      [class.opacity-0]="!isDark"
+      [class.scale-100]="isDark"
+      [class.scale-75]="!isDark"
+    >
+      <img
+        src="/assets/img/icons/icon-moon.svg"
+        alt="Luna"
+        class="w-4 h-4"
+        style="filter: brightness(0) saturate(100%) invert(100%)"
+      />
+    </div>
+
+    <div
+      class="absolute top-1/2 -translate-y-1/2 left-1 w-5 h-5 bg-action-default dark:bg-text-neon rounded-full shadow-lg transform transition-all duration-300"
+      [class.translate-x-7]="isDark"
+    ></div>
+  </button>
+</nav>
