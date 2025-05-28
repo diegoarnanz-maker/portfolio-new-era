@@ -4,6 +4,7 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 import { ContactComponent } from '../../pages/contact/contact.component';
 import { ExperienceComponent } from '../../pages/experience/experience.component';
 import { HomeComponent } from '../../pages/home/home.component';
+import { AboutMeComponent } from '../../pages/about-me/about-me.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
 import { SkillsComponent } from '../../pages/skills/skills.component';
 
@@ -14,6 +15,7 @@ import { SkillsComponent } from '../../pages/skills/skills.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    AboutMeComponent,
     ProjectsComponent,
     ExperienceComponent,
     SkillsComponent,

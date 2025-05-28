@@ -1,67 +1,130 @@
 <nav
-  class="fixed top-4 left-1/2 z-50 -translate-x-1/2 w-[90%] md:w-[80%] max-w-6xl flex items-center justify-between px-4 py-2 bg-background-base/80 dark:bg-background-light/80 text-text-base dark:text-text-light backdrop-blur-lg rounded-xl shadow-lg transition-all duration-300"
+  class="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-[95%] md:w-[85%] max-w-4xl flex items-center justify-between px-6 py-3 
+         bg-gradient-to-r from-background-light/10 via-background-light/5 to-background-light/10 
+         dark:from-background-base/20 dark:via-background-card/30 dark:to-background-base/20 
+         backdrop-blur-2xl border border-action-default/20 dark:border-action-hover/30 
+         rounded-2xl shadow-[0_8px_32px_rgba(6,182,212,0.1)] dark:shadow-[0_8px_32px_rgba(6,182,212,0.2)]
+         transition-all duration-500 hover:shadow-[0_12px_40px_rgba(6,182,212,0.15)] 
+         dark:hover:shadow-[0_12px_40px_rgba(6,182,212,0.25)]
+         hover:border-action-default/30 dark:hover:border-action-hover/40"
 >
-  <div class="flex items-center text-action-default dark:text-action-hover">
-    <img
-      src="/assets/img/logos/logo.png"
-      alt="Logo Diego Arnanz"
-      class="h-12 w-auto"
-    />
+
+  <!-- Logo Section -->
+  <div class="flex items-center group">
+    <div class="relative overflow-hidden rounded-xl">
+      <img
+        [src]="isDark ? '/assets/img/logos/logo_dark.png' : '/assets/img/logos/logo_claro.png'"
+        alt="Logo Diego Arnanz"
+        class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-action-default/20 to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
   </div>
 
-  <ul
-    class="hidden md:flex space-x-6 text-action-default font-medium text-base leading-relaxed"
-  >
-    <li><a href="#home" class="hover:text-action-hover">Inicio</a></li>
-    <li><a href="#projects" class="hover:text-action-hover">Proyectos</a></li>
+  <!-- Navigation Links -->
+  <ul class="hidden md:flex items-center space-x-8">
     <li>
-      <a href="#experience" class="hover:text-action-hover">Experiencia</a>
+      <a 
+        href="#home" 
+        class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
+      >
+        <span class="relative z-10">Inicio</span>
+        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+      </a>
     </li>
-    <li><a href="#skills" class="hover:text-action-hover">Skills</a></li>
-    <li><a href="#contact" class="hover:text-action-hover">Contacto</a></li>
+    <li>
+      <a 
+        href="#projects" 
+        class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
+      >
+        <span class="relative z-10">Proyectos</span>
+        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+      </a>
+    </li>
+    <li>
+      <a 
+        href="#experience" 
+        class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
+      >
+        <span class="relative z-10">Experiencia</span>
+        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+      </a>
+    </li>
+    <li>
+      <a 
+        href="#skills" 
+        class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
+      >
+        <span class="relative z-10">Skills</span>
+        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
+        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+      </a>
+    </li>
+    <li>
+      <a 
+        href="#contact" 
+        class="relative px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-action-default to-text-accent rounded-xl hover:from-action-hover hover:to-action-default transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-glow"
+      >
+        Contacto
+      </a>
+    </li>
   </ul>
 
-  <button
-    (click)="toggleTheme()"
-    class="ml-4 w-14 h-7 flex items-center px-1 rounded-full bg-background-card dark:bg-background-input border border-border-base dark:border-border-focus/30 transition-all duration-300 relative shadow-inner"
-    aria-label="Cambiar tema"
-  >
-    <div
-      class="absolute inset-y-0 left-0 w-1/2 flex items-center justify-center transition-all duration-300 z-10"
-      [class.opacity-100]="!isDark"
-      [class.opacity-0]="isDark"
-      [class.scale-100]="!isDark"
-      [class.scale-75]="isDark"
-    >
-      <img
-        src="/assets/img/icons/icon-sun.svg"
-        alt="Sol"
-        class="w-4 h-4"
-        style="
-          filter: brightness(0) saturate(100%) invert(60%) sepia(100%)
-            saturate(1000%) hue-rotate(25deg) brightness(1.1) contrast(1);
-        "
-      />
-    </div>
-
-    <div
-      class="absolute inset-y-0 right-0 w-1/2 flex items-center justify-center transition-all duration-300 z-10"
-      [class.opacity-100]="isDark"
-      [class.opacity-0]="!isDark"
-      [class.scale-100]="isDark"
-      [class.scale-75]="!isDark"
-    >
-      <img
-        src="/assets/img/icons/icon-moon.svg"
-        alt="Luna"
-        class="w-4 h-4"
-        style="filter: brightness(0) saturate(100%) invert(100%)"
-      />
-    </div>
-
-    <div
-      class="absolute top-1/2 -translate-y-1/2 left-1 w-5 h-5 bg-action-default dark:bg-text-neon rounded-full shadow-lg transform transition-all duration-300"
-      [class.translate-x-7]="isDark"
-    ></div>
+  <!-- Mobile Menu Button (for future implementation) -->
+  <button class="md:hidden p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-gray-300/30 dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300">
+    <svg class="w-5 h-5 text-text-light dark:text-text-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
   </button>
+
+  <!-- Theme Toggle -->
+  <div class="flex items-center ml-6">
+    <button
+      (click)="toggleTheme()"
+      class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-gray-300/50 dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
+      aria-label="Cambiar tema"
+    >
+      <!-- Sol (visible en modo oscuro para cambiar a claro) -->
+      <div
+        class="absolute top-1/2 left-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
+        [class.opacity-100]="isDark"
+        [class.opacity-30]="!isDark"
+        [class.scale-100]="isDark"
+        [class.scale-75]="!isDark"
+        [class.rotate-0]="isDark"
+        [class.rotate-180]="!isDark"
+      >
+        <svg class="w-4 h-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+
+      <!-- Luna (visible en modo claro para cambiar a oscuro) -->
+      <div
+        class="absolute top-1/2 right-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
+        [class.opacity-100]="!isDark"
+        [class.opacity-30]="isDark"
+        [class.scale-100]="!isDark"
+        [class.scale-75]="isDark"
+        [class.rotate-0]="!isDark"
+        [class.rotate-180]="isDark"
+      >
+        <svg class="w-4 h-4 text-text-accent" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+      </div>
+
+      <!-- Toggle Slider (se mueve a la derecha en modo oscuro) -->
+      <div
+        class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500 group-hover:scale-110"
+        [class.translate-x-8]="isDark"
+        [class.translate-x-0]="!isDark"
+      >
+        <div class="absolute inset-0 bg-gradient-to-r from-action-hover to-text-neon rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+    </button>
+  </div>
 </nav>
