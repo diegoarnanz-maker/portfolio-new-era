@@ -1,0 +1,25 @@
+<div class="mb-16">
+  <!-- Título y descripción de la categoría -->
+  <div class="text-center mb-12">
+    <h3 class="text-3xl font-bold text-text-light dark:text-text-base mb-4">
+      {{ category.title }}
+    </h3>
+    <p class="text-text-light/80 dark:text-text-base/80 max-w-2xl mx-auto">
+      {{ category.description }}
+    </p>
+  </div>
+
+  <!-- Grid de proyectos -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (project of category.projects; track project.id) {
+      <app-project-card [project]="project"></app-project-card>
+    }
+  </div>
+
+  <!-- Mensaje si no hay proyectos -->
+  <div *ngIf="category.projects.length === 0" class="text-center py-12">
+    <p class="text-text-light/60 dark:text-text-base/60">
+      No hay proyectos en esta categoría aún.
+    </p>
+  </div>
+</div> 
