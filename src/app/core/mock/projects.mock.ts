@@ -1,4 +1,4 @@
-import { Project, ProjectCategory } from '../interfaces/project.interface';
+import { Project, ProjectCategory, AVAILABLE_TECHNOLOGIES, Technology } from '../interfaces/project.interface';
 
 // Placeholders por categoría
 const FULLSTACK_PLACEHOLDER_DESKTOP = '/assets/img/projects/fullstack/desktop/placeholder.svg';
@@ -15,13 +15,84 @@ const FRONTEND_PLACEHOLDER_MOBILE = '/assets/img/projects/frontend/mobile/placeh
 
 const IA_PLACEHOLDER_DESKTOP = '/assets/img/projects/ia_assistants/desktop/placeholder.svg';
 
+// Tecnologías adicionales no disponibles en iconos
+const ADDITIONAL_TECHNOLOGIES: { [key: string]: Technology } = {
+  typescript: { name: 'TypeScript', icon: '/assets/img/icons/typescript.svg' },
+  rxjs: { name: 'RxJS', icon: '/assets/img/icons/rxjs.svg' },
+  postgresql: { name: 'PostgreSQL', icon: '/assets/img/icons/postgresql.svg' },
+  stripe: { name: 'Stripe', icon: '/assets/img/icons/stripe.svg' },
+  nodejs: { name: 'Node.js', icon: '/assets/img/icons/nodejs.svg' },
+  socketio: { name: 'Socket.io', icon: '/assets/img/icons/socketio.svg' },
+  mongodb: { name: 'MongoDB', icon: '/assets/img/icons/mongodb.svg' },
+  jwt: { name: 'JWT', icon: '/assets/img/icons/jwt.svg' },
+  react: { name: 'React', icon: '/assets/img/icons/react.svg' },
+  express: { name: 'Express.js', icon: '/assets/img/icons/express.svg' },
+  redis: { name: 'Redis', icon: '/assets/img/icons/redis.svg' },
+  aws: { name: 'AWS S3', icon: '/assets/img/icons/aws.svg' },
+  vue: { name: 'Vue.js', icon: '/assets/img/icons/vue.svg' },
+  laravel: { name: 'Laravel', icon: '/assets/img/icons/laravel.svg' },
+  mysql: { name: 'MySQL', icon: '/assets/img/icons/mysql.svg' },
+  webrtc: { name: 'WebRTC', icon: '/assets/img/icons/webrtc.svg' },
+  docker: { name: 'Docker', icon: '/assets/img/icons/docker.svg' },
+  signalr: { name: 'SignalR', icon: '/assets/img/icons/signalr.svg' },
+  azure: { name: 'Azure', icon: '/assets/img/icons/azure.svg' },
+  openai: { name: 'OpenAI', icon: '/assets/img/icons/openai.svg' },
+  python: { name: 'Python', icon: '/assets/img/icons/python.svg' },
+  fastapi: { name: 'FastAPI', icon: '/assets/img/icons/fastapi.svg' },
+  kubernetes: { name: 'Kubernetes', icon: '/assets/img/icons/kubernetes.svg' },
+  rabbitmq: { name: 'RabbitMQ', icon: '/assets/img/icons/rabbitmq.svg' },
+  paypal: { name: 'PayPal API', icon: '/assets/img/icons/paypal.svg' },
+  celery: { name: 'Celery', icon: '/assets/img/icons/celery.svg' },
+  firebase: { name: 'Firebase', icon: '/assets/img/icons/firebase.svg' },
+  go: { name: 'Go', icon: '/assets/img/icons/go.svg' },
+  influxdb: { name: 'InfluxDB', icon: '/assets/img/icons/influxdb.svg' },
+  grafana: { name: 'Grafana', icon: '/assets/img/icons/grafana.svg' },
+  kafka: { name: 'Apache Kafka', icon: '/assets/img/icons/kafka.svg' },
+  elasticsearch: { name: 'Elasticsearch', icon: '/assets/img/icons/elasticsearch.svg' },
+  minio: { name: 'MinIO', icon: '/assets/img/icons/minio.svg' },
+  imagesharp: { name: 'ImageSharp', icon: '/assets/img/icons/imagesharp.svg' },
+  cloudfront: { name: 'AWS CloudFront', icon: '/assets/img/icons/cloudfront.svg' },
+  chartjs: { name: 'Chart.js', icon: '/assets/img/icons/chartjs.svg' },
+  material: { name: 'Angular Material', icon: '/assets/img/icons/material.svg' },
+  ionic: { name: 'Ionic', icon: '/assets/img/icons/ionic.svg' },
+  capacitor: { name: 'Capacitor', icon: '/assets/img/icons/capacitor.svg' },
+  websocket: { name: 'WebSocket', icon: '/assets/img/icons/websocket.svg' },
+  vuetify: { name: 'Vuetify', icon: '/assets/img/icons/vuetify.svg' },
+  leaflet: { name: 'Leaflet', icon: '/assets/img/icons/leaflet.svg' },
+  pwa: { name: 'PWA', icon: '/assets/img/icons/pwa.svg' },
+  serviceworkers: { name: 'Service Workers', icon: '/assets/img/icons/serviceworkers.svg' },
+  webaudio: { name: 'Web Audio API', icon: '/assets/img/icons/webaudio.svg' },
+  indexeddb: { name: 'IndexedDB', icon: '/assets/img/icons/indexeddb.svg' },
+  materialdesign: { name: 'Material Design', icon: '/assets/img/icons/materialdesign.svg' },
+  monaco: { name: 'Monaco Editor', icon: '/assets/img/icons/monaco.svg' },
+  codemirror: { name: 'CodeMirror', icon: '/assets/img/icons/codemirror.svg' },
+  swagger: { name: 'Swagger', icon: '/assets/img/icons/swagger.svg' },
+  springsecurity: { name: 'Spring Security', icon: '/assets/img/icons/springsecurity.svg' },
+  speechapi: { name: 'Speech API', icon: '/assets/img/icons/speechapi.svg' },
+  githubapi: { name: 'GitHub API', icon: '/assets/img/icons/githubapi.svg' },
+  calendarapi: { name: 'Calendar API', icon: '/assets/img/icons/calendarapi.svg' },
+  machinelearning: { name: 'Machine Learning', icon: '/assets/img/icons/machinelearning.svg' },
+  ocr: { name: 'OCR', icon: '/assets/img/icons/ocr.svg' },
+  nlp: { name: 'NLP', icon: '/assets/img/icons/nlp.svg' }
+};
+
+// Función helper para obtener tecnología
+function getTech(key: string): Technology {
+  return AVAILABLE_TECHNOLOGIES[key] || ADDITIONAL_TECHNOLOGIES[key] || { name: key, icon: '/assets/img/icons/default.svg' };
+}
+
 export const FULLSTACK_PROJECTS: Project[] = [
   {
     id: 'portfolio-web',
     title: 'Portfolio Personal',
     description: 'Portfolio personal desarrollado con Angular y Tailwind CSS, con sistema de temas claro/oscuro y diseño responsive.',
     shortDescription: 'Portfolio personal con Angular y Tailwind CSS',
-    technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'RxJS'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('typescript'),
+      AVAILABLE_TECHNOLOGIES['tailwind'],
+      getTech('rxjs')
+    ],
     imageUrl: '/assets/img/projects/portfolio.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -37,7 +108,12 @@ export const FULLSTACK_PROJECTS: Project[] = [
     title: 'E-commerce Platform',
     description: 'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras y sistema de pagos.',
     shortDescription: 'Plataforma de e-commerce completa',
-    technologies: ['Angular', 'Spring Boot', 'PostgreSQL', 'Stripe'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      AVAILABLE_TECHNOLOGIES['spring-boot'],
+      getTech('postgresql'),
+      getTech('stripe')
+    ],
     imageUrl: '/assets/img/projects/ecommerce.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -52,7 +128,13 @@ export const FULLSTACK_PROJECTS: Project[] = [
     title: 'Sistema de Gestión de Tareas',
     description: 'Aplicación completa para gestión de proyectos y tareas con colaboración en tiempo real, notificaciones y reportes.',
     shortDescription: 'Sistema de gestión de tareas colaborativo',
-    technologies: ['Angular', 'Node.js', 'Socket.io', 'MongoDB', 'JWT'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('nodejs'),
+      getTech('socketio'),
+      getTech('mongodb'),
+      getTech('jwt')
+    ],
     imageUrl: '/assets/img/projects/task-manager.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -68,7 +150,13 @@ export const FULLSTACK_PROJECTS: Project[] = [
     title: 'Red Social Corporativa',
     description: 'Plataforma social interna para empresas con chat, publicaciones, eventos y sistema de gamificación.',
     shortDescription: 'Red social para empresas',
-    technologies: ['React', 'Express.js', 'PostgreSQL', 'Redis', 'AWS S3'],
+    technologies: [
+      getTech('react'),
+      getTech('express'),
+      getTech('postgresql'),
+      getTech('redis'),
+      getTech('aws')
+    ],
     imageUrl: '/assets/img/projects/social-network.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -83,7 +171,13 @@ export const FULLSTACK_PROJECTS: Project[] = [
     title: 'Plataforma de Aprendizaje',
     description: 'Sistema LMS completo con cursos, evaluaciones, progreso de estudiantes y herramientas de comunicación.',
     shortDescription: 'Plataforma LMS educativa',
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC', 'Docker'],
+    technologies: [
+      getTech('vue'),
+      getTech('laravel'),
+      getTech('mysql'),
+      getTech('webrtc'),
+      getTech('docker')
+    ],
     imageUrl: '/assets/img/projects/learning-platform.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -99,7 +193,13 @@ export const FULLSTACK_PROJECTS: Project[] = [
     title: 'Sistema de Inventario',
     description: 'Aplicación empresarial para gestión de inventario con códigos QR, alertas automáticas y reportes avanzados.',
     shortDescription: 'Sistema de inventario empresarial',
-    technologies: ['Angular', '.NET Core', 'SQL Server', 'SignalR', 'Azure'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      AVAILABLE_TECHNOLOGIES['dotnet'],
+      AVAILABLE_TECHNOLOGIES['sql'],
+      getTech('signalr'),
+      getTech('azure')
+    ],
     imageUrl: '/assets/img/projects/inventory-system.jpg',
     imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
     imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
@@ -117,7 +217,12 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Asistente de Voz AI',
     description: 'Asistente por voz para tareas del día a día con integración a APIs externas.',
     shortDescription: 'Asistente de voz inteligente',
-    technologies: ['Node.js', 'Speech API', 'OpenAI', 'TypeScript'],
+    technologies: [
+      getTech('nodejs'),
+      getTech('speechapi'),
+      getTech('openai'),
+      getTech('typescript')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -133,7 +238,11 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Asistente de Chat IA',
     description: 'Chat inteligente para integración en sitios web como ayuda técnica o de ventas.',
     shortDescription: 'Asistente de chat con IA',
-    technologies: ['Angular', 'OpenAI', 'RxJS'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('openai'),
+      getTech('rxjs')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -148,7 +257,13 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Analizador de Documentos IA',
     description: 'Sistema de análisis automático de documentos con extracción de datos y clasificación inteligente.',
     shortDescription: 'Analizador de documentos con IA',
-    technologies: ['Python', 'OpenAI', 'FastAPI', 'OCR', 'NLP'],
+    technologies: [
+      getTech('python'),
+      getTech('openai'),
+      getTech('fastapi'),
+      getTech('ocr'),
+      getTech('nlp')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -163,7 +278,12 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Revisor de Código IA',
     description: 'Herramienta de revisión automática de código con sugerencias de mejora y detección de bugs.',
     shortDescription: 'Revisor automático de código',
-    technologies: ['Node.js', 'GitHub API', 'OpenAI', 'TypeScript'],
+    technologies: [
+      getTech('nodejs'),
+      getTech('githubapi'),
+      getTech('openai'),
+      getTech('typescript')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -178,7 +298,12 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Generador de Contenido IA',
     description: 'Plataforma para generar contenido automático para blogs, redes sociales y marketing.',
     shortDescription: 'Generador de contenido automático',
-    technologies: ['React', 'OpenAI', 'Node.js', 'MongoDB'],
+    technologies: [
+      getTech('react'),
+      getTech('openai'),
+      getTech('nodejs'),
+      getTech('mongodb')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -194,7 +319,12 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     title: 'Planificador Inteligente IA',
     description: 'Sistema de planificación automática de tareas y eventos con optimización de tiempo.',
     shortDescription: 'Planificador inteligente de tareas',
-    technologies: ['Vue.js', 'Python', 'Machine Learning', 'Calendar API'],
+    technologies: [
+      getTech('vue'),
+      getTech('python'),
+      getTech('machinelearning'),
+      getTech('calendarapi')
+    ],
     imageUrl: IA_PLACEHOLDER_DESKTOP,
     imageDesktop: IA_PLACEHOLDER_DESKTOP,
     imageMobile: IA_PLACEHOLDER_DESKTOP,
@@ -212,7 +342,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'REST API con Spring Boot',
     description: 'API RESTful robusta con autenticación JWT, documentación con Swagger y base de datos PostgreSQL.',
     shortDescription: 'API REST con Spring Boot y JWT',
-    technologies: ['Spring Boot', 'Spring Security', 'PostgreSQL', 'JWT', 'Swagger'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['spring-boot'],
+      getTech('springsecurity'),
+      getTech('postgresql'),
+      getTech('jwt'),
+      getTech('swagger')
+    ],
     imageUrl: '/assets/img/projects/api.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -227,7 +363,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'Arquitectura de Microservicios',
     description: 'Sistema distribuido con múltiples microservicios, gateway API y comunicación asíncrona.',
     shortDescription: 'Sistema de microservicios distribuido',
-    technologies: ['Spring Boot', 'Docker', 'Kubernetes', 'RabbitMQ', 'MongoDB'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['spring-boot'],
+      getTech('docker'),
+      getTech('kubernetes'),
+      getTech('rabbitmq'),
+      getTech('mongodb')
+    ],
     imageUrl: '/assets/img/projects/microservices.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -242,7 +384,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'Gateway de Pagos',
     description: 'Sistema de procesamiento de pagos seguro con múltiples proveedores, webhooks y reconciliación automática.',
     shortDescription: 'Gateway de pagos multi-proveedor',
-    technologies: ['Node.js', 'Express', 'Redis', 'Stripe API', 'PayPal API'],
+    technologies: [
+      getTech('nodejs'),
+      getTech('express'),
+      getTech('redis'),
+      getTech('stripe'),
+      getTech('paypal')
+    ],
     imageUrl: '/assets/img/projects/payment-gateway.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -257,7 +405,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'Servicio de Notificaciones',
     description: 'Microservicio para envío masivo de notificaciones por email, SMS y push notifications con colas de trabajo.',
     shortDescription: 'Servicio de notificaciones masivas',
-    technologies: ['Python', 'FastAPI', 'Celery', 'RabbitMQ', 'Firebase'],
+    technologies: [
+      getTech('python'),
+      getTech('fastapi'),
+      getTech('celery'),
+      getTech('rabbitmq'),
+      getTech('firebase')
+    ],
     imageUrl: '/assets/img/projects/notification-service.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -272,7 +426,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'API de Analytics',
     description: 'Sistema de recolección y análisis de datos en tiempo real con dashboards y alertas personalizables.',
     shortDescription: 'API de analytics en tiempo real',
-    technologies: ['Go', 'InfluxDB', 'Grafana', 'Apache Kafka', 'Elasticsearch'],
+    technologies: [
+      getTech('go'),
+      getTech('influxdb'),
+      getTech('grafana'),
+      getTech('kafka'),
+      getTech('elasticsearch')
+    ],
     imageUrl: '/assets/img/projects/analytics-api.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -287,7 +447,13 @@ export const BACKEND_PROJECTS: Project[] = [
     title: 'Servicio de Almacenamiento',
     description: 'API para gestión de archivos con compresión automática, CDN y control de versiones.',
     shortDescription: 'Servicio de almacenamiento de archivos',
-    technologies: ['.NET Core', 'MinIO', 'Redis', 'ImageSharp', 'AWS CloudFront'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['dotnet'],
+      getTech('minio'),
+      getTech('redis'),
+      getTech('imagesharp'),
+      getTech('cloudfront')
+    ],
     imageUrl: '/assets/img/projects/file-storage.jpg',
     imageDesktop: BACKEND_PLACEHOLDER_DESKTOP,
     imageMobile: BACKEND_PLACEHOLDER_MOBILE,
@@ -305,7 +471,12 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Dashboard Administrativo',
     description: 'Panel de administración con gráficos interactivos, gestión de usuarios y reportes en tiempo real.',
     shortDescription: 'Dashboard admin con gráficos interactivos',
-    technologies: ['Angular', 'Chart.js', 'Angular Material', 'RxJS'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('chartjs'),
+      getTech('material'),
+      getTech('rxjs')
+    ],
     imageUrl: '/assets/img/projects/dashboard.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
@@ -321,7 +492,12 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Aplicación Móvil',
     description: 'Aplicación móvil híbrida desarrollada con Ionic y Angular para gestión de tareas.',
     shortDescription: 'App móvil híbrida con Ionic',
-    technologies: ['Ionic', 'Angular', 'Capacitor', 'TypeScript'],
+    technologies: [
+      getTech('ionic'),
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('capacitor'),
+      getTech('typescript')
+    ],
     imageUrl: '/assets/img/projects/mobile.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
@@ -336,7 +512,13 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Crypto Tracker',
     description: 'Aplicación para seguimiento de criptomonedas con gráficos en tiempo real, alertas de precio y portfolio personal.',
     shortDescription: 'Tracker de criptomonedas en tiempo real',
-    technologies: ['React', 'TypeScript', 'Chart.js', 'WebSocket', 'Tailwind CSS'],
+    technologies: [
+      getTech('react'),
+      getTech('typescript'),
+      getTech('chartjs'),
+      getTech('websocket'),
+      AVAILABLE_TECHNOLOGIES['tailwind']
+    ],
     imageUrl: '/assets/img/projects/crypto-tracker.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
@@ -352,7 +534,13 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Aplicación del Clima',
     description: 'App del clima con pronósticos detallados, mapas interactivos y notificaciones de alertas meteorológicas.',
     shortDescription: 'App del clima con mapas interactivos',
-    technologies: ['Vue.js', 'Vuetify', 'Leaflet', 'PWA', 'Service Workers'],
+    technologies: [
+      getTech('vue'),
+      getTech('vuetify'),
+      getTech('leaflet'),
+      getTech('pwa'),
+      getTech('serviceworkers')
+    ],
     imageUrl: '/assets/img/projects/weather-app.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
@@ -368,7 +556,13 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Reproductor de Música',
     description: 'Reproductor web con playlists personalizadas, ecualizador, modo offline y sincronización en la nube.',
     shortDescription: 'Reproductor de música web avanzado',
-    technologies: ['Angular', 'Web Audio API', 'IndexedDB', 'Material Design', 'PWA'],
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['angular'],
+      getTech('webaudio'),
+      getTech('indexeddb'),
+      getTech('materialdesign'),
+      getTech('pwa')
+    ],
     imageUrl: '/assets/img/projects/music-player.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
@@ -384,7 +578,13 @@ export const FRONTEND_PROJECTS: Project[] = [
     title: 'Editor de Código Online',
     description: 'Editor de código colaborativo en tiempo real con syntax highlighting, autocompletado y ejecución de código.',
     shortDescription: 'Editor de código colaborativo',
-    technologies: ['React', 'Monaco Editor', 'Socket.io', 'CodeMirror', 'Docker'],
+    technologies: [
+      getTech('react'),
+      getTech('monaco'),
+      getTech('socketio'),
+      getTech('codemirror'),
+      getTech('docker')
+    ],
     imageUrl: '/assets/img/projects/code-editor.jpg',
     imageDesktop: FRONTEND_PLACEHOLDER_DESKTOP,
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
