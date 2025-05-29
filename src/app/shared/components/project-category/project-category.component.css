@@ -1,0 +1,109 @@
+/* Importar estilos básicos de Keen Slider */
+@import 'keen-slider/keen-slider.min.css';
+
+/* Contenedor principal del carrusel */
+.keen-slider-container {
+  position: relative;
+}
+
+/* Estilos para el slider */
+.keen-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.keen-slider__slide {
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.keen-slider__slide app-project-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para los botones externos */
+.keen-slider-container button {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.keen-slider-container button:hover:not(:disabled) {
+  background-color: rgba(6, 182, 212, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3) !important;
+}
+
+.keen-slider-container button:active:not(:disabled) {
+  background-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Estados disabled para botones */
+.keen-slider-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.keen-slider-container button:disabled:hover {
+  background-color: inherit !important;
+  box-shadow: inherit !important;
+}
+
+/* Modo oscuro para botones */
+.dark .keen-slider-container button:hover:not(:disabled) {
+  background-color: rgba(6, 255, 165, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(6, 255, 165, 0.2) !important;
+}
+
+.dark .keen-slider-container button:active:not(:disabled) {
+  background-color: rgba(6, 255, 165, 0.3) !important;
+}
+
+/* Estilos para la paginación personalizada */
+.keen-slider-container .flex.justify-center button {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+.keen-slider-container .flex.justify-center button:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .keen-slider-container .flex.items-center {
+    gap: 0;
+  }
+  
+  .keen-slider-container .flex.justify-center button {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+}
+
+/* Animaciones suaves para las transiciones */
+.keen-slider {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Asegurar que las cards mantengan su altura */
+.keen-slider__slide {
+  height: auto;
+  min-height: 400px;
+}
+
+/* Mejorar la accesibilidad con focus visible */
+.keen-slider-container button:focus-visible {
+  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+}
+
+.dark .keen-slider-container button:focus-visible {
+  outline-color: rgba(6, 255, 165, 0.5);
+} 

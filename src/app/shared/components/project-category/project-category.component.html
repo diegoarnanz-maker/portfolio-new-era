@@ -1,25 +1,115 @@
 <div class="mb-16">
+  <!-- Contenedor de partículas dinámicas -->
+  <div #particleContainer class="fixed inset-0 pointer-events-none z-50"></div>
+
   <!-- Título y descripción de la categoría -->
   <div class="text-center mb-12">
     <h3 class="text-3xl font-bold text-text-light dark:text-text-base mb-4">
       {{ category.title }}
     </h3>
-    <p class="text-text-light/80 dark:text-text-base/80 max-w-2xl mx-auto">
-      {{ category.description }}
-    </p>
   </div>
 
-  <!-- Grid de proyectos -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    @for (project of category.projects; track project.id) {
-      <app-project-card [project]="project"></app-project-card>
+  @if (category.projects.length > 0) {
+  <!-- Carrusel de proyectos con Keen Slider -->
+  <div class="keen-slider-container">
+    <!-- Contenedor principal con botones externos -->
+    <div class="flex items-center gap-2 md:gap-4 lg:gap-6">
+      <!-- Botón anterior -->
+      @if (shouldShowNavigation()) {
+      <button
+        (click)="goToPrevSlide($event)"
+        [disabled]="!canGoPrevious()"
+        class="flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-background-light/90 to-background-light/70 dark:from-background-card/90 dark:to-background-card/70 border border-gray-300/50 dark:border-border-card/50 shadow-lg hover:shadow-xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-action-default/50 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-lg backdrop-blur-sm hover:scale-105 active:scale-95"
+        aria-label="Proyecto anterior"
+      >
+        <!-- Flecha con diseño de código/tech -->
+        <div class="relative z-10">
+          <svg class="w-4 h-4 md:w-5 md:h-5 text-text-light dark:text-text-base group-hover:text-action-default transition-all duration-300 group-hover:drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Línea principal de la flecha -->
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" class="group-hover:stroke-[3]"/>
+            <!-- Efecto de "código" con puntos -->
+            <circle cx="8" cy="12" r="0.5" fill="currentColor" opacity="0.6" class="group-hover:opacity-100"/>
+            <circle cx="6" cy="10" r="0.3" fill="currentColor" opacity="0.4" class="group-hover:opacity-80"/>
+            <circle cx="6" cy="14" r="0.3" fill="currentColor" opacity="0.4" class="group-hover:opacity-80"/>
+          </svg>
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-action-default/20 to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+        </div>
+      </button>
+      }
+
+      <!-- Contenedor del carrusel -->
+      <div class="flex-1 min-w-0">
+        <div #sliderRef class="keen-slider">
+          @for (project of category.projects; track project.id) {
+          <div class="keen-slider__slide">
+            <app-project-card [project]="project"></app-project-card>
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Botón siguiente -->
+      @if (shouldShowNavigation()) {
+      <button
+        (click)="goToNextSlide($event)"
+        [disabled]="!canGoNext()"
+        class="flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-background-light/90 to-background-light/70 dark:from-background-card/90 dark:to-background-card/70 border border-gray-300/50 dark:border-border-card/50 shadow-lg hover:shadow-xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-action-default/50 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-lg backdrop-blur-sm hover:scale-105 active:scale-95"
+        aria-label="Proyecto siguiente"
+      >
+        <!-- Flecha con diseño de código/tech -->
+        <div class="relative z-10">
+          <svg class="w-4 h-4 md:w-5 md:h-5 text-text-light dark:text-text-base group-hover:text-action-default transition-all duration-300 group-hover:drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Línea principal de la flecha -->
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" class="group-hover:stroke-[3]"/>
+            <!-- Efecto de "código" con puntos -->
+            <circle cx="16" cy="12" r="0.5" fill="currentColor" opacity="0.6" class="group-hover:opacity-100"/>
+            <circle cx="18" cy="10" r="0.3" fill="currentColor" opacity="0.4" class="group-hover:opacity-80"/>
+            <circle cx="18" cy="14" r="0.3" fill="currentColor" opacity="0.4" class="group-hover:opacity-80"/>
+          </svg>
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-action-default/20 to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+        </div>
+      </button>
+      }
+    </div>
+
+    <!-- Paginación con puntos -->
+    @if (shouldShowNavigation() && dotHelper.length > 1) {
+    <div class="flex justify-center mt-8 gap-2">
+      @for (dot of dotHelper; track $index) {
+      <button
+        (click)="goToSlide($index)"
+        [class]="'w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-action-default/50 ' + 
+                 (currentSlide === $index ? 
+                   'bg-action-default dark:bg-text-accent shadow-lg scale-110' : 
+                   'bg-gray-300 dark:bg-gray-600 hover:bg-action-default/50 dark:hover:bg-text-accent/50')"
+        [attr.aria-label]="'Ir al grupo de proyectos ' + ($index + 1)"
+      ></button>
+      }
+    </div>
     }
   </div>
-
+  } @else {
   <!-- Mensaje si no hay proyectos -->
-  <div *ngIf="category.projects.length === 0" class="text-center py-12">
-    <p class="text-text-light/60 dark:text-text-base/60">
-      No hay proyectos en esta categoría aún.
-    </p>
+  <div class="text-center py-12">
+    <div class="relative">
+      <!-- Fondo decorativo -->
+      <div class="absolute inset-0 bg-gradient-to-r from-action-default/5 to-text-accent/5 rounded-2xl"></div>
+      <div class="relative p-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-action-default/20 to-text-accent/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-action-default" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </div>
+        <p class="text-text-light/60 dark:text-text-base/60 font-medium">
+          No hay proyectos en esta categoría aún.
+        </p>
+        <p class="text-text-light/40 dark:text-text-base/40 text-sm mt-2">
+          ¡Pronto habrá contenido increíble aquí!
+        </p>
+      </div>
+    </div>
   </div>
-</div> 
+  }
+</div>
