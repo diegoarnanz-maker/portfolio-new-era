@@ -1,10 +1,19 @@
 import { Experience } from "../interfaces/experience.interface";
 import { FRONTEND_SKILLS, BACKEND_SKILLS, TOOLS_SKILLS } from "./skills.mock";
 
+export const currentStatus: Experience = {
+  id: 'current-status',
+  title: '#OpenToWork',
+  company: 'Madrid / Segovia / Teletrabajo',
+  period: 'Actualidad',
+  description: 'Explorando nuevas oportunidades y tecnologías. Disponible para nuevos proyectos y desafíos profesionales.',
+  category: 'personal'
+};
+
 export const experiences: Experience[] = [
     {
       id: 'eurokaizen-practices',
-      title: 'Desarrollo Backend .NET',
+      title: 'Backend .NET',
       company: 'EUROKAIZEN',
       period: 'Feb 2025 - May 2025 (370 h)',
       description: 'Desarrollo backend con .NET Core, gestión de bases de datos y APIs REST.',
@@ -31,6 +40,7 @@ export const experiences: Experience[] = [
     {
       id: 'udemy-courses',
       title: 'Formación Autodidacta',
+      institution: 'Udemy',
       period: '2023 - Actualidad',
       description: 'Aprendizaje continuo de nuevas tecnologías y desarrollo de proyectos personales.',
       stack: [
