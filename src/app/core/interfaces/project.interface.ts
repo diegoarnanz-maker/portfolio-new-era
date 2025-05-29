@@ -6,11 +6,11 @@ export interface Project {
   technologies: string[];
   imageUrl: string;
   imageDesktop?: string;
-  imageMobile?: string;
   imageTablet?: string;
+  imageMobile?: string;
   githubUrl?: string;
   liveUrl?: string;
-  category: 'fullstack' | 'backend' | 'frontend';
+  category: string;
   featured: boolean;
   status: 'completed' | 'in-progress' | 'planned';
 }

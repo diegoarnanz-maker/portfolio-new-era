@@ -4,22 +4,53 @@
     <h3 class="text-3xl font-bold text-text-light dark:text-text-base mb-4">
       {{ category.title }}
     </h3>
-    <p class="text-text-light/80 dark:text-text-base/80 max-w-2xl mx-auto">
-      {{ category.description }}
-    </p>
   </div>
 
-  <!-- Grid de proyectos -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    @for (project of category.projects; track project.id) {
-      <app-project-card [project]="project"></app-project-card>
-    }
+  @if (category.projects.length > 0) {
+  <!-- Carrusel de proyectos con Swiper -->
+  <div class="swiper-container">
+    <swiper-container
+      [slides-per-view]="1"
+      [space-between]="16"
+      [navigation]="shouldShowNavigation()"
+      [pagination]="shouldShowNavigation()"
+      pagination-clickable="true"
+      pagination-dynamic-bullets="true"
+      keyboard-enabled="true"
+      keyboard-only-in-viewport="true"
+      a11y-prev-slide-message="Proyecto anterior"
+      a11y-next-slide-message="Proyecto siguiente"
+      a11y-pagination-bullet-message="Ir al proyecto"
+      breakpoints='{"768": {"slidesPerView": 2, "spaceBetween": 20}, "1024": {"slidesPerView": 3, "spaceBetween": 24}}'
+      class="project-swiper"
+    >
+      @for (project of category.projects; track project.id) {
+      <swiper-slide>
+        <app-project-card [project]="project"></app-project-card>
+      </swiper-slide>
+      }
+    </swiper-container>
   </div>
-
+  } @else {
   <!-- Mensaje si no hay proyectos -->
-  <div *ngIf="category.projects.length === 0" class="text-center py-12">
-    <p class="text-text-light/60 dark:text-text-base/60">
-      No hay proyectos en esta categoría aún.
-    </p>
+  <div class="text-center py-12">
+    <div class="relative">
+      <!-- Fondo decorativo -->
+      <div class="absolute inset-0 bg-gradient-to-r from-action-default/5 to-text-accent/5 rounded-2xl"></div>
+      <div class="relative p-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-action-default/20 to-text-accent/20 flex items-center justify-center">
+          <svg class="w-8 h-8 text-action-default" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </div>
+        <p class="text-text-light/60 dark:text-text-base/60 font-medium">
+          No hay proyectos en esta categoría aún.
+        </p>
+        <p class="text-text-light/40 dark:text-text-base/40 text-sm mt-2">
+          ¡Pronto habrá contenido increíble aquí!
+        </p>
+      </div>
+    </div>
   </div>
-</div> 
+  }
+</div>

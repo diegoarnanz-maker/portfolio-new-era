@@ -1,0 +1,125 @@
+/* Estilos personalizados para Swiper (sin importar CSS completo) */
+
+/* Contenedor principal del Swiper */
+.swiper-wrapper-container {
+  position: relative;
+}
+
+.project-swiper {
+  overflow: visible;
+  padding-bottom: 3rem; /* Espacio para la paginación */
+}
+
+/* Estilos básicos para swiper-container */
+swiper-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+/* Estilos para swiper-slide */
+swiper-slide {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+/* Estilos para los botones externos */
+.swiper-button-prev,
+.swiper-button-next {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(6, 182, 212, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3) !important;
+}
+
+.swiper-button-prev:active,
+.swiper-button-next:active {
+  background-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Modo oscuro para botones externos */
+.dark .swiper-button-prev:hover,
+.dark .swiper-button-next:hover {
+  background-color: rgba(6, 255, 165, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(6, 255, 165, 0.2) !important;
+}
+
+/* Personalización de la paginación */
+.project-swiper::part(pagination) {
+  bottom: 0;
+  position: relative;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.project-swiper::part(bullet) {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 0.25rem;
+  cursor: pointer;
+}
+
+.project-swiper::part(bullet-active) {
+  background: #06b6d4;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+/* Modo oscuro para paginación */
+.dark .project-swiper::part(bullet) {
+  background: #4b5563;
+}
+
+.dark .project-swiper::part(bullet-active) {
+  background: #06ffa5;
+  box-shadow: 0 0 15px rgba(6, 255, 165, 0.4);
+}
+
+/* Hover en bullets */
+.project-swiper::part(bullet):hover {
+  background: rgba(6, 182, 212, 0.5);
+  transform: scale(1.1);
+}
+
+.dark .project-swiper::part(bullet):hover {
+  background: rgba(6, 255, 165, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-swiper::part(bullet) {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+}
+
+/* Animaciones de entrada para las cards */
+swiper-slide {
+  height: auto;
+}
+
+swiper-slide app-project-card {
+  display: block;
+  height: 100%;
+} 
