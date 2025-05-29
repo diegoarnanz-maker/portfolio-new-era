@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project, Technology } from '../../../core/interfaces/project.interface';
 
@@ -10,6 +10,7 @@ import { Project, Technology } from '../../../core/interfaces/project.interface'
 })
 export class ProjectCardComponent {
   @Input() project!: Project;
+  @Output() projectModalOpen = new EventEmitter<Project>();
 
   getStatusColor(): string {
     switch (this.project.status) {
@@ -44,5 +45,9 @@ export class ProjectCardComponent {
 
   onImageError(event: any): void {
     event.target.src = this.getPlaceholderImage();
+  }
+
+  openProjectModal(): void {
+    this.projectModalOpen.emit(this.project);
   }
 } 

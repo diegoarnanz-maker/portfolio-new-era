@@ -21,7 +21,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/dashboard',
-    liveUrl: 'https://dashboard.com',
+    modalData: {
+      title: 'Dashboard Administrativo Interactivo',
+      description: 'Explora la interfaz de administración con gráficos y métricas en tiempo real.',
+      images: [
+        '/assets/img/projects/dashboard/modal/overview.jpg',
+        '/assets/img/projects/dashboard/modal/charts.jpg',
+        '/assets/img/projects/dashboard/modal/user-management.jpg',
+        '/assets/img/projects/dashboard/modal/reports.jpg'
+      ],
+      features: [
+        'Gráficos interactivos con Chart.js',
+        'Gestión completa de usuarios',
+        'Reportes exportables en PDF/Excel',
+        'Notificaciones en tiempo real',
+        'Tema claro/oscuro personalizable',
+        'Responsive design optimizado'
+      ]
+    },
     category: 'frontend',
     featured: true,
     status: 'completed',
@@ -40,6 +57,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/mobile-app',
+    modalData: {
+      title: 'Aplicación Móvil Híbrida',
+      description: 'Descubre la experiencia móvil nativa desarrollada con Ionic y Angular.',
+      images: [
+        '/assets/img/projects/mobile-app/modal/home-screen.jpg',
+        '/assets/img/projects/mobile-app/modal/task-list.jpg',
+        '/assets/img/projects/mobile-app/modal/task-detail.jpg',
+        '/assets/img/projects/mobile-app/modal/offline-mode.jpg'
+      ],
+      features: [
+        'Interfaz nativa con Ionic',
+        'Sincronización offline/online',
+        'Notificaciones push',
+        'Gestos táctiles intuitivos',
+        'Cámara y galería integradas',
+        'Almacenamiento local seguro'
+      ]
+    },
     category: 'frontend',
     featured: false,
     status: 'planned',
@@ -58,7 +93,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/crypto-tracker',
-    liveUrl: 'https://cryptotracker.com',
+    modalData: {
+      title: 'Crypto Tracker en Tiempo Real',
+      description: 'Explora el seguimiento avanzado de criptomonedas con análisis técnico.',
+      images: [
+        '/assets/img/projects/crypto-tracker/modal/market-overview.jpg',
+        '/assets/img/projects/crypto-tracker/modal/coin-detail.jpg',
+        '/assets/img/projects/crypto-tracker/modal/portfolio.jpg',
+        '/assets/img/projects/crypto-tracker/modal/alerts.jpg'
+      ],
+      features: [
+        'Datos en tiempo real de múltiples exchanges',
+        'Gráficos de velas interactivos',
+        'Portfolio personal con P&L',
+        'Alertas de precio personalizables',
+        'Análisis técnico avanzado',
+        'Watchlist personalizable'
+      ]
+    },
     category: 'frontend',
     featured: true,
     status: 'completed',
@@ -77,7 +129,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/weather-app',
-    liveUrl: 'https://weatherapp.com',
+    modalData: {
+      title: 'Aplicación Meteorológica Avanzada',
+      description: 'Conoce las funcionalidades de pronóstico y mapas meteorológicos interactivos.',
+      images: [
+        '/assets/img/projects/weather-app/modal/current-weather.jpg',
+        '/assets/img/projects/weather-app/modal/forecast.jpg',
+        '/assets/img/projects/weather-app/modal/radar-map.jpg',
+        '/assets/img/projects/weather-app/modal/alerts.jpg'
+      ],
+      features: [
+        'Pronóstico de 7 días detallado',
+        'Mapas de radar en tiempo real',
+        'Alertas meteorológicas automáticas',
+        'Geolocalización automática',
+        'Múltiples ubicaciones guardadas',
+        'Widgets personalizables'
+      ]
+    },
     category: 'frontend',
     featured: false,
     status: 'completed',
@@ -96,7 +165,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/music-player',
-    liveUrl: 'https://musicplayer.com',
+    modalData: {
+      title: 'Reproductor de Música Avanzado',
+      description: 'Descubre las funcionalidades de reproducción y gestión musical.',
+      images: [
+        '/assets/img/projects/music-player/modal/player-interface.jpg',
+        '/assets/img/projects/music-player/modal/playlist-manager.jpg',
+        '/assets/img/projects/music-player/modal/equalizer.jpg',
+        '/assets/img/projects/music-player/modal/library.jpg'
+      ],
+      features: [
+        'Reproductor con controles avanzados',
+        'Ecualizador de 10 bandas',
+        'Playlists inteligentes',
+        'Modo offline con cache',
+        'Visualizador de espectro',
+        'Sincronización en la nube'
+      ]
+    },
     category: 'frontend',
     featured: true,
     status: 'in-progress',
@@ -115,6 +201,24 @@ export const FRONTEND_PROJECTS: Project[] = [
     imageMobile: FRONTEND_PLACEHOLDER_MOBILE,
     imageTablet: FRONTEND_PLACEHOLDER_TABLET,
     githubUrl: 'https://github.com/usuario/code-editor',
+    modalData: {
+      title: 'Editor de Código Colaborativo',
+      description: 'Explora las capacidades de edición y colaboración en tiempo real.',
+      images: [
+        '/assets/img/projects/code-editor/modal/editor-interface.jpg',
+        '/assets/img/projects/code-editor/modal/collaboration.jpg',
+        '/assets/img/projects/code-editor/modal/terminal.jpg',
+        '/assets/img/projects/code-editor/modal/file-explorer.jpg'
+      ],
+      features: [
+        'Syntax highlighting para 50+ lenguajes',
+        'Autocompletado inteligente',
+        'Colaboración en tiempo real',
+        'Terminal integrado',
+        'Explorador de archivos',
+        'Ejecución de código en sandbox'
+      ]
+    },
     category: 'frontend',
     featured: false,
     status: 'planned',
