@@ -12,12 +12,19 @@
     @apply transition-colors duration-300;
   }
   
+  /* Tema claro por defecto */
   html {
     @apply bg-background-light text-text-light;
   }
   
+  /* Tema oscuro cuando tiene la clase 'dark' */
   html.dark {
     @apply bg-background-base text-text-base;
+  }
+  
+  /* Tema claro explícito cuando tiene la clase 'light' */
+  html.light {
+    @apply bg-background-light text-text-light;
   }
   
   body {
@@ -60,6 +67,18 @@
     -webkit-backdrop-filter: blur(10px);
   }
   
+  /* Glassmorphism para modo claro */
+  .light .glass {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(226, 232, 240, 0.3);
+  }
+  
+  /* Glassmorphism para modo oscuro */
+  .dark .glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
   /* Animaciones de entrada escalonadas */
   .animate-stagger-1 {
     animation-delay: 0.1s;
@@ -84,12 +103,31 @@
   
   .hover-lift:hover {
     transform: translateY(-4px);
+  }
+  
+  /* Hover para modo claro */
+  .light .hover-lift:hover {
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+  }
+  
+  /* Hover para modo oscuro */
+  .dark .hover-lift:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
   
   /* Gradientes personalizados */
   .gradient-text {
     background: linear-gradient(135deg, #06B6D4, #3B82F6, #06FFA5);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+  }
+  
+  /* Gradiente para modo claro */
+  .light .gradient-text {
+    background: linear-gradient(135deg, #0EA5E9, #2563EB, #10B981);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -105,19 +143,53 @@
     opacity: 0.6;
   }
   
-  /* Mejoras para el modo oscuro */
-  .dark .glass {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
   /* Efectos de resplandor */
   .glow-effect {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
     transition: box-shadow 0.3s ease;
   }
   
-  .glow-effect:hover {
+  /* Resplandor para modo claro */
+  .light .glow-effect {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  }
+  
+  .light .glow-effect:hover {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+  }
+  
+  /* Resplandor para modo oscuro */
+  .dark .glow-effect {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  
+  .dark .glow-effect:hover {
     box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+  }
+  
+  /* Estilos específicos para cards en modo claro */
+  .light .card-light {
+    @apply bg-background-light-card border-border-light-card shadow-card;
+  }
+  
+  .light .card-light:hover {
+    @apply shadow-card-hover;
+  }
+  
+  /* Estilos para botones en modo claro */
+  .light .btn-primary {
+    @apply bg-action-light-default text-white hover:bg-action-light-hover;
+  }
+  
+  .light .btn-secondary {
+    @apply bg-background-light-secondary text-text-light border-border-light-base hover:bg-background-light-accent;
+  }
+  
+  /* Estilos para inputs en modo claro */
+  .light .input-field {
+    @apply bg-background-light-input border-border-light-base text-text-light placeholder-text-light-muted;
+  }
+  
+  .light .input-field:focus {
+    @apply border-border-light-focus ring-2 ring-border-light-focus/20;
   }
 }
