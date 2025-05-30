@@ -9,16 +9,17 @@
       <h2 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text 
                  bg-gradient-to-r from-action-default via-text-accent to-action-hover 
                  animate-gradient mb-4">
-        Proyectos
+        {{ 'projects.title' | translate }}
       </h2>
       <div class="w-16 h-1 mx-auto bg-gradient-to-r from-action-default to-text-accent rounded-full mb-6"></div>
     </div>
 
     <!-- Categorías de proyectos -->
     <div class="space-y-20">
-      @for (category of projectCategories; track category.id) {
-        <app-project-category [category]="category"></app-project-category>
-      }
+      <app-project-category 
+        *ngFor="let category of projectCategories; trackBy: trackByCategory" 
+        [category]="category">
+      </app-project-category>
     </div>
   </div>
 </section>
