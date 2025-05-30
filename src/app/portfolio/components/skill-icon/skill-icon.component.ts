@@ -22,7 +22,7 @@ export class SkillIconComponent {
   };
 
   getIconClasses(): string {
-    const baseClasses = 'w-20 h-20 p-4 rounded-2xl border transition-all duration-300 hover:scale-110 flex items-center justify-center';
+    const baseClasses = 'w-16 h-16 p-3 rounded-2xl border transition-all duration-300 hover:scale-110 flex items-center justify-center';
     const colorClass = this.colorClasses[this.skill.color] || 'bg-gray-500/10 border-gray-500 shadow-lg shadow-gray-500/30';
     return `${baseClasses} ${colorClass}`;
   }
