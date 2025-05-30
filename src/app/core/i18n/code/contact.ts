@@ -1,0 +1,16 @@
+export const contact = {
+  'contact.title': '<h1>Contacto</h1>',
+  'contact.subtitle': '<h2>Hablemos sobre tu próximo proyecto</h2>',
+  'contact.description': '<p>Si te interesa mi perfil o quieres hablar de alguna oportunidad, puedes escribirme directamente a:</p>',
+  'contact.copy': 'Copiar',
+  'contact.name': '<label>Nombre</label>',
+  'contact.email': '<label>Email</label>',
+  'contact.subject': '<label>Asunto</label>',
+  'contact.message': '<label>Mensaje</label>',
+  'contact.send': '<button>Enviar Mensaje</button>',
+  'contact.sending': '<span>Enviando...</span>',
+  'contact.success': '<div class="success">Mensaje enviado correctamente</div>',
+  'contact.error': '<div class="error">Error al enviar el mensaje</div>',
+  'contact.required': '<span class="error">Este campo es obligatorio</span>',
+  'contact.invalidEmail': '<span class="error">Email no válido</span>',
+}; 

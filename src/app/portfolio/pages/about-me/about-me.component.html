@@ -7,7 +7,7 @@
       <h2
         class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-action-default via-text-accent to-action-hover animate-gradient mb-4"
       >
-        Sobre Mí
+        {{ 'about.title' | translate }}
       </h2>
       <div
         class="w-16 h-1 mx-auto bg-gradient-to-r from-action-default to-text-accent rounded-full"
@@ -16,18 +16,12 @@
 
     <div class="grid md:grid-cols-3 gap-8 items-start mb-16">
       <div class="md:col-span-2 space-y-8">
-        <p class="text-text-light dark:text-text-base text-lg leading-relaxed">
-          Soy desarrollador Full Stack con
-          <strong class="text-action-default">backend soul</strong>,
-          especializado en <strong class="text-action-default">Angular</strong>,
-          <strong class="text-action-default">Spring Boot</strong> y
-          <strong class="text-action-default">.NET</strong>. Me enfoco en crear
-          soluciones funcionales, escalables y con código mantenible.
+        <p class="text-text-light dark:text-text-base text-lg leading-relaxed" 
+           [appSafeHtml]="'about.description.paragraph1'">
         </p>
 
         <p class="text-text-light dark:text-text-base text-lg leading-relaxed">
-          Apasionado por el trabajo en equipo, disfruto aplicar buenas
-          prácticas, metodologías ágiles y seguir aprendiendo cada día.
+          {{ 'about.description.paragraph2' | translate }}
         </p>
       </div>
 
@@ -38,7 +32,7 @@
         >
           <div class="text-lg font-bold text-action-default mb-0.5">2</div>
           <div class="text-text-light dark:text-text-base text-xs font-medium">
-            Años de Formación
+            {{ 'about.stats.yearsTraining' | translate }}
           </div>
         </div>
 
@@ -51,7 +45,7 @@
             <div
               class="text-text-light dark:text-text-base text-xs font-medium"
             >
-              Repositorios
+              {{ 'about.stats.repositories' | translate }}
             </div>
           </div>
           <div
@@ -61,7 +55,7 @@
             <div
               class="text-text-light dark:text-text-base text-xs font-medium"
             >
-              Contribuciones
+              {{ 'about.stats.contributions' | translate }}
             </div>
           </div>
         </div>

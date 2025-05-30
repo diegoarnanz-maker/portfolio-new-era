@@ -1,94 +1,104 @@
 <nav
-  class="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-[95%] md:w-[85%] max-w-4xl flex items-center justify-between px-6 py-3 
-         bg-gradient-to-r from-[#04313e]/30 via-background-light/80 to-background-light/70 
-         dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 
-         backdrop-blur-xl 
-         border border-border-card/60 
-         rounded-2xl 
-         shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a]
-         ring-1 ring-border-base/10 
-         transition-all duration-500"
+  class="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-[95%] md:w-[85%] max-w-4xl flex items-center justify-between px-6 py-3 bg-gradient-to-r from-[#04313e]/30 via-background-light/80 to-background-light/70 dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 backdrop-blur-xl border border-border-card/60 rounded-2xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-base/10 transition-all duration-500"
 >
-
-
-
   <!-- Logo Section -->
   <div class="flex items-center group">
     <div class="relative overflow-hidden rounded-xl">
       <img
-        [src]="isDark ? '/assets/img/logos/logo_dark.png' : '/assets/img/logos/logo_claro.png'"
+        [src]="
+          isDark
+            ? '/assets/img/logos/logo_dark.png'
+            : '/assets/img/logos/logo_claro.png'
+        "
         alt="Logo Diego Arnanz"
         class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-action-default/20 to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-action-default/20 to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      ></div>
     </div>
   </div>
 
   <!-- Navigation Links -->
   <ul class="hidden md:flex items-center space-x-8">
     <li>
-      <a 
-        href="#home" 
+      <a
+        href="#home"
         class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
       >
-        <span class="relative z-10">Inicio</span>
-        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
-        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+        <span class="relative z-10">{{ "nav.home" | translate }}</span>
+        <div
+          class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"
+        ></div>
       </a>
     </li>
     <li>
-      <a 
-        href="#projects" 
+      <a
+        href="#projects"
         class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
       >
-        <span class="relative z-10">Proyectos</span>
-        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
-        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+        <span class="relative z-10">{{ "nav.projects" | translate }}</span>
+        <div
+          class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"
+        ></div>
       </a>
     </li>
     <li>
-      <a 
-        href="#experience" 
+      <a
+        href="#experience"
         class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
       >
-        <span class="relative z-10">Experiencia</span>
-        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
-        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
+        <span class="relative z-10">{{ "nav.experience" | translate }}</span>
+        <div
+          class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"
+        ></div>
       </a>
     </li>
     <li>
-      <a 
-        href="#skills" 
-        class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-default dark:hover:text-action-default transition-all duration-300 group"
-      >
-        <span class="relative z-10">Skills</span>
-        <div class="absolute inset-0 bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"></div>
-        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-default to-text-accent group-hover:w-full transition-all duration-300"></div>
-      </a>
-    </li>
-    <li>
-      <a 
-        href="#contact" 
+      <a
+        href="#contact"
         class="relative px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-action-default to-text-accent rounded-xl hover:from-action-hover hover:to-action-default transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-glow"
       >
-        Contacto
+        {{ "nav.contact" | translate }}
       </a>
     </li>
   </ul>
 
   <!-- Mobile Menu Button (for future implementation) -->
-  <button class="md:hidden p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-gray-300/30 dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300">
-    <svg class="w-5 h-5 text-text-light dark:text-text-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  <button
+    class="md:hidden p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-gray-300/30 dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300"
+  >
+    <svg
+      class="w-5 h-5 text-text-light dark:text-text-base"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
     </svg>
   </button>
 
-  <!-- Theme Toggle -->
-  <div class="flex items-center ml-6">
+  <!-- Controls Section -->
+  <div class="flex items-center gap-3">
+    <!-- Theme Toggle -->
     <button
       (click)="toggleTheme()"
       class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-gray-300/50 dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
-      aria-label="Cambiar tema"
+      [attr.aria-label]="'nav.changeTheme' | translate"
     >
       <!-- Sol (visible en modo oscuro para cambiar a claro) -->
       <div
@@ -100,8 +110,16 @@
         [class.rotate-0]="isDark"
         [class.rotate-180]="!isDark"
       >
-        <svg class="w-4 h-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+        <svg
+          class="w-4 h-4 text-accent-yellow"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            clip-rule="evenodd"
+          ></path>
         </svg>
       </div>
 
@@ -115,8 +133,14 @@
         [class.rotate-0]="!isDark"
         [class.rotate-180]="isDark"
       >
-        <svg class="w-4 h-4 text-text-accent" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        <svg
+          class="w-4 h-4 text-text-accent"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+          ></path>
         </svg>
       </div>
 
@@ -126,8 +150,66 @@
         [class.translate-x-8]="isDark"
         [class.translate-x-0]="!isDark"
       >
-        <div class="absolute inset-0 bg-gradient-to-r from-action-hover to-text-neon rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-action-hover to-text-neon rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        ></div>
       </div>
     </button>
+
+    <!-- Selector de idioma -->
+    <div class="relative language-selector">
+      <button
+        (click)="toggleLanguageDropdown()"
+        (keydown.enter)="toggleLanguageDropdown()"
+        (keydown.space)="toggleLanguageDropdown()"
+        class="w-12 h-8 flex items-center justify-center rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-gray-300/50 dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-action-default/50"
+        [attr.aria-label]="'nav.selectLanguage' | translate"
+        [attr.aria-expanded]="showLangs"
+        aria-haspopup="true"
+      >
+        <span class="text-lg">🌐</span>
+      </button>
+
+      @if (showLangs) {
+      <div
+        class="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-[#04313e]/30 via-background-light/80 to-background-light/70 dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 backdrop-blur-xl border border-border-card/60 rounded-xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-base/10 overflow-hidden text-sm min-w-[140px]"
+        role="menu"
+        [attr.aria-label]="'nav.selectLanguage' | translate"
+      >
+        @for (lang of langs; track lang.code) {
+        <button
+          class="w-full px-4 py-3 text-left transition-colors duration-200 focus:outline-none flex items-center gap-2"
+          [ngClass]="{
+            'bg-action-default/20': isLanguageActive(lang.code),
+            'hover:bg-action-default/10': !isLanguageActive(lang.code),
+            'dark:hover:bg-action-default/10': !isLanguageActive(lang.code),
+            'focus:bg-action-default/20': !isLanguageActive(lang.code),
+            'dark:focus:bg-action-default/20': !isLanguageActive(lang.code)
+          }"
+          (click)="changeLang(lang.code)"
+          (keydown.enter)="changeLang(lang.code)"
+          (keydown.space)="changeLang(lang.code)"
+          role="menuitem"
+          [attr.aria-label]="'Cambiar idioma a ' + lang.name"
+        >
+          <span class="text-lg">{{ lang.flag }}</span>
+          <span
+            class="text-sm font-medium"
+            [class.text-action-default]="isLanguageActive(lang.code)"
+            [class.font-semibold]="isLanguageActive(lang.code)"
+            [class.text-text-light]="!isLanguageActive(lang.code)"
+            [class.dark:text-text-base]="!isLanguageActive(lang.code)"
+          >
+            {{ lang.name }}
+          </span>
+          @if (isLanguageActive(lang.code)) {
+          <span class="ml-auto text-action-default">✓</span>
+          }
+        </button>
+
+        }
+      </div>
+      }
+    </div>
   </div>
 </nav>
