@@ -1,6 +1,6 @@
 import { ES_TRANSLATIONS } from './es';
 import { EN_TRANSLATIONS } from './en';
-import { MR_TRANSLATIONS } from './mr';
+import { CODE_TRANSLATIONS } from './code';
 
 export interface Translations {
   [key: string]: {
@@ -11,7 +11,7 @@ export interface Translations {
 export const TRANSLATIONS: Translations = {
   es: ES_TRANSLATIONS,
   en: EN_TRANSLATIONS,
-  mr: MR_TRANSLATIONS
+  code: CODE_TRANSLATIONS
 };
 
-export { ES_TRANSLATIONS, EN_TRANSLATIONS, MR_TRANSLATIONS }; 
+export { ES_TRANSLATIONS, EN_TRANSLATIONS, CODE_TRANSLATIONS }; 
