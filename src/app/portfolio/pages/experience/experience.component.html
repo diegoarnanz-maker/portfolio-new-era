@@ -46,7 +46,7 @@
 
         <!-- Card del presente -->
         <div class="mx-auto px-8 max-w-md">
-          <app-experience-card [experience]="currentStatus"></app-experience-card>
+          <app-experience-card [experience]="currentStatus" [isCurrentStatus]="true"></app-experience-card>
         </div>
       </div>
 
@@ -77,7 +77,7 @@
 
         <!-- Card centrada y estrecha -->
         <div class="mx-auto px-8 max-w-md">
-          <app-experience-card [experience]="item"></app-experience-card>
+          <app-experience-card [experience]="item" [isCurrentStatus]="false"></app-experience-card>
         </div>
       </div>
       }

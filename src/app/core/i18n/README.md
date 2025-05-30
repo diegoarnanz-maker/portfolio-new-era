@@ -1,203 +1,203 @@
-# Sistema de Traducción (i18n)
+# Sistema de Internacionalización (i18n)
 
-Este sistema de traducción permite manejar múltiples idiomas en la aplicación de manera eficiente y escalable.
+Este directorio contiene el sistema de traducciones de la aplicación, organizado de manera modular y escalable.
 
-## Estructura de Archivos
+## 📁 Estructura de Archivos
 
 ```
 src/app/core/i18n/
-├── index.ts          # Exporta todos los diccionarios
-├── es.ts            # Diccionario en español
-├── en.ts            # Diccionario en inglés
-└── README.md        # Esta documentación
+├── index.ts                 # Exportación principal de todas las traducciones
+├── README.md               # Documentación del sistema
+├── es/                     # Traducciones en Español
+│   ├── index.ts           # Exportación combinada del español
+│   ├── navbar.ts          # Navegación
+│   ├── home.ts            # Página de inicio
+│   ├── about.ts           # Sobre mí
+│   ├── projects.ts        # Proyectos
+│   ├── experience.ts      # Experiencia
+│   ├── skills.ts          # Habilidades
+│   ├── contact.ts         # Contacto
+│   ├── common.ts          # Elementos comunes
+│   ├── dates.ts           # Fechas y meses
+│   └── validation.ts      # Validaciones, errores y éxito
+├── en/                     # Traducciones en Inglés
+│   ├── index.ts           # Exportación combinada del inglés
+│   ├── navbar.ts          # Navigation
+│   ├── home.ts            # Home page
+│   ├── about.ts           # About me
+│   ├── projects.ts        # Projects
+│   ├── experience.ts      # Experience
+│   ├── skills.ts          # Skills
+│   ├── contact.ts         # Contact
+│   ├── common.ts          # Common elements
+│   ├── dates.ts           # Dates and months
+│   └── validation.ts      # Validations, errors and success
+└── mr/                     # Traducciones en Marciano 👽
+    ├── index.ts           # Exportación combinada del marciano
+    ├── navbar.ts          # Zxorp Vorthak
+    ├── home.ts            # Nexus Blixnok
+    ├── about.ts           # Qwixel Morphix
+    ├── projects.ts        # Blixnok Zephyr
+    ├── experience.ts      # Vorthak Lumina
+    ├── skills.ts          # Qwixel Nexus
+    ├── contact.ts         # Zephyr Vorthak
+    ├── common.ts          # Morphix Blixnok
+    ├── dates.ts           # Zxorpius Nexus
+    └── validation.ts      # Vorthak Qwixel
 ```
 
-## Cómo Agregar Nuevas Traducciones
+## 🌐 Idiomas Disponibles
 
-### 1. Agregar claves en los diccionarios
+| Código | Idioma | Bandera | Estado |
+|--------|--------|---------|--------|
+| `es` | Español | 🇪🇸 | ✅ Completo |
+| `en` | English | 🇺🇸 | ✅ Completo |
+| `mr` | Marciano | 👽 | ✅ Completo |
 
-**En `es.ts`:**
+## 📝 Organización por Apartados
+
+### 🧭 **Navbar** (`navbar.ts`)
+Elementos de navegación principal:
+- Enlaces del menú
+- Cambio de tema
+- Selector de idioma
+
+### 🏠 **Home** (`home.ts`)
+Página de inicio:
+- Título principal
+- Descripción
+- Botones de acción
+
+### 👤 **About** (`about.ts`)
+Sección sobre mí:
+- Título y descripción
+- Párrafos informativos
+- Estadísticas (años, repositorios, contribuciones)
+
+### 💼 **Projects** (`projects.ts`)
+Sección de proyectos:
+- Títulos y descripciones
+- Botones de acción
+- Tecnologías y características
+
+### 🎯 **Experience** (`experience.ts`)
+Experiencia profesional:
+- Títulos de sección
+- Estados temporales
+- Responsabilidades y logros
+
+### ⚡ **Skills** (`skills.ts`)
+Habilidades técnicas:
+- Categorías de skills
+- Tipos de tecnologías
+
+### 📧 **Contact** (`contact.ts`)
+Página de contacto:
+- Formularios
+- Mensajes de estado
+- Validaciones
+
+### 🔧 **Common** (`common.ts`)
+Elementos comunes:
+- Botones genéricos
+- Estados de carga
+- Acciones básicas
+
+### 📅 **Dates** (`dates.ts`)
+Fechas y tiempo:
+- Nombres de meses
+- Unidades de tiempo
+
+### ✅ **Validation** (`validation.ts`)
+Sistema de validación:
+- Mensajes de error
+- Mensajes de éxito
+- Reglas de validación
+
+## 🚀 Uso del Sistema
+
+### Importación
 ```typescript
-export const ES_TRANSLATIONS = {
-  // ... traducciones existentes
-  'welcome.message': 'Bienvenido, {0}!',
-  'items.count': 'Tienes {0} elementos',
-  'user.profile': 'Perfil de {0}'
-};
+import { TRANSLATIONS } from './core/i18n';
 ```
 
-**En `en.ts`:**
+### Uso en Componentes
 ```typescript
-export const EN_TRANSLATIONS = {
-  // ... traducciones existentes
-  'welcome.message': 'Welcome, {0}!',
-  'items.count': 'You have {0} items',
-  'user.profile': '{0}\'s Profile'
-};
+// En el template
+{{ 'nav.home' | translate }}
+{{ 'about.title' | translate }}
+{{ 'contact.success' | translate }}
+
+// Con parámetros
+{{ 'validation.minLength' | translate:'5' }}
 ```
 
-### 2. Usar en componentes
+### Agregar Nuevas Traducciones
 
-#### Con el pipe (recomendado para templates):
+1. **Agregar a un apartado existente:**
+   ```typescript
+   // En es/navbar.ts
+   export const navbar = {
+     'nav.home': 'Inicio',
+     'nav.newItem': 'Nuevo Elemento', // ← Nueva traducción
+   };
+   ```
 
-```html
-<!-- Traducción simple -->
-<h1>{{ 'home.title' | translate }}</h1>
+2. **Crear nuevo apartado:**
+   ```typescript
+   // Crear es/newSection.ts
+   export const newSection = {
+     'newSection.title': 'Título',
+     'newSection.description': 'Descripción',
+   };
+   
+   // Agregar a es/index.ts
+   import { newSection } from './newSection';
+   export const ES_TRANSLATIONS = {
+     ...navbar,
+     ...newSection, // ← Incluir nueva sección
+   };
+   ```
 
-<!-- Traducción con parámetros -->
-<p>{{ 'welcome.message' | translate: {0: userName} }}</p>
-<span>{{ 'items.count' | translate: {0: itemCount} }}</span>
-```
+## 🎨 Características Especiales
 
-#### Con el servicio (para lógica de componente):
+### 🛸 Idioma Marciano
+El marciano es un idioma inventado con palabras como:
+- **Zxorp** = Inicio/Home
+- **Blixnok** = Proyectos/Projects  
+- **Vorthak** = Experiencia/Experience
+- **Qwixel** = Habilidades/Skills
+- **Zephyr** = Contacto/Contact
+- **Nexus** = Conexión/Link
+- **Morphix** = Cambio/Change
+- **Lumina** = Luz/Light
 
+### 🔄 Interpolación de Parámetros
+Soporte para parámetros dinámicos:
 ```typescript
-import { TranslationService } from '@core/services/translation.service';
-
-export class MyComponent {
-  private translationService = inject(TranslationService);
-
-  getMessage() {
-    // Traducción simple
-    const title = this.translationService.translate('home.title');
-    
-    // Traducción con parámetros
-    const welcome = this.translationService.translate('welcome.message', {
-      0: this.userName
-    });
-    
-    return welcome;
-  }
-
-  // Para observables (reactivo)
-  title$ = this.translationService.translate$('home.title');
-  
-  welcome$ = this.translationService.translate$('welcome.message', {
-    0: this.userName
-  });
-}
+'validation.minLength': 'Mínimo {0} caracteres'
 ```
 
-## Convenciones de Nomenclatura
-
-### Estructura de claves:
-- `seccion.elemento`: Para elementos específicos de una sección
-- `common.accion`: Para elementos comunes reutilizables
-- `validation.tipo`: Para mensajes de validación
-- `error.tipo`: Para mensajes de error
-
-### Ejemplos:
-```typescript
-// ✅ Buenas prácticas
-'nav.home'
-'projects.title'
-'contact.form.name'
-'common.save'
-'validation.required'
-'error.network'
-
-// ❌ Evitar
-'homeTitle'
-'PROJECTS_TITLE'
-'contact_form_name'
+### 🎯 Claves Organizadas
+Sistema de claves jerárquico:
+```
+apartado.subseccion.elemento
+├── nav.home
+├── about.stats.repositories
+├── contact.validation.required
+└── common.actions.save
 ```
 
-## Interpolación de Parámetros
+## 🔧 Mantenimiento
 
-El sistema soporta interpolación usando placeholders `{0}`, `{1}`, etc.
+- **Consistencia**: Mantener la misma estructura en todos los idiomas
+- **Nomenclatura**: Usar nombres descriptivos para las claves
+- **Organización**: Agrupar traducciones relacionadas en el mismo archivo
+- **Documentación**: Actualizar este README al agregar nuevos apartados
 
-```typescript
-// Diccionario
-'user.greeting': 'Hola {0}, tienes {1} mensajes nuevos'
+## 📊 Estadísticas
 
-// Uso
-this.translationService.translate('user.greeting', {
-  0: 'Juan',
-  1: 5
-});
-// Resultado: "Hola Juan, tienes 5 mensajes nuevos"
-```
-
-## Agregar Nuevos Idiomas
-
-### 1. Crear el archivo del idioma:
-
-```typescript
-// src/app/core/i18n/fr.ts
-export const FR_TRANSLATIONS = {
-  'nav.home': 'Accueil',
-  'nav.projects': 'Projets',
-  // ... más traducciones
-};
-```
-
-### 2. Actualizar el índice:
-
-```typescript
-// src/app/core/i18n/index.ts
-import { FR_TRANSLATIONS } from './fr';
-
-export const TRANSLATIONS: Translations = {
-  es: ES_TRANSLATIONS,
-  en: EN_TRANSLATIONS,
-  fr: FR_TRANSLATIONS  // Agregar aquí
-};
-```
-
-### 3. Actualizar el LanguageService:
-
-```typescript
-// src/app/core/services/language.service.ts
-public readonly availableLanguages: Language[] = [
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' }  // Agregar aquí
-];
-```
-
-## Métodos Útiles del TranslationService
-
-```typescript
-// Verificar si existe una traducción
-const exists = this.translationService.hasTranslation('some.key');
-
-// Obtener todas las claves de traducción
-const keys = this.translationService.getTranslationKeys();
-
-// Agregar traducciones dinámicamente
-this.translationService.addTranslations('es', {
-  'dynamic.key': 'Valor dinámico'
-});
-
-// Obtener traducciones del idioma actual
-const currentTranslations = this.translationService.getCurrentTranslations();
-```
-
-## Mejores Prácticas
-
-1. **Organización**: Agrupa las traducciones por secciones lógicas
-2. **Consistencia**: Usa la misma estructura de claves en todos los idiomas
-3. **Parámetros**: Usa interpolación para contenido dinámico
-4. **Fallback**: Siempre proporciona una traducción en el idioma por defecto (español)
-5. **Validación**: Verifica que todas las claves existan en todos los idiomas
-
-## Ejemplo Completo
-
-```typescript
-// Componente
-@Component({
-  template: `
-    <h1>{{ 'welcome.title' | translate }}</h1>
-    <p>{{ 'user.info' | translate: {0: user.name, 1: user.age} }}</p>
-    <button (click)="save()">{{ 'common.save' | translate }}</button>
-  `
-})
-export class ExampleComponent {
-  user = { name: 'Ana', age: 25 };
-  
-  save() {
-    const message = this.translationService.translate('success.saved');
-    console.log(message);
-  }
-}
-``` 
+- **Total de idiomas**: 3
+- **Total de apartados**: 10 por idioma
+- **Total de traducciones**: ~130 por idioma
+- **Cobertura**: 100% en todos los idiomas 

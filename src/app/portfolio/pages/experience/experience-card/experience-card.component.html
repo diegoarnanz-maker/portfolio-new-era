@@ -1,6 +1,9 @@
 <!-- Card de experiencia -->
 <div
-  class="bg-background-card border border-border-card rounded-lg p-6 transition-all duration-300 hover:border-text-neon/50 hover:shadow-lg text-center relative"
+  class="bg-background-card border rounded-lg p-6 transition-all duration-300 hover:shadow-lg text-center relative"
+  [class.border-border-card]="!isCurrentStatus"
+  [class.border-text-neon]="isCurrentStatus"
+  [class.shadow-glow]="isCurrentStatus"
 >
   <!-- Badge de categoría arriba derecha bien separado -->
   <div class="absolute -top-3 right-4">
@@ -8,19 +11,19 @@
     <span
       class="inline-flex items-center px-2 py-0.5 text-actionXS font-semibold rounded-full shadow-sm backdrop-blur-sm bg-text-neon/10 text-text-neon"
     >
-      Prácticas
+      {{ 'experience.categories.practices' | translate }}
     </span>
     } @else if (experience.category === 'education') {
     <span
       class="inline-flex items-center px-2 py-0.5 text-actionXS font-semibold rounded-full shadow-sm backdrop-blur-sm bg-accent-blue/10 text-accent-blue"
     >
-      Educación
+      {{ 'experience.categories.education' | translate }}
     </span>
     } @else {
     <span
       class="inline-flex items-center px-2 py-0.5 text-actionXS font-semibold rounded-full shadow-sm backdrop-blur-sm bg-accent-yellow/10 text-accent-yellow"
     >
-      Personal
+      {{ 'experience.categories.personal' | translate }}
     </span>
     }
   </div>
@@ -30,7 +33,7 @@
 
   <!-- Título centrado -->
   <h3 class="text-h5 font-bold text-text-base mb-2">
-    {{ experience.title }}
+    {{ experience.titleKey ? (experience.titleKey | translate) : experience.title }}
   </h3>
 
   <!-- Empresa / institución y fecha -->
@@ -38,25 +41,41 @@
     class="flex justify-center items-center gap-2 text-text-muted text-bodyS mb-4"
   >
     @if (experience.company) {
-    <span class="font-medium">{{ experience.company }}</span>
+    <span class="font-medium">{{ experience.companyKey ? (experience.companyKey | translate) : experience.company }}</span>
     } @else if (experience.institution) {
-    <span class="font-medium">{{ experience.institution }}</span>
+    <span class="font-medium">{{ experience.institutionKey ? (experience.institutionKey | translate) : experience.institution }}</span>
     }
     <span class="mx-1">•</span>
-    <span class="text-accent-yellow">{{ experience.period }}</span>
+    <span class="text-accent-yellow">{{ experience.periodKey ? (experience.periodKey | translate) : experience.period }}</span>
   </div>
 
-  <!-- Tecnologías -->
-  @if (experience.stack && experience.stack.length > 0) {
+  <!-- Tecnologías (ocultar en formación autodidacta) -->
+  @if (experience.stack && experience.stack.length > 0 && experience.title !== 'Formación Autodidacta') {
   <div class="border-t border-border-base pt-4">
     <div class="flex flex-wrap gap-2 justify-center">
       @for (tech of experience.stack; track tech.name) {
       <div
-        class="flex items-center justify-center gap-2 px-2 py-1 bg-background-input border border-border-focus/20 rounded hover:border-text-neon/50 transition-colors"
+        class="flex items-center justify-center gap-2 px-2 py-1 bg-background-input border border-border-focus/20 rounded hover:border-action-default/50 transition-colors"
         [title]="tech.name"
       >
         <img [src]="tech.iconPath" [alt]="tech.alt" class="w-4 h-4" />
         <span class="text-bodyXS text-text-base">{{ tech.name }}</span>
+      </div>
+      }
+    </div>
+  </div>
+  }
+
+  <!-- Cursos (solo para formación autodidacta) -->
+  @if (experience.courses && experience.courses.length > 0) {
+  <div class="border-t border-border-base pt-4 mt-4">
+    <div class="space-y-2">
+      @for (course of experience.courses; track $index) {
+      <div class="flex items-start gap-2 text-left">
+        <div class="w-1.5 h-1.5 bg-text-neon rounded-full mt-2 flex-shrink-0"></div>
+        <span class="text-bodyS text-text-base">
+          {{ experience.coursesKeys && experience.coursesKeys[$index] ? (experience.coursesKeys[$index] | translate) : course }}
+        </span>
       </div>
       }
     </div>
