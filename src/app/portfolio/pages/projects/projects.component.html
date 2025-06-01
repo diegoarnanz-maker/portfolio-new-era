@@ -18,8 +18,16 @@
     <div class="space-y-20">
       <app-project-category 
         *ngFor="let category of projectCategories; trackBy: trackByCategory" 
-        [category]="category">
+        [category]="category"
+        (projectModalOpen)="onProjectModalOpen($event)">
       </app-project-category>
     </div>
   </div>
+
+  <!-- Modal de proyecto -->
+  <app-project-modal
+    [project]="selectedProject"
+    [isOpen]="isModalOpen"
+    (closeModal)="onModalClose()">
+  </app-project-modal>
 </section>

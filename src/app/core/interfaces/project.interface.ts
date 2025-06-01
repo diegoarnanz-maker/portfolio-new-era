@@ -4,8 +4,12 @@ import { ProjectCategory } from './project-category.interface';
 export interface ProjectModalData {
   title: string;
   description: string;
-  images: string[]; // Array de rutas de imágenes para el recorrido
+  longDescription?: string; // Descripción más detallada
+  images: string[]; // Array de rutas de imágenes principales (desktop, tablet, mobile)
+  demoImages?: string[]; // Array de imágenes demo de la carpeta demo/
   features: string[]; // Lista de características principales
+  technicalDetails?: string[]; // Detalles técnicos adicionales
+  challenges?: string[]; // Desafíos superados en el proyecto
 }
 
 export interface Project {
