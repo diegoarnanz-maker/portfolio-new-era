@@ -1,43 +1,58 @@
 import { Project } from '../../interfaces/project.interface';
 import { AVAILABLE_TECHNOLOGIES } from '../../interfaces/available-technologies.const';
-import { 
-  FULLSTACK_PLACEHOLDER_DESKTOP, 
-  FULLSTACK_PLACEHOLDER_TABLET, 
-  FULLSTACK_PLACEHOLDER_MOBILE 
-} from '../constants/placeholders.const';
 
 export const FULLSTACK_PROJECTS: Project[] = [
   {
-    id: 'portfolio-web',
-    title: 'Portfolio Personal',
-    description: 'Portfolio personal desarrollado con Angular y Tailwind CSS, con sistema de temas claro/oscuro y diseño responsive.',
-    shortDescription: 'Portfolio personal con Angular y Tailwind CSS',
+    id: 'indimetra',
+    title: 'Indimetra',
+    description: 'Indimetra es una aplicación web fullstack que permite a los usuarios interactuar con cortometrajes de manera inmersiva. Desarrollada con Angular en el frontend y Spring Boot en el backend, ofrece una experiencia multimedia completa.',
+    shortDescription: 'Aplicación web para interactuar con cortometrajes',
     technologies: [
       AVAILABLE_TECHNOLOGIES['angular'],
       AVAILABLE_TECHNOLOGIES['spring-boot'],
       AVAILABLE_TECHNOLOGIES['tailwind'],
     ],
-    imageUrl: '/assets/img/projects/portfolio.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/portfolio',
+    imageUrl: '/assets/img/projects/fullstack/indimetra/DESKTOP_indimetra.png',
+    githubUrl: 'https://github.com/usuario/indimetra',
     modalData: {
-      title: 'Recorrido por mi Portfolio Personal',
-      description: 'Explora las características principales de mi portfolio desarrollado con Angular y Tailwind CSS.',
+      title: 'Indimetra - Plataforma de Cortometrajes Interactivos',
+      description: 'Explora la plataforma que revoluciona la forma de experimentar cortometrajes con interactividad avanzada.',
+      longDescription: 'Indimetra es una plataforma web fullstack innovadora que transforma la experiencia tradicional de visualización de cortometrajes. Desarrollada con Angular 17 y Spring Boot, integra tecnologías modernas para crear una experiencia multimedia inmersiva y altamente interactiva.',
       images: [
-        '/assets/img/projects/portfolio/modal/home.jpg',
-        '/assets/img/projects/portfolio/modal/projects.jpg',
-        '/assets/img/projects/portfolio/modal/about.jpg',
-        '/assets/img/projects/portfolio/modal/contact.jpg'
+        '/assets/img/projects/fullstack/indimetra/DESKTOP_indimetra.png',
+        '/assets/img/projects/fullstack/indimetra/TABLET_indimetra.png',
+        '/assets/img/projects/fullstack/indimetra/MOBILE_indimetra.png'
+      ],
+      demoImages: [
+        '/assets/img/projects/fullstack/indimetra/demo/home.png',
+        '/assets/img/projects/fullstack/indimetra/demo/explorar.png',
+        '/assets/img/projects/fullstack/indimetra/demo/cortometraje_detail.png',
+        '/assets/img/projects/fullstack/indimetra/demo/registro.png',
+        '/assets/img/projects/fullstack/indimetra/demo/admin_usuarios.png',
+        '/assets/img/projects/fullstack/indimetra/demo/admin_categorias.png',
+        '/assets/img/projects/fullstack/indimetra/demo/admin_resenas.png'
       ],
       features: [
-        'Diseño responsive adaptable a todos los dispositivos',
-        'Sistema de temas claro/oscuro dinámico',
-        'Animaciones suaves y transiciones elegantes',
-        'Sección de proyectos con filtros por categoría',
-        'Formulario de contacto funcional',
-        'Optimización SEO y rendimiento'
+        'Interfaz inmersiva para visualización de cortometrajes',
+        'Sistema de interacción en tiempo real',
+        'Diseño responsive optimizado para todos los dispositivos',
+        'Backend robusto con Spring Boot',
+        'Gestión de contenido multimedia',
+        'Experiencia de usuario fluida y moderna'
+      ],
+      technicalDetails: [
+        'Frontend desarrollado con Angular 17 y Tailwind CSS',
+        'Backend API REST con Spring Boot y Spring Security',
+        'Base de datos PostgreSQL para gestión de contenido',
+        'Autenticación JWT para seguridad',
+        'Optimización de carga de videos y multimedia',
+        'Arquitectura modular y escalable'
+      ],
+      challenges: [
+        'Optimización de rendimiento para contenido multimedia pesado',
+        'Implementación de interactividad en tiempo real',
+        'Diseño responsive para diferentes dispositivos',
+        'Gestión eficiente del estado de reproducción'
       ]
     },
     category: 'fullstack',
@@ -45,73 +60,55 @@ export const FULLSTACK_PROJECTS: Project[] = [
     status: 'completed',
   },
   {
-    id: 'ecommerce-app',
-    title: 'E-commerce Platform',
-    description: 'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras y sistema de pagos.',
-    shortDescription: 'Plataforma de e-commerce completa',
+    id: 'talent-hub',
+    title: 'Talent Hub',
+    description: 'Talent Hub es una aplicación web fullstack que permite a los usuarios gestionar usuarios de manera eficiente. Desarrollada con Angular en el frontend y Spring Boot en el backend, ofrece una experiencia de usuario moderna y segura.',
+    shortDescription: 'Aplicación web para gestionar usuarios',
     technologies: [
       AVAILABLE_TECHNOLOGIES['angular'],
       AVAILABLE_TECHNOLOGIES['spring-boot'],
+      AVAILABLE_TECHNOLOGIES['tailwind'],
     ],
-    imageUrl: '/assets/img/projects/ecommerce.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/ecommerce',
+    imageUrl: '/assets/img/projects/fullstack/talentHub/DESKTOP_talenthub.png',
+    githubUrl: 'https://github.com/usuario/talent-hub',
     modalData: {
-      title: 'Plataforma E-commerce Completa',
-      description: 'Descubre todas las funcionalidades de esta plataforma de comercio electrónico moderna.',
+      title: 'Talent Hub - Gestión de Talentos',
+      description: 'Explora la plataforma que revoluciona la forma de gestionar talentos de manera eficiente y segura.',
+      longDescription: 'Talent Hub es una plataforma completa de gestión de recursos humanos que conecta empresas con talento cualificado. Desarrollada con tecnologías modernas, ofrece herramientas avanzadas para el reclutamiento, gestión de candidatos y administración de vacantes.',
       images: [
-        '/assets/img/projects/ecommerce/modal/catalog.jpg',
-        '/assets/img/projects/ecommerce/modal/product-detail.jpg',
-        '/assets/img/projects/ecommerce/modal/cart.jpg',
-        '/assets/img/projects/ecommerce/modal/checkout.jpg',
-        '/assets/img/projects/ecommerce/modal/admin-panel.jpg'
+        '/assets/img/projects/fullstack/talentHub/DESKTOP_talenthub.png',
+        '/assets/img/projects/fullstack/talentHub/TABLET_talenthub.png',
+        '/assets/img/projects/fullstack/talentHub/MOBILE_talenthub.png'
+      ],
+      demoImages: [
+        '/assets/img/projects/fullstack/talentHub/demo/login.png',
+        '/assets/img/projects/fullstack/talentHub/demo/registro.png',
+        '/assets/img/projects/fullstack/talentHub/demo/admin_usuarios.png',
+        '/assets/img/projects/fullstack/talentHub/demo/admin_empresas.png',
+        '/assets/img/projects/fullstack/talentHub/demo/admin_categorias.png',
+        '/assets/img/projects/fullstack/talentHub/demo/empresa_vacante-detail.png'
       ],
       features: [
-        'Catálogo de productos con búsqueda avanzada',
-        'Carrito de compras persistente',
-        'Sistema de pagos integrado (Stripe)',
-        'Panel de administración completo',
-        'Gestión de inventario en tiempo real',
-        'Sistema de reseñas y valoraciones'
-      ]
-    },
-    category: 'fullstack',
-    featured: true,
-    status: 'in-progress',
-  },
-  {
-    id: 'task-manager',
-    title: 'Sistema de Gestión de Tareas',
-    description: 'Aplicación completa para gestión de proyectos y tareas con colaboración en tiempo real, notificaciones y reportes.',
-    shortDescription: 'Sistema de gestión de tareas colaborativo',
-    technologies: [
-      AVAILABLE_TECHNOLOGIES['angular'],
-      AVAILABLE_TECHNOLOGIES['spring-boot'],
-    ],
-    imageUrl: '/assets/img/projects/task-manager.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/task-manager',
-    modalData: {
-      title: 'Sistema de Gestión de Tareas Colaborativo',
-      description: 'Explora las capacidades de colaboración y gestión de proyectos en tiempo real.',
-      images: [
-        '/assets/img/projects/task-manager/modal/dashboard.jpg',
-        '/assets/img/projects/task-manager/modal/kanban.jpg',
-        '/assets/img/projects/task-manager/modal/calendar.jpg',
-        '/assets/img/projects/task-manager/modal/team.jpg',
-        '/assets/img/projects/task-manager/modal/reports.jpg'
+        'Sistema completo de autenticación y autorización',
+        'Gestión de usuarios con roles y permisos granulares',
+        'Panel administrativo para empresas y candidatos',
+        'Sistema de notificaciones en tiempo real',
+        'Gestión avanzada de vacantes y postulaciones',
+        'Interfaz intuitiva y responsive'
       ],
-      features: [
-        'Dashboard con métricas en tiempo real',
-        'Tablero Kanban interactivo',
-        'Calendario integrado de tareas',
-        'Chat en tiempo real entre equipos',
-        'Notificaciones push automáticas',
-        'Reportes y analytics avanzados'
+      technicalDetails: [
+        'Frontend con Angular 17, Tailwind CSS y componentes reutilizables',
+        'Backend API REST con Spring Boot y Spring Security',
+        'Base de datos relacional con JPA/Hibernate',
+        'Autenticación JWT con refresh tokens',
+        'Validación de datos tanto en frontend como backend',
+        'Documentación API con Swagger/OpenAPI'
+      ],
+      challenges: [
+        'Implementación de sistema de roles y permisos complejo',
+        'Optimización de consultas para grandes volúmenes de datos',
+        'Diseño de UX intuitivo para diferentes tipos de usuarios',
+        'Integración segura entre frontend y backend'
       ]
     },
     category: 'fullstack',
@@ -119,111 +116,111 @@ export const FULLSTACK_PROJECTS: Project[] = [
     status: 'completed',
   },
   {
-    id: 'social-network',
-    title: 'Red Social Corporativa',
-    description: 'Plataforma social interna para empresas con chat, publicaciones, eventos y sistema de gamificación.',
-    shortDescription: 'Red social para empresas',
+    id: 'series',
+    title: 'Series',
+    description: 'Series es una aplicación web fullstack que permite a los usuarios interactuar con series de manera inmersiva. Desarrollada con Angular en el frontend y Spring Boot en el backend, ofrece una experiencia multimedia completa.',
+    shortDescription: 'Aplicación web para interactuar con series',
     technologies: [
       AVAILABLE_TECHNOLOGIES['angular'],
       AVAILABLE_TECHNOLOGIES['spring-boot'],
+      AVAILABLE_TECHNOLOGIES['tailwind'],
     ],
-    imageUrl: '/assets/img/projects/social-network.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/social-network',
+    imageUrl: '/assets/img/projects/fullstack/series/DESKTOP_series.png',
+    githubUrl: 'https://github.com/usuario/series',
     modalData: {
-      title: 'Red Social Corporativa',
-      description: 'Conoce las funcionalidades sociales diseñadas específicamente para entornos empresariales.',
+      title: 'Series - Plataforma de Series Interactivas',
+      description: 'Explora la plataforma que revoluciona la forma de experimentar series con interactividad avanzada.',
+      longDescription: 'Una plataforma moderna para la gestión y visualización de series de televisión. Permite a los usuarios descubrir, seguir y gestionar sus series favoritas con una interfaz intuitiva y funcionalidades avanzadas de recomendación.',
       images: [
-        '/assets/img/projects/social-network/modal/feed.jpg',
-        '/assets/img/projects/social-network/modal/chat.jpg',
-        '/assets/img/projects/social-network/modal/events.jpg',
-        '/assets/img/projects/social-network/modal/gamification.jpg'
+        '/assets/img/projects/fullstack/series/DESKTOP_series.png',
+        '/assets/img/projects/fullstack/series/TABLET_series.png',
+        '/assets/img/projects/fullstack/series/MOBILE_series.png'
+      ],
+      demoImages: [
+        '/assets/img/projects/fullstack/series/demo/serie_detail.png',
+        '/assets/img/projects/fullstack/series/demo/admin_menu.png',
+        '/assets/img/projects/fullstack/series/demo/admin_usuarios.png',
+        '/assets/img/projects/fullstack/series/demo/admin_resenas.png'
       ],
       features: [
-        'Feed de noticias corporativas',
-        'Sistema de chat grupal e individual',
-        'Gestión de eventos empresariales',
-        'Sistema de gamificación y logros',
-        'Perfiles profesionales detallados',
-        'Integración con herramientas corporativas'
+        'Catálogo completo de series con información detallada',
+        'Sistema de recomendaciones personalizado',
+        'Lista de seguimiento y favoritos',
+        'Búsqueda avanzada con filtros múltiples',
+        'Calificaciones y reseñas de usuarios',
+        'Notificaciones de nuevos episodios'
+      ],
+      technicalDetails: [
+        'Integración con APIs externas de información de series',
+        'Sistema de caché para optimizar rendimiento',
+        'Algoritmos de recomendación basados en preferencias',
+        'Gestión de estado compleja con RxJS',
+        'Lazy loading para optimización de carga',
+        'PWA con funcionalidades offline'
+      ],
+      challenges: [
+        'Integración eficiente con múltiples APIs externas',
+        'Implementación de algoritmos de recomendación',
+        'Optimización de rendimiento con grandes catálogos',
+        'Sincronización de datos en tiempo real'
       ]
     },
     category: 'fullstack',
-    featured: false,
+    featured: true,
     status: 'completed',
   },
   {
-    id: 'learning-platform',
-    title: 'Plataforma de Aprendizaje',
-    description: 'Sistema LMS completo con cursos, evaluaciones, progreso de estudiantes y herramientas de comunicación.',
-    shortDescription: 'Plataforma LMS educativa',
+    id: 'user-management',
+    title: 'User Management',
+    description: 'User Management es una aplicación web fullstack que permite a los usuarios gestionar usuarios de manera eficiente. Desarrollada con Angular en el frontend y Spring Boot en el backend, ofrece una experiencia de usuario moderna y segura.',
+    shortDescription: 'Aplicación web para gestionar usuarios',
     technologies: [
       AVAILABLE_TECHNOLOGIES['angular'],
       AVAILABLE_TECHNOLOGIES['spring-boot'],
+      AVAILABLE_TECHNOLOGIES['tailwind'],
     ],
-    imageUrl: '/assets/img/projects/learning-platform.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/learning-platform',
+    imageUrl: '/assets/img/projects/fullstack/manejo-usuarios/DESKTOP_manejo-usuarios.png',
+    githubUrl: 'https://github.com/usuario/user-management',
     modalData: {
-      title: 'Plataforma LMS Educativa',
-      description: 'Descubre las herramientas educativas y de seguimiento de progreso académico.',
+      title: 'User Management - Gestión de Usuarios',
+      description: 'Explora la plataforma que revoluciona la forma de gestionar usuarios de manera eficiente y segura.',
+      longDescription: 'Sistema completo de gestión de usuarios empresarial que proporciona herramientas avanzadas para la administración de cuentas, roles, permisos y auditoría. Diseñado para organizaciones que requieren un control granular sobre el acceso y la gestión de usuarios.',
       images: [
-        '/assets/img/projects/learning-platform/modal/courses.jpg',
-        '/assets/img/projects/learning-platform/modal/lesson.jpg',
-        '/assets/img/projects/learning-platform/modal/quiz.jpg',
-        '/assets/img/projects/learning-platform/modal/progress.jpg'
+        '/assets/img/projects/fullstack/manejo-usuarios/DESKTOP_manejo-usuarios.png',
+        '/assets/img/projects/fullstack/manejo-usuarios/TABLET_manejo-usuarios.png',
+        '/assets/img/projects/fullstack/manejo-usuarios/MOBILE_manejo-usuarios.png'
+      ],
+      demoImages: [
+        '/assets/img/projects/fullstack/manejo-usuarios/demo/login.png',
+        '/assets/img/projects/fullstack/manejo-usuarios/demo/registro.png',
+        '/assets/img/projects/fullstack/manejo-usuarios/demo/usuario_detail.png'
       ],
       features: [
-        'Catálogo de cursos interactivos',
-        'Reproductor de video con marcadores',
-        'Sistema de evaluaciones automáticas',
-        'Seguimiento de progreso detallado',
-        'Foros de discusión por curso',
-        'Certificados digitales automáticos'
+        'Dashboard administrativo con métricas en tiempo real',
+        'CRUD completo de usuarios con validaciones avanzadas',
+        'Sistema de roles y permisos jerárquico',
+        'Auditoría completa de acciones de usuarios',
+        'Importación/exportación masiva de datos',
+        'Notificaciones y alertas automáticas'
+      ],
+      technicalDetails: [
+        'Arquitectura hexagonal en el backend',
+        'Patrón Repository para acceso a datos',
+        'Validación de datos con Bean Validation',
+        'Logging y monitoreo con Spring Boot Actuator',
+        'Tests unitarios y de integración completos',
+        'Documentación automática con Swagger'
+      ],
+      challenges: [
+        'Diseño de arquitectura escalable y mantenible',
+        'Implementación de auditoría completa del sistema',
+        'Optimización de consultas para grandes volúmenes',
+        'Gestión segura de datos sensibles'
       ]
     },
     category: 'fullstack',
-    featured: false,
-    status: 'in-progress',
+    featured: true,
+    status: 'completed',
   },
-  {
-    id: 'inventory-system',
-    title: 'Sistema de Inventario',
-    description: 'Aplicación empresarial para gestión de inventario con códigos QR, alertas automáticas y reportes avanzados.',
-    shortDescription: 'Sistema de inventario empresarial',
-    technologies: [
-      AVAILABLE_TECHNOLOGIES['angular'],
-      AVAILABLE_TECHNOLOGIES['spring-boot'],
-    ],
-    imageUrl: '/assets/img/projects/inventory-system.jpg',
-    imageDesktop: FULLSTACK_PLACEHOLDER_DESKTOP,
-    imageMobile: FULLSTACK_PLACEHOLDER_MOBILE,
-    imageTablet: FULLSTACK_PLACEHOLDER_TABLET,
-    githubUrl: 'https://github.com/usuario/inventory-system',
-    modalData: {
-      title: 'Sistema de Inventario Empresarial',
-      description: 'Explora las capacidades avanzadas de gestión de inventario y control de stock.',
-      images: [
-        '/assets/img/projects/inventory-system/modal/dashboard.jpg',
-        '/assets/img/projects/inventory-system/modal/products.jpg',
-        '/assets/img/projects/inventory-system/modal/qr-scanner.jpg',
-        '/assets/img/projects/inventory-system/modal/reports.jpg'
-      ],
-      features: [
-        'Dashboard con métricas de inventario',
-        'Gestión de productos con códigos QR',
-        'Escáner QR móvil integrado',
-        'Alertas automáticas de stock bajo',
-        'Reportes de movimientos detallados',
-        'Integración con proveedores'
-      ]
-    },
-    category: 'fullstack',
-    featured: false,
-    status: 'planned',
-  },
+
 ]; 

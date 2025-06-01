@@ -43,7 +43,10 @@
         <div #sliderRef class="keen-slider">
           @for (project of category.projects; track project.id) {
           <div class="keen-slider__slide">
-            <app-project-card [project]="project"></app-project-card>
+            <app-project-card 
+              [project]="project"
+              (projectModalOpen)="onProjectModalOpen($event)">
+            </app-project-card>
           </div>
           }
         </div>

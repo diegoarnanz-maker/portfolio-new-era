@@ -1,7 +1,7 @@
-import { Component, Input, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { ProjectCategory } from '../../../core/interfaces/project.interface';
+import { ProjectCategory, Project } from '../../../core/interfaces/project.interface';
 import KeenSlider from 'keen-slider';
 
 interface Particle {
@@ -25,6 +25,7 @@ interface Particle {
 })
 export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
   @Input() category!: ProjectCategory;
+  @Output() projectModalOpen = new EventEmitter<Project>();
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   @ViewChild('particleContainer') particleContainer!: ElementRef<HTMLElement>;
   
@@ -249,5 +250,9 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
     } else {
       return this.category.projects.length > 1;
     }
+  }
+
+  onProjectModalOpen(project: Project): void {
+    this.projectModalOpen.emit(project);
   }
 } 
