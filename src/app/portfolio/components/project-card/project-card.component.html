@@ -12,6 +12,7 @@
 
   <div class="w-full h-8 bg-black/80 dark:bg-white/10 rounded-t-xl relative flex items-center justify-between px-2">
     <!-- Botones de selección de imagen -->
+    @if (shouldShowDeviceControls()) {
     <div class="flex gap-1">
       <button
         (click)="selectImageType('desktop')"
@@ -52,6 +53,14 @@
         </svg>
       </button>
     </div>
+    } @else {
+    <!-- Indicador de subcategoría para proyectos backend -->
+    <div class="flex gap-1">
+      <div class="px-2 py-0.5 rounded border bg-cyan-400 border-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.6)] text-black text-xs font-bold tracking-wider">
+        {{ project.subcategory === 'API' ? 'API REST' : project.subcategory || 'BACKEND' }}
+      </div>
+    </div>
+    }
     
     <!-- Indicadores LED -->
     <div class="flex gap-1">

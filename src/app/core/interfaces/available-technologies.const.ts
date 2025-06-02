@@ -45,5 +45,17 @@ export const AVAILABLE_TECHNOLOGIES: { [key: string]: Technology } = {
   n8n: {
     name: 'n8n',
     icon: '/assets/img/icons/n8n.svg'
+  },
+  thymeleaf: {
+    name: 'Thymeleaf',
+    icon: '/assets/img/icons/thymeleaf.svg'
+  },
+  graphql: {
+    name: 'GraphQL',
+    icon: '/assets/img/icons/graphql.svg'
+  },
+  docker: {
+    name: 'Docker',
+    icon: '/assets/img/icons/docker.svg'
   }
 }; 

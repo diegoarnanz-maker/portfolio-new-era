@@ -50,6 +50,12 @@ export class ProjectCardComponent {
   getCurrentImageUrl(): string {
     if (!this.project.imageUrl) return this.getPlaceholderImage();
     
+    // Para proyectos backend, usar siempre la imagen principal
+    if (!this.shouldShowDeviceControls()) {
+      return this.project.imageUrl;
+    }
+    
+    // Para proyectos fullstack, permitir cambio entre dispositivos
     // Extraer la ruta base y el nombre del archivo
     const basePath = this.project.imageUrl.replace(/DESKTOP_[^/]+\.png$/, '');
     const fileName = this.project.imageUrl.split('/').pop()?.replace('DESKTOP_', '') || '';
@@ -75,5 +81,10 @@ export class ProjectCardComponent {
 
   openProjectModal(): void {
     this.projectModalOpen.emit(this.project);
+  }
+
+  shouldShowDeviceControls(): boolean {
+    // Solo mostrar controles de dispositivos para proyectos fullstack
+    return this.project.category === 'fullstack';
   }
 } 
