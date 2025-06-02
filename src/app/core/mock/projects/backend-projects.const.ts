@@ -2,7 +2,7 @@ import { Project } from '../../interfaces/project.interface';
 import { AVAILABLE_TECHNOLOGIES } from '../../interfaces/available-technologies.const';
 
 export const BACKEND_PROJECTS: Project[] = [
-  // Proyectos MVC
+  // MVC - Gestión de Eventos
   {
     title: 'Gestión de Eventos',
     technologies: [
@@ -12,7 +12,7 @@ export const BACKEND_PROJECTS: Project[] = [
     ],
     imageUrl:
       '/assets/img/projects/backend/MVC/gestion-eventos/DESKTOP_GESTION-EVENTOS.png',
-    githubUrl: 'https://github.com/usuario/gestion-eventos',
+    githubUrl: 'https://github.com/diegoarnanz-maker/GestionEventos',
     category: 'backend',
     subcategory: 'MVC',
     status: 'completed',
@@ -52,6 +52,36 @@ export const BACKEND_PROJECTS: Project[] = [
       'Gestión de estados de reservas y notificaciones automáticas a usuarios',
     ],
   },
+  // API - Fisioterapia
+  {
+    title: 'Api Fisioterapia',
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['spring-boot'],
+      AVAILABLE_TECHNOLOGIES['sql'],
+    ],
+    imageUrl: '/assets/img/projects/backend/api/fisioterapia/DESKTOP_fisioterapia.png',
+    githubUrl: 'https://github.com/diegoarnanz-maker/Fisioterapia_springboot',
+    category: 'backend',
+    subcategory: 'API',
+    status: 'completed',
+    longDescription:
+      'API REST construida con Spring Boot para gestionar agendas de fisioterapeutas. Incluye operaciones CRUD para citas, validaciones, seguridad con JWT y pruebas unitarias con Mockito, garantizando autenticación segura y una gestión fiable de reservas.',
+    images: ['/assets/img/projects/backend/api/fisioterapia/DESKTOP_fisioterapia.png'],
+    technicalDetails: [
+      'Arquitectura RESTful con Spring Boot',
+      'CRUD completo para citas y agendas de fisioterapia',
+      'Seguridad con autenticación JWT y validaciones de entrada',
+      'Documentación de la API con Swagger',
+      'Pruebas unitarias con JUnit y Mockito',
+    ],
+    challenges: [
+      'Gestión de autenticación segura con JWT y control de sesiones',
+      'Diseño de una estructura REST clara y mantenible',
+      'Validación robusta de entradas y gestión de errores controlada',
+      'Cobertura de pruebas con Mockito para garantizar fiabilidad de la API',
+    ],
+  },
+  // MVC - Cajero Virtual
   {
     title: 'Cajero Virtual',
     technologies: [
@@ -60,7 +90,7 @@ export const BACKEND_PROJECTS: Project[] = [
       AVAILABLE_TECHNOLOGIES['sql'],
     ],
     imageUrl: '/assets/img/projects/backend/MVC/cajero/DESKTOP_cajero.png',
-    githubUrl: 'https://github.com/usuario/cajero-virtual',
+    githubUrl: 'https://github.com/diegoarnanz-maker/Cajero-virtual/tree/gh-pages',
     category: 'backend',
     subcategory: 'MVC',
     status: 'completed',
@@ -100,6 +130,36 @@ export const BACKEND_PROJECTS: Project[] = [
       'Implementación de roles con permisos diferenciados (admin/user)',
     ],
   },
+  // API - Gestión de Comerciales
+  {
+    title: 'Api Gestión de Comerciales',
+    technologies: [
+      AVAILABLE_TECHNOLOGIES['spring-boot'],
+      AVAILABLE_TECHNOLOGIES['docker'],
+      AVAILABLE_TECHNOLOGIES['sql'],
+    ],
+    imageUrl: '/assets/img/projects/backend/api/comerciales/DESKTOP_comerciales.png',
+    githubUrl: 'https://github.com/diegoarnanz-maker/App_jefes_comerciales_JPA',
+    category: 'backend',
+    subcategory: 'API',
+    status: 'completed',
+    longDescription:
+      'API REST desarrollada con Spring Boot y MySQL para gestionar comerciales, clientes y pedidos. Permite realizar operaciones CRUD, obtener datos clave del negocio y asegurar la fiabilidad mediante pruebas con JUnit y Mockito.',
+    images: ['/assets/img/projects/backend/api/comerciales/DESKTOP_comerciales.png'],
+    technicalDetails: [
+      'Arquitectura RESTful con Spring Boot',
+      'Persistencia con base de datos MySQL',
+      'CRUD completo para comerciales, clientes y pedidos',
+      'Documentación de endpoints con Swagger',
+      'Pruebas unitarias con JUnit y Mockito',
+    ],
+    challenges: [
+      'Diseño de una API REST limpia y escalable',
+      'Cobertura de pruebas con JUnit y Mockito',
+      'Validación y manejo de errores uniforme en toda la API',
+    ],
+  },
+  // MVC - Gestión de excursiones
   {
     title: 'Gestión de excursiones',
     technologies: [
@@ -109,7 +169,7 @@ export const BACKEND_PROJECTS: Project[] = [
     ],
     imageUrl:
       '/assets/img/projects/backend/MVC/excursiones/DESKTOP_excursiones.png',
-    githubUrl: 'https://github.com/usuario/gestion-excursiones',
+    githubUrl: 'https://github.com/diegoarnanz-maker/Gestion-excursiones-spring-th-JPA',
     category: 'backend',
     subcategory: 'MVC',
     status: 'completed',
@@ -142,63 +202,7 @@ export const BACKEND_PROJECTS: Project[] = [
       'Diseño de una experiencia de usuario clara tanto para admins como participantes',
     ],
   },
-  // Proyectos API
-  {
-    title: 'Api Fisioterapia',
-    technologies: [
-      AVAILABLE_TECHNOLOGIES['spring-boot'],
-      AVAILABLE_TECHNOLOGIES['sql'],
-    ],
-    imageUrl: '/assets/img/projects/backend/api/fisioterapia/DESKTOP_fisioterapia.png',
-    githubUrl: 'https://github.com/usuario/api-fisioterapia',
-    category: 'backend',
-    subcategory: 'API',
-    status: 'completed',
-    longDescription:
-      'API REST construida con Spring Boot para gestionar agendas de fisioterapeutas. Incluye operaciones CRUD para citas, validaciones, seguridad con JWT y pruebas unitarias con Mockito, garantizando autenticación segura y una gestión fiable de reservas.',
-    images: ['/assets/img/projects/backend/api/fisioterapia/DESKTOP_fisioterapia.png'],
-    technicalDetails: [
-      'Arquitectura RESTful con Spring Boot',
-      'CRUD completo para citas y agendas de fisioterapia',
-      'Seguridad con autenticación JWT y validaciones de entrada',
-      'Documentación de la API con Swagger',
-      'Pruebas unitarias con JUnit y Mockito',
-    ],
-    challenges: [
-      'Gestión de autenticación segura con JWT y control de sesiones',
-      'Diseño de una estructura REST clara y mantenible',
-      'Validación robusta de entradas y gestión de errores controlada',
-      'Cobertura de pruebas con Mockito para garantizar fiabilidad de la API',
-    ],
-  },
-  {
-    title: 'Api Gestión de Comerciales',
-    technologies: [
-      AVAILABLE_TECHNOLOGIES['spring-boot'],
-      AVAILABLE_TECHNOLOGIES['docker'],
-      AVAILABLE_TECHNOLOGIES['sql'],
-    ],
-    imageUrl: '/assets/img/projects/backend/api/comerciales/DESKTOP_comerciales.png',
-    githubUrl: 'https://github.com/usuario/api-comerciales',
-    category: 'backend',
-    subcategory: 'API',
-    status: 'completed',
-    longDescription:
-      'API REST desarrollada con Spring Boot y MySQL para gestionar comerciales, clientes y pedidos. Permite realizar operaciones CRUD, obtener datos clave del negocio y asegurar la fiabilidad mediante pruebas con JUnit y Mockito.',
-    images: ['/assets/img/projects/backend/api/comerciales/DESKTOP_comerciales.png'],
-    technicalDetails: [
-      'Arquitectura RESTful con Spring Boot',
-      'Persistencia con base de datos MySQL',
-      'CRUD completo para comerciales, clientes y pedidos',
-      'Documentación de endpoints con Swagger',
-      'Pruebas unitarias con JUnit y Mockito',
-    ],
-    challenges: [
-      'Diseño de una API REST limpia y escalable',
-      'Cobertura de pruebas con JUnit y Mockito',
-      'Validación y manejo de errores uniforme en toda la API',
-    ],
-  },
+  // API - CRUD con TDD
   {
     title: 'API CRUD con TDD',
     technologies: [
@@ -207,7 +211,7 @@ export const BACKEND_PROJECTS: Project[] = [
       AVAILABLE_TECHNOLOGIES['sql'],
     ],
     imageUrl: '/assets/img/projects/backend/api/tdd/DESKTOP_TDD.png',
-    githubUrl: 'https://github.com/usuario/api-tdd',
+    githubUrl: 'https://github.com/diegoarnanz-maker/TDD_CRUD_ApiRest',
     category: 'backend',
     subcategory: 'API',
     status: 'completed',

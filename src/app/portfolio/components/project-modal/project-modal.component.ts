@@ -147,6 +147,12 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
       return 'Vista Desktop';
     }
     
+    // Para proyectos frontend y fullstack en galería principal, usar títulos por defecto
+    if ((this.project?.category === 'frontend' || this.project?.category === 'fullstack') && this.currentGalleryType === 'main') {
+      const deviceTitles = ['Vista Desktop', 'Vista Tablet', 'Vista Mobile'];
+      return deviceTitles[this.currentImageIndex] || `Imagen ${this.currentImageIndex + 1}`;
+    }
+    
     // Fallback por defecto
     return `Imagen ${this.currentImageIndex + 1}`;
   }
