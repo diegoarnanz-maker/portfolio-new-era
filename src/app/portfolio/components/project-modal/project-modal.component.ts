@@ -136,7 +136,25 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
 
   get currentImageTitle(): string {
     const titles = this.currentImageTitles;
-    return titles[this.currentImageIndex] || `Imagen ${this.currentImageIndex + 1}`;
+    
+    // Si hay títulos específicos, usarlos
+    if (titles[this.currentImageIndex]) {
+      return titles[this.currentImageIndex];
+    }
+    
+    // Para proyectos backend en galería principal, mostrar "Vista Desktop"
+    if (this.project?.category === 'backend' && this.currentGalleryType === 'main') {
+      return 'Vista Desktop';
+    }
+    
+    // Para proyectos frontend y fullstack en galería principal, usar títulos por defecto
+    if ((this.project?.category === 'frontend' || this.project?.category === 'fullstack') && this.currentGalleryType === 'main') {
+      const deviceTitles = ['Vista Desktop', 'Vista Tablet', 'Vista Mobile'];
+      return deviceTitles[this.currentImageIndex] || `Imagen ${this.currentImageIndex + 1}`;
+    }
+    
+    // Fallback por defecto
+    return `Imagen ${this.currentImageIndex + 1}`;
   }
 
   get hasMainImages(): boolean {

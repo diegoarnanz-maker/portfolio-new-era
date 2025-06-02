@@ -7,6 +7,7 @@ export interface Project {
   imageUrl: string;
   githubUrl?: string;
   category: string;
+  subcategory?: string;
   status: 'completed' | 'in-progress' | 'planned';
   
   // Campos para el modal

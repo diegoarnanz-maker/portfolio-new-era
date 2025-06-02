@@ -2,6 +2,7 @@ import { Project } from '../../interfaces/project.interface';
 import { AVAILABLE_TECHNOLOGIES } from '../../interfaces/available-technologies.const';
 
 export const FULLSTACK_PROJECTS: Project[] = [
+  // Fullstack - Indimetra (Plataforma de cortometrajes)
   {
     title: 'Indimetra',
     technologies: [
@@ -16,7 +17,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Vista Tablet - Diseño adaptativo para dispositivos medianos',
       'Vista Mobile - Experiencia móvil completamente responsive',
     ],
-    githubUrl: 'https://github.com/usuario/indimetra',
+    githubUrl: 'https://github.com/diegoarnanz-maker/indimetra-back',
     category: 'fullstack',
     status: 'completed',
     longDescription:
@@ -59,6 +60,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Gestión eficiente de estado en favoritos, reseñas y filtros de búsqueda',
     ],
   },
+  // Fullstack - Talent Hub (Plataforma de empleo)
   {
     title: 'Talent Hub',
     technologies: [
@@ -72,7 +74,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Vista Tablet - Interfaz adaptada para dispositivos táctiles medianos',
       'Vista Mobile - Aplicación móvil optimizada para gestión sobre la marcha',
     ],
-    githubUrl: 'https://github.com/usuario/talent-hub',
+    githubUrl: 'https://github.com/diegoarnanz-maker/vacantes_api',
     category: 'fullstack',
     status: 'completed',
     longDescription:
@@ -113,6 +115,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Sincronización entre frontend y backend en la gestión de estados y seguimiento de solicitudes',
     ],
   },
+  // Fullstack - Series (Plataforma de series)
   {
     title: 'Series',
     technologies: [
@@ -126,7 +129,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Vista Tablet - Experiencia táctil optimizada para exploración',
       'Vista Mobile - App móvil para seguimiento de series favoritas',
     ],
-    githubUrl: 'https://github.com/usuario/series',
+    githubUrl: 'https://github.com/diegoarnanz-maker/series_security_back',
     category: 'fullstack',
     status: 'completed',
     longDescription:
@@ -158,6 +161,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Sincronización de datos entre usuario y servidor en tiempo real',
     ],
   },
+  // Fullstack - User Management (Gestión de usuarios)
   {
     title: 'User Management',
     technologies: [
@@ -172,7 +176,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       'Vista Tablet - Interfaz de gestión adaptada para dispositivos táctiles',
       'Vista Mobile - Administración móvil para gestión remota de usuarios',
     ],
-    githubUrl: 'https://github.com/usuario/user-management',
+    githubUrl: 'https://github.com/diegoarnanz-maker/user-management-spring',
     category: 'fullstack',
     status: 'completed',
     longDescription:

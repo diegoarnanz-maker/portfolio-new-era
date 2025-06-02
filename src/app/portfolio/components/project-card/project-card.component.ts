@@ -50,19 +50,27 @@ export class ProjectCardComponent {
   getCurrentImageUrl(): string {
     if (!this.project.imageUrl) return this.getPlaceholderImage();
     
-    // Extraer la ruta base y el nombre del archivo
-    const basePath = this.project.imageUrl.replace(/DESKTOP_[^/]+\.png$/, '');
-    const fileName = this.project.imageUrl.split('/').pop()?.replace('DESKTOP_', '') || '';
-    
-    // Construir la nueva URL según el tipo seleccionado
-    switch (this.selectedImageType) {
-      case 'tablet':
-        return `${basePath}TABLET_${fileName}`;
-      case 'mobile':
-        return `${basePath}MOBILE_${fileName}`;
-      default:
-        return this.project.imageUrl; // desktop por defecto
+    // Para proyectos backend, usar siempre la imagen principal
+    if (!this.shouldShowDeviceControls()) {
+      return this.project.imageUrl;
     }
+    
+    // Para proyectos fullstack y frontend, usar el array images si está disponible
+    if (this.project.images && this.project.images.length >= 3) {
+      switch (this.selectedImageType) {
+        case 'desktop':
+          return this.project.images[0]; // Primera imagen (desktop)
+        case 'tablet':
+          return this.project.images[1]; // Segunda imagen (tablet)
+        case 'mobile':
+          return this.project.images[2]; // Tercera imagen (mobile)
+        default:
+          return this.project.images[0];
+      }
+    }
+    
+    // Fallback: usar imageUrl principal
+    return this.project.imageUrl;
   }
 
   selectImageType(type: ImageType): void {
@@ -75,5 +83,10 @@ export class ProjectCardComponent {
 
   openProjectModal(): void {
     this.projectModalOpen.emit(this.project);
+  }
+
+  shouldShowDeviceControls(): boolean {
+    // Mostrar controles de dispositivos para proyectos fullstack y frontend
+    return this.project.category === 'fullstack' || this.project.category === 'frontend';
   }
 } 

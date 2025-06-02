@@ -15,7 +15,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
   {
     id: 'backend',
     title: 'Backend',
-    description: 'APIs, microservicios y arquitecturas del servidor',
+    description: 'APIs REST, GraphQL, microservicios y aplicaciones MVC',
     color: 'text-accent',
     projects: BACKEND_PROJECTS,
   },
