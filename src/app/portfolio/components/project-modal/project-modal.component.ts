@@ -110,13 +110,23 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
   }
 
   get currentImages(): string[] {
-    if (!this.project?.modalData) return [];
+    if (!this.project) return [];
     
-    if (this.currentGalleryType === 'demo' && this.project.modalData.demoImages) {
-      return this.project.modalData.demoImages;
+    if (this.currentGalleryType === 'demo' && this.project.demoImages) {
+      return this.project.demoImages;
     }
     
-    return this.project.modalData.images || [];
+    return this.project.images || [];
+  }
+
+  get currentImageTitles(): string[] {
+    if (!this.project) return [];
+    
+    if (this.currentGalleryType === 'demo' && this.project.demoImageTitles) {
+      return this.project.demoImageTitles;
+    }
+    
+    return this.project.imageTitles || [];
   }
 
   get currentImage(): string {
@@ -124,12 +134,17 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
     return images[this.currentImageIndex] || '';
   }
 
+  get currentImageTitle(): string {
+    const titles = this.currentImageTitles;
+    return titles[this.currentImageIndex] || `Imagen ${this.currentImageIndex + 1}`;
+  }
+
   get hasMainImages(): boolean {
-    return (this.project?.modalData?.images?.length || 0) > 0;
+    return (this.project?.images?.length || 0) > 0;
   }
 
   get hasDemoImages(): boolean {
-    return (this.project?.modalData?.demoImages?.length || 0) > 0;
+    return (this.project?.demoImages?.length || 0) > 0;
   }
 
   switchGallery(type: 'main' | 'demo'): void {
