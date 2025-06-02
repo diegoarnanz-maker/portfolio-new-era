@@ -14,6 +14,14 @@ export const AVAILABLE_TECHNOLOGIES: { [key: string]: Technology } = {
     name: 'Spring Boot',
     icon: '/assets/img/icons/spring-boot.svg'
   },
+  'jwt': {
+    name: 'JWT',
+    icon: '/assets/img/icons/jwt.svg'
+  },
+  'mysql': {
+    name: 'MySQL',
+    icon: '/assets/img/icons/mysql.svg'
+  },
   tailwind: {
     name: 'Tailwind CSS',
     icon: '/assets/img/icons/tailwind.svg'

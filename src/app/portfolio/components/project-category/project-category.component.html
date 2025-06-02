@@ -41,7 +41,7 @@
       <!-- Contenedor del carrusel -->
       <div class="flex-1 min-w-0">
         <div #sliderRef class="keen-slider">
-          @for (project of category.projects; track project.id) {
+          @for (project of category.projects; track project.title) {
           <div class="keen-slider__slide">
             <app-project-card 
               [project]="project"
