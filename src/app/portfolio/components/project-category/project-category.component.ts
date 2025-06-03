@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectCategory, Project } from '../../../core/interfaces/project.interface';
@@ -23,7 +23,7 @@ interface Particle {
   templateUrl: './project-category.component.html',
   styleUrls: ['./project-category.component.css']
 })
-export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
+export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnChanges {
   @Input() category!: ProjectCategory;
   @Output() projectModalOpen = new EventEmitter<Project>();
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
@@ -34,6 +34,7 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
   dotHelper: Array<number> = [];
   particles: Particle[] = [];
   animationFrame: number | null = null;
+  resizeTimeout: any;
 
   private readonly particleColors = [
     'rgb(6, 182, 212)',    // action-default
@@ -43,11 +44,25 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
     'rgb(34, 197, 94)',    // green
   ];
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['category'] && this.category) {
+      // Actualizar puntos cuando cambie la categoría
+      setTimeout(() => {
+        this.updateDots();
+      }, 100);
+    }
+  }
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.initializeSlider();
       this.startParticleAnimation();
+      // Forzar actualización de puntos después de la inicialización
+      this.updateDots();
     }, 100);
+
+    // Listener para resize de ventana
+    window.addEventListener('resize', this.onWindowResize.bind(this));
   }
 
   ngOnDestroy() {
@@ -57,6 +72,16 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
     }
+    // Remover listener de resize
+    window.removeEventListener('resize', this.onWindowResize.bind(this));
+  }
+
+  private onWindowResize() {
+    // Debounce para evitar demasiadas actualizaciones
+    clearTimeout(this.resizeTimeout);
+    this.resizeTimeout = setTimeout(() => {
+      this.updateDots();
+    }, 150);
   }
 
   private initializeSlider() {
@@ -115,13 +140,62 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy {
   }
 
   private updateDots() {
-    if (!this.slider) return;
+    if (!this.slider) {
+      // Si no hay slider inicializado, calcular puntos basándose en la lógica básica
+      this.calculateDotsBasedOnProjects();
+      return;
+    }
     
     const slidesPerView = this.getSlidesPerView(window.innerWidth);
     const totalSlides = this.category.projects.length;
     const dotsCount = Math.max(1, totalSlides - slidesPerView + 1);
     
     this.dotHelper = Array.from({ length: dotsCount }, (_, i) => i);
+  }
+
+  private calculateDotsBasedOnProjects() {
+    if (!this.category?.projects) return;
+    
+    const slidesPerView = this.getSlidesPerView(window.innerWidth);
+    const totalSlides = this.category.projects.length;
+    
+    // Lógica simplificada: si hay más proyectos que los visibles, mostrar puntos
+    if (totalSlides > slidesPerView) {
+      const dotsCount = Math.max(1, totalSlides - slidesPerView + 1);
+      this.dotHelper = Array.from({ length: dotsCount }, (_, i) => i);
+    } else if (totalSlides > 1) {
+      // Mostrar al menos un punto si hay múltiples proyectos
+      this.dotHelper = [0];
+    } else {
+      this.dotHelper = [];
+    }
+  }
+
+  // Función pública para forzar actualización de puntos
+  public forceUpdateDots() {
+    this.updateDots();
+  }
+
+  // Getter para determinar si deben mostrarse los puntos
+  get shouldShowDots(): boolean {
+    if (!this.category?.projects) return false;
+    
+    const slidesPerView = this.getSlidesPerView(window.innerWidth);
+    const totalSlides = this.category.projects.length;
+    
+    // Mostrar puntos si hay más proyectos que los visibles en pantalla
+    return totalSlides > slidesPerView;
+  }
+
+  // Getter para obtener el número de puntos que deben mostrarse
+  get dotsToShow(): number[] {
+    if (!this.shouldShowDots) return [];
+    
+    const slidesPerView = this.getSlidesPerView(window.innerWidth);
+    const totalSlides = this.category.projects.length;
+    const dotsCount = Math.max(1, totalSlides - slidesPerView + 1);
+    
+    return Array.from({ length: dotsCount }, (_, i) => i);
   }
 
   // Sistema de partículas
