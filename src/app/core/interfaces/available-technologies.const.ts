@@ -57,5 +57,13 @@ export const AVAILABLE_TECHNOLOGIES: { [key: string]: Technology } = {
   docker: {
     name: 'Docker',
     icon: '/assets/img/icons/docker.svg'
+  },
+  python: {
+    name: 'Python',
+    icon: '/assets/img/icons/python.svg'
+  },
+  openai: {
+    name: 'OpenAI',
+    icon: '/assets/img/icons/openai.svg'
   }
 }; 

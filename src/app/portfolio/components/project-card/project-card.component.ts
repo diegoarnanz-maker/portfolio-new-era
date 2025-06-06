@@ -89,4 +89,27 @@ export class ProjectCardComponent {
     // Mostrar controles de dispositivos para proyectos fullstack y frontend
     return this.project.category === 'fullstack' || this.project.category === 'frontend';
   }
+
+  getIAAssistantLabel(): string {
+    // Verificar si el proyecto usa Python
+    const usesPython = this.project.technologies.some(tech => 
+      tech.name.toLowerCase().includes('python')
+    );
+    
+    return usesPython ? 'PYTHON ENGINE' : 'N8N FLOWS';
+  }
+
+  usesPython(): boolean {
+    return this.project.technologies.some(tech => 
+      tech.name.toLowerCase().includes('python')
+    );
+  }
+
+  getChatUrl(): string {
+    // Por ahora solo el proyecto AI career conversation tiene chat
+    if (this.project.title === 'AI career conversation') {
+      return 'https://huggingface.co/spaces/diegodev96/mi-asistente-personal';
+    }
+    return '';
+  }
 } 
