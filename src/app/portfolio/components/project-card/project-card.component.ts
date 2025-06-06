@@ -91,18 +91,11 @@ export class ProjectCardComponent {
   }
 
   getIAAssistantLabel(): string {
-    // Verificar si el proyecto usa Python
-    const usesPython = this.project.technologies.some(tech => 
-      tech.name.toLowerCase().includes('python')
-    );
-    
-    return usesPython ? 'PYTHON ENGINE' : 'N8N FLOWS';
+    return this.project.aiEngine === 'python' ? 'PYTHON ENGINE' : 'N8N FLOWS';
   }
 
   usesPython(): boolean {
-    return this.project.technologies.some(tech => 
-      tech.name.toLowerCase().includes('python')
-    );
+    return this.project.aiEngine === 'python';
   }
 
   getChatUrl(): string {

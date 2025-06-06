@@ -10,16 +10,26 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 })
 export class HomeComponent {
   isAssistantModalOpen = false;
+  isAssistantLoading = false;
 
   openAssistantModal(): void {
     this.isAssistantModalOpen = true;
+    this.isAssistantLoading = true;
     // Prevenir scroll del body cuando el modal está abierto
     document.body.style.overflow = 'hidden';
   }
 
   closeAssistantModal(): void {
     this.isAssistantModalOpen = false;
+    this.isAssistantLoading = false;
     // Restaurar scroll del body
     document.body.style.overflow = 'auto';
+  }
+
+  onIframeLoad(): void {
+    // Simular un pequeño delay para mejor UX
+    setTimeout(() => {
+      this.isAssistantLoading = false;
+    }, 1000);
   }
 }

@@ -278,7 +278,7 @@
      <!-- Contenedor del asistente en la esquina inferior izquierda -->
    <div
      (click)="openAssistantModal()"
-     class="absolute bottom-4 left-4 z-20 group flex flex-col items-center space-y-2 cursor-pointer"
+     class="absolute bottom-8 left-4 z-20 group flex flex-col items-center space-y-2 cursor-pointer"
    >
     <!-- Texto informativo -->
     <div
@@ -417,12 +417,50 @@
        </div>
        
        <!-- Contenido del iframe -->
-       <div class="h-full pb-16">
+       <div class="relative h-full pb-16">
+         <!-- Loading Spinner -->
+         <div 
+           *ngIf="isAssistantLoading"
+           class="absolute inset-0 flex flex-col items-center justify-center bg-background-light-card/95 dark:bg-background-card/95 backdrop-blur-sm z-10"
+         >
+           <!-- Spinner principal -->
+           <div class="relative mb-6">
+             <!-- Anillo exterior -->
+             <div class="w-16 h-16 border-4 border-action-light-default/20 dark:border-action-default/20 rounded-full animate-spin-orbital-slow"></div>
+             <!-- Anillo medio -->
+             <div class="absolute inset-2 w-12 h-12 border-3 border-t-action-light-default dark:border-t-action-default border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+             <!-- Anillo interior -->
+             <div class="absolute inset-4 w-8 h-8 border-2 border-accent-light-blue/60 dark:border-accent-blue/60 rounded-full animate-spin-orbital-reverse"></div>
+             <!-- Centro brillante -->
+             <div class="absolute inset-6 w-4 h-4 bg-gradient-to-r from-action-light-default to-accent-light-blue dark:from-action-default dark:to-accent-blue rounded-full animate-pulse shadow-glow"></div>
+           </div>
+           
+           <!-- Texto de carga -->
+           <div class="text-center space-y-2">
+             <h4 class="text-lg font-semibold text-text-light dark:text-text-base">
+               Iniciando Asistente IA
+             </h4>
+             <p class="text-sm text-text-light/70 dark:text-text-base/70 animate-pulse">
+               Conectando con la inteligencia artificial...
+             </p>
+           </div>
+           
+           <!-- Partículas orbitales -->
+           <div class="absolute inset-0 pointer-events-none">
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+               <div class="w-2 h-2 bg-action-light-default dark:bg-action-default rounded-full animate-orbit-1 opacity-60"></div>
+               <div class="w-1.5 h-1.5 bg-accent-light-blue dark:bg-accent-blue rounded-full animate-orbit-2 opacity-40"></div>
+               <div class="w-1 h-1 bg-accent-light-yellow dark:bg-accent-yellow rounded-full animate-orbit-3 opacity-80"></div>
+             </div>
+           </div>
+         </div>
+         
          <iframe 
            src="https://diegodev96-mi-asistente-personal.hf.space"
            class="w-full h-full border-0"
            title="Asistente Personal IA"
-           loading="lazy">
+           loading="lazy"
+           (load)="onIframeLoad()">
          </iframe>
        </div>
        
