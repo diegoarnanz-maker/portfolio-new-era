@@ -9,5 +9,17 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
+  isAssistantModalOpen = false;
 
+  openAssistantModal(): void {
+    this.isAssistantModalOpen = true;
+    // Prevenir scroll del body cuando el modal está abierto
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeAssistantModal(): void {
+    this.isAssistantModalOpen = false;
+    // Restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  }
 }
