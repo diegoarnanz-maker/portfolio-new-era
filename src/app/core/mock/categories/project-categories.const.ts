@@ -13,6 +13,13 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     projects: FULLSTACK_PROJECTS,
   },
   {
+    id: 'ia_assistants',
+    title: 'IA & Assistants',
+    description: 'Proyectos de inteligencia artificial y asistentes',
+    color: 'text-accent',
+    projects: IA_ASSISTANT_PROJECTS,
+  },
+  {
     id: 'backend',
     title: 'Backend',
     description: 'APIs REST, GraphQL, microservicios y aplicaciones MVC',
@@ -25,12 +32,5 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     description: 'Interfaces de usuario y aplicaciones cliente',
     color: 'action-hover',
     projects: FRONTEND_PROJECTS,
-  },
-  {
-    id: 'ia_assistants',
-    title: 'IA & Assistants',
-    description: 'Proyectos de inteligencia artificial y asistentes',
-    color: 'text-accent',
-    projects: IA_ASSISTANT_PROJECTS,
   },
 ]; 
