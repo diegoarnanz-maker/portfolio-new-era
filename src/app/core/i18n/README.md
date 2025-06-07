@@ -32,18 +32,18 @@ src/app/core/i18n/
 │   ├── common.ts          # Common elements
 │   ├── dates.ts           # Dates and months
 │   └── validation.ts      # Validations, errors and success
-└── mr/                     # Traducciones en Marciano 👽
-    ├── index.ts           # Exportación combinada del marciano
-    ├── navbar.ts          # Zxorp Vorthak
-    ├── home.ts            # Nexus Blixnok
-    ├── about.ts           # Qwixel Morphix
-    ├── projects.ts        # Blixnok Zephyr
-    ├── experience.ts      # Vorthak Lumina
-    ├── skills.ts          # Qwixel Nexus
-    ├── contact.ts         # Zephyr Vorthak
-    ├── common.ts          # Morphix Blixnok
-    ├── dates.ts           # Zxorpius Nexus
-    └── validation.ts      # Vorthak Qwixel
+└── code/                   # Traducciones en Code 💻
+    ├── index.ts           # Exportación combinada del idioma code
+    ├── navbar.ts          # Navegación en HTML
+    ├── home.ts            # Inicio con etiquetas
+    ├── about.ts           # Sobre mí en formato code
+    ├── projects.ts        # Proyectos con código
+    ├── experience.ts      # Experiencia en HTML
+    ├── skills.ts          # Habilidades en HTML
+    ├── contact.ts         # Contacto en HTML
+    ├── common.ts          # Elementos comunes en code
+    ├── dates.ts           # Fechas en HTML
+    └── validation.ts      # Validaciones en HTML
 ```
 
 ## 🌐 Idiomas Disponibles
@@ -52,7 +52,7 @@ src/app/core/i18n/
 |--------|--------|---------|--------|
 | `es` | Español | 🇪🇸 | ✅ Completo |
 | `en` | English | 🇺🇸 | ✅ Completo |
-| `mr` | Marciano | 👽 | ✅ Completo |
+| `code` | Code | 💻 | ✅ Completo |
 
 ## 📝 Organización por Apartados
 
@@ -161,16 +161,11 @@ import { TRANSLATIONS } from './core/i18n';
 
 ## 🎨 Características Especiales
 
-### 🛸 Idioma Marciano
-El marciano es un idioma inventado con palabras como:
-- **Zxorp** = Inicio/Home
-- **Blixnok** = Proyectos/Projects  
-- **Vorthak** = Experiencia/Experience
-- **Qwixel** = Habilidades/Skills
-- **Zephyr** = Contacto/Contact
-- **Nexus** = Conexión/Link
-- **Morphix** = Cambio/Change
-- **Lumina** = Luz/Light
+### 💻 Idioma Code
+Este modo de traducción muestra las cadenas envueltas en etiquetas HTML. Ejemplos:
+- `<h1>` = Encabezado principal
+- `<p>` = Párrafo de texto
+- `<button>` = Botón de acción
 
 ### 🔄 Interpolación de Parámetros
 Soporte para parámetros dinámicos:
