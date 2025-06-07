@@ -12,6 +12,7 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     imageUrl:
       '/assets/img/projects/ia_assistants/ai_career_conversation/DESKTOP_ai_career_conversation.png',
     category: 'ia_assistants',
+    aiEngine: 'python',
     status: 'completed',
     longDescription:
       'Asistente personal conversacional que actúa como Diego Arnanz Lozano. Integra OpenAI GPT-4o-mini y Gradio para responder sobre su perfil profesional, experiencia y habilidades, con acceso a CV, contexto profesional y FAQ almacenados en JSON y PDF.',
@@ -64,6 +65,7 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     imageUrl:
       '/assets/img/projects/ia_assistants/gimnasio-agent/DESKTOP_workflow.png',
     category: 'ia_assistants',
+    aiEngine: 'n8n',
     status: 'completed',
     longDescription:
       'Asistente inteligente desarrollado en n8n para la gestión de un gimnasio. Permite a los usuarios consultar actividades disponibles, verificar su perfil mediante email y realizar reservas a través de chat conversacional. Utiliza inteligencia artificial con OpenAI, integra memoria contextual y accede a Airtable para gestionar miembros y eventos del gimnasio.',
@@ -109,6 +111,7 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     imageUrl:
       '/assets/img/projects/ia_assistants/assistan-agent/DESKTOP_assistan-agent.png',
     category: 'ia_assistants',
+    aiEngine: 'n8n',
     status: 'completed',
     longDescription:
       'Asistente personal basado en n8n que permite gestionar clientes, agendar reuniones y enviar correos electrónicos mediante comandos de chat. Utiliza inteligencia artificial con OpenAI y memoria contextual para ofrecer respuestas breves, automatizadas y precisas.',
@@ -152,6 +155,7 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     imageUrl:
       '/assets/img/projects/ia_assistants/ecommerce-agent/DESKTOP_ecommerce.png',
     category: 'ia_assistants',
+    aiEngine: 'n8n',
     status: 'completed',
     longDescription:
       'Agente conversacional inteligente para ecommerce desarrollado con n8n. Permite responder dudas sobre productos y el funcionamiento de la tienda online utilizando información almacenada en Google Sheets y un vector store. Puede compartir enlaces directos de compra y mantiene el contexto de la conversación para mejorar la experiencia del cliente.',

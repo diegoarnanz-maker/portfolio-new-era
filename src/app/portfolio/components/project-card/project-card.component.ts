@@ -91,18 +91,11 @@ export class ProjectCardComponent {
   }
 
   getIAAssistantLabel(): string {
-    // Verificar si el proyecto usa Python
-    const usesPython = this.project.technologies.some(tech => 
-      tech.name.toLowerCase().includes('python')
-    );
-    
-    return usesPython ? 'PYTHON ENGINE' : 'N8N FLOWS';
+    return this.project.aiEngine === 'python' ? 'PYTHON ENGINE' : 'N8N FLOWS';
   }
 
   usesPython(): boolean {
-    return this.project.technologies.some(tech => 
-      tech.name.toLowerCase().includes('python')
-    );
+    return this.project.aiEngine === 'python';
   }
 
   getChatUrl(): string {
@@ -111,5 +104,41 @@ export class ProjectCardComponent {
       return 'https://huggingface.co/spaces/diegodev96/mi-asistente-personal';
     }
     return '';
+  }
+
+  // Método para determinar si mostrar botón de demo/chat según el tipo de proyecto
+  shouldShowDemoButton(): boolean {
+    // Solo mostrar para proyectos de IA que usen Python (no para N8N FLOWS)
+    return this.project.category === 'ia_assistants' && this.usesPython();
+  }
+
+  // Método para obtener la URL de demo según el tipo de proyecto
+  getDemoUrl(): string {
+    if (this.usesPython()) {
+      // Para proyectos de Python, usar la URL de chat si existe
+      return this.getChatUrl();
+    } else {
+      // Para proyectos de n8n, podrías agregar URLs específicas aquí
+      // Por ejemplo, enlaces a workflows de n8n o demos específicas
+      return '';
+    }
+  }
+
+  // Método para obtener el texto del botón según el tipo de proyecto
+  getDemoButtonText(): string {
+    if (this.usesPython()) {
+      return 'Chat en Vivo';
+    } else {
+      return 'Ver Workflow';
+    }
+  }
+
+  // Método para obtener el icono del botón según el tipo de proyecto
+  getDemoButtonIcon(): string {
+    if (this.usesPython()) {
+      return 'chat'; // Icono de chat para Python
+    } else {
+      return 'workflow'; // Icono de workflow para n8n
+    }
   }
 } 

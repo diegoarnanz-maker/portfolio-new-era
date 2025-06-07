@@ -10,6 +10,9 @@ export interface Project {
   subcategory?: string;
   status: 'completed' | 'in-progress' | 'planned';
   
+  // Tipo de motor para proyectos de IA
+  aiEngine?: 'python' | 'n8n';
+  
   // Campos para el modal
   longDescription?: string;
   images?: string[];
