@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCategoryComponent } from '../../components/project-category/project-category.component';
 import { ProjectModalComponent } from '../../components/project-modal/project-modal.component';
+import { SectionTitleComponent } from '../../components/section-title/section-title.component';
 import { PROJECT_CATEGORIES } from '../../../core/mock/projects.mock';
 import { Project } from '../../../core/interfaces/project.interface';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
@@ -9,7 +10,7 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectCategoryComponent, ProjectModalComponent, TranslatePipe],
+  imports: [CommonModule, ProjectCategoryComponent, ProjectModalComponent, SectionTitleComponent, TranslatePipe],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
