@@ -3,6 +3,21 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   darkMode: "class", // Habilita el modo oscuro con clase
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        tablet: "1.5rem",
+        laptop: "2rem",
+        desktop: "2rem",
+      },
+    },
+    screens: {
+      mobile: "480px",
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1440px",
+    },
     extend: {
       colors: {
         // Colores de fondo - modo oscuro
