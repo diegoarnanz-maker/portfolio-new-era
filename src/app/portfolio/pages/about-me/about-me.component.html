@@ -3,16 +3,7 @@
   class="relative py-24 px-14 md:px-24 lg:px-36 xl:px-48 bg-gradient-to-br from-background-light to-gray-50 dark:from-background-base dark:to-background-card"
 >
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-20">
-      <h2
-        class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-action-default via-text-accent to-action-hover animate-gradient mb-4"
-      >
-        {{ 'about.title' | translate }}
-      </h2>
-      <div
-        class="w-16 h-1 mx-auto bg-gradient-to-r from-action-default to-text-accent rounded-full"
-      ></div>
-    </div>
+    <app-section-title [title]="'about.title' | translate"></app-section-title>
 
     <div class="grid md:grid-cols-3 gap-8 items-start mb-16">
       <div class="md:col-span-2 space-y-8">

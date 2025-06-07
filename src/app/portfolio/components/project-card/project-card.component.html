@@ -78,6 +78,7 @@
   <div class="group relative h-56 overflow-hidden cursor-pointer" (click)="openProjectModal()">
     <img
       [src]="getCurrentImageUrl()"
+      [srcset]="getCurrentImageUrl() + ' 480w, ' + getCurrentImageUrl() + ' 768w, ' + getCurrentImageUrl() + ' 1024w, ' + getCurrentImageUrl() + ' 1440w'"
       [alt]="project.title + ' - ' + selectedImageType"
       class="w-full h-full object-contain object-center brightness-90 group-hover:brightness-100 transition-all duration-300"
       (error)="onImageError($event)"

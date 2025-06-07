@@ -1,6 +1,6 @@
 <section
   id="home"
-  class="relative min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left bg-gradient-to-br from-background-light via-background-light-card to-background-light-secondary dark:from-background-base dark:via-background-base dark:to-background-card overflow-hidden px-4"
+  class="relative min-h-screen bg-gradient-to-br from-background-light via-background-light-card to-background-light-secondary dark:from-background-base dark:via-background-base dark:to-background-card overflow-hidden px-4"
 >
   <!-- Patrón de fondo mejorado con paralaje -->
   <div class="absolute inset-0 bg-hero-pattern opacity-10 animate-pulse"></div>
@@ -44,6 +44,8 @@
     class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-radial from-text-light-accent/10 via-text-light-accent/5 to-transparent dark:from-text-accent/10 dark:via-text-accent/5 dark:to-transparent rounded-full blur-3xl animate-pulse delay-1000"
   ></div>
 
+  <div class="container mx-auto max-w-screen-xl flex flex-col md:flex-row items-center justify-center">
+
   <!-- Imagen de perfil futurista mejorada -->
   <div class="relative w-44 h-44 md:w-64 md:h-64 mb-6 md:mb-0 md:mr-12 group">
     <!-- Campo de energía exterior expandido -->
@@ -81,6 +83,7 @@
       <!-- Imagen principal con efectos mejorados -->
       <img
         src="/assets/img/profile/espacial-diego_clear.png"
+        srcset="/assets/img/profile/espacial-diego_clear.png 480w, /assets/img/profile/espacial-diego_clear.png 768w, /assets/img/profile/espacial-diego_clear.png 1024w, /assets/img/profile/espacial-diego_clear.png 1440w"
         alt="Foto Diego Arnanz Espacial"
         class="w-full h-full object-cover relative z-10 transition-all duration-700 group-hover:brightness-110 group-hover:contrast-110 group-hover:saturate-110 dark:hidden"
       />
@@ -88,6 +91,7 @@
       <!-- Imagen para tema oscuro -->
       <img
         src="/assets/img/profile/espacial-diego_dark.png"
+        srcset="/assets/img/profile/espacial-diego_dark.png 480w, /assets/img/profile/espacial-diego_dark.png 768w, /assets/img/profile/espacial-diego_dark.png 1024w, /assets/img/profile/espacial-diego_dark.png 1440w"
         alt="Foto Diego Arnanz Espacial"
         class="w-full h-full object-cover relative z-10 transition-all duration-700 group-hover:brightness-110 group-hover:contrast-110 group-hover:saturate-110 hidden dark:block"
       />
@@ -483,5 +487,5 @@
          </p>
        </div>
      </div>
-   </div>
- </section>
+  </div>
+</section>

@@ -4,6 +4,14 @@ module.exports = {
   darkMode: "class", // Habilita el modo oscuro con clase
   theme: {
     extend: {
+      screens: {
+        xs: '480px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1440px',
+      },
       colors: {
         // Colores de fondo - modo oscuro
         "background-base": "#0A0A0B", // Negro más profundo y elegante
