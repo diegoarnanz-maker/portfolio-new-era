@@ -35,6 +35,7 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
   particles: Particle[] = [];
   animationFrame: number | null = null;
   resizeTimeout: any;
+  private resizeListener = this.onWindowResize.bind(this);
 
   private readonly particleColors = [
     'rgb(6, 182, 212)',    // action-default
@@ -62,7 +63,7 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
     }, 100);
 
     // Listener para resize de ventana
-    window.addEventListener('resize', this.onWindowResize.bind(this));
+    window.addEventListener('resize', this.resizeListener);
   }
 
   ngOnDestroy() {
@@ -73,7 +74,7 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
       cancelAnimationFrame(this.animationFrame);
     }
     // Remover listener de resize
-    window.removeEventListener('resize', this.onWindowResize.bind(this));
+    window.removeEventListener('resize', this.resizeListener);
   }
 
   private onWindowResize() {
