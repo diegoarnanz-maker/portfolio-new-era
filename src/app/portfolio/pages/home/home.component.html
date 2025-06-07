@@ -278,7 +278,13 @@
      <!-- Contenedor del asistente en la esquina inferior izquierda -->
    <div
      (click)="openAssistantModal()"
-     class="absolute bottom-8 left-4 z-20 group flex flex-col items-center space-y-2 cursor-pointer"
+     class="fixed bottom-8 left-4 z-20 group flex flex-col items-center space-y-2 cursor-pointer transition-all duration-500 ease-in-out"
+     [class.opacity-100]="isAssistantVisible"
+     [class.opacity-0]="!isAssistantVisible"
+     [class.translate-y-0]="isAssistantVisible"
+     [class.translate-y-4]="!isAssistantVisible"
+     [class.pointer-events-auto]="isAssistantVisible"
+     [class.pointer-events-none]="!isAssistantVisible"
    >
     <!-- Texto informativo -->
     <div
