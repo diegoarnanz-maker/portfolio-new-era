@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Experience } from '../../../../core/interfaces/experience.interface';
+import { Experience } from '../../../core/interfaces/experience.interface';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

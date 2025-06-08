@@ -29,7 +29,8 @@ export const experience = {
   'experience.autodidact.title': 'Self-taught Training',
   'experience.autodidact.period': '2023 - Present',
   'experience.autodidact.description': 'Continuous learning of new technologies and personal project development.',
-  'experience.autodidact.courses.angular': 'Angular & Spring Boot: Creating Full Stack Webapp',
+  'experience.autodidact.courses.agentic_ai': 'The Complete Agentic AI Engineering Course (2025)',
   'experience.autodidact.courses.n8n': 'n8n Course. Create AI Agents Without Programming',
+  'experience.autodidact.courses.angular': 'Angular & Spring Boot: Creating Full Stack Webapp',
   'experience.autodidact.courses.java': 'Java University - Zero to Expert',
 };

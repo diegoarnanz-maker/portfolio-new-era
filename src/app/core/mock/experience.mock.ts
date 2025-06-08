@@ -64,14 +64,16 @@ export const experiences: Experience[] = [
       ],
       category: 'personal',
       courses: [
-        'Angular & Spring Boot: Creando Webapp Full Stack',
+        'The Complete Agentic AI Engineering Course (2025)',
         'Curso n8n. Crea Agentes de IA Sin Programar',
-        'Universidad Java - Cero a Experto'
+        'Angular & Spring Boot: Creando Webapp Full Stack',
+        'Universidad Java - Cero a Experto',
       ],
       coursesKeys: [
-        'experience.autodidact.courses.angular',
+        'experience.autodidact.courses.agentic_ai',
         'experience.autodidact.courses.n8n',
-        'experience.autodidact.courses.java'
+        'experience.autodidact.courses.angular',
+        'experience.autodidact.courses.java',
       ]
     }
   ];
