@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillIcon } from '../../../core/interfaces/skill.interface';
 
@@ -10,6 +10,8 @@ import { SkillIcon } from '../../../core/interfaces/skill.interface';
 })
 export class SkillIconComponent {
   @Input() skill!: SkillIcon;
+  
+  constructor(private elementRef: ElementRef) {}
 
   private colorClasses: { [key: string]: string } = {
     'red': 'bg-black/10 border-black shadow-lg shadow-black/30 dark:bg-red-500/10 dark:border-red-500 dark:shadow-lg dark:shadow-red-500/30',
@@ -22,7 +24,12 @@ export class SkillIconComponent {
   };
 
   getIconClasses(): string {
-    const baseClasses = 'w-12 h-12 p-2 rounded-xl border transition-all duration-300 hover:scale-110 flex items-center justify-center';
+    const isMobileView = this.elementRef.nativeElement.classList.contains('mobile-view');
+    const sizeClasses = isMobileView 
+      ? 'w-12 h-12' 
+      : 'w-10 h-10 md:w-3 md:h-3 lg:w-12 lg:h-12';
+    
+    const baseClasses = `${sizeClasses} p-2 rounded-xl border transition-all duration-300 hover:scale-110 flex items-center justify-center`;
     const colorClass = this.colorClasses[this.skill.color] || 'bg-black/10 border-black shadow-lg shadow-black/30 dark:bg-gray-500/10 dark:border-gray-500 dark:shadow-lg dark:shadow-gray-500/30';
     return `${baseClasses} ${colorClass}`;
   }

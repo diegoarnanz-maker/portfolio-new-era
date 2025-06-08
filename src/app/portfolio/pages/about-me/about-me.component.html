@@ -63,7 +63,17 @@
     </div>
 
     <div class="mt-28">
-      <div class="flex flex-col lg:flex-row justify-between gap-20 lg:gap-16">
+      <!-- Vista móvil/tablet: Solo iconos sin títulos -->
+      <div class="block lg:hidden">
+        <div class="flex flex-wrap justify-center items-center gap-4">
+          @for (skill of allSkills; track $index) {
+          <app-skill-icon [skill]="skill" class="mobile-view"></app-skill-icon>
+          }
+        </div>
+      </div>
+      
+      <!-- Vista desktop: Categorías completas -->
+      <div class="hidden lg:flex flex-col lg:flex-row justify-between gap-20 lg:gap-16">
         @for (category of skillCategories; track $index) {
         <app-skill-category [category]="category"></app-skill-category>
         }

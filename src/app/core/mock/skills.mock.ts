@@ -89,7 +89,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: TOOLS_SKILLS,
   },
   {
-    title: 'IA & Machine Learning',
+    title: 'IA',
     color: 'text-emerald-500',
     skills: AI_SKILLS,
   },
