@@ -18,8 +18,7 @@ export class LanguageService {
 
   public readonly availableLanguages: Language[] = [
     { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'code', name: 'Code', flag: '💻' }
+    { code: 'en', name: 'English', flag: '🇺🇸' }
   ];
 
   constructor() {

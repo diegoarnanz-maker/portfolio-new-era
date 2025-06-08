@@ -195,4 +195,4 @@ apartado.subseccion.elemento
 - **Total de idiomas**: 3
 - **Total de apartados**: 10 por idioma
 - **Total de traducciones**: ~130 por idioma
-- **Cobertura**: 100% en todos los idiomas 
+- **Cobertura**: 100% en todos los idiomas

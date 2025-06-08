@@ -1,9 +1,9 @@
 import { Component, OnInit, inject, HostListener, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../../core/services/theme.service';
 import { LanguageService, Language } from '../../../core/services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -101,6 +101,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isLanguageActive(code: string): boolean {
     return this.currentLanguage.code === code;
+  }
+
+  trackByLang(index: number, lang: Language): string {
+    return lang.code;
   }
 
 }

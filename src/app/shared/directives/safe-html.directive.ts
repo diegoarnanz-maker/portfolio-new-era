@@ -44,18 +44,13 @@ export class SafeHtmlDirective implements OnInit, OnDestroy {
     const hasHtml = /<[^>]*>/g.test(translatedText);
     
     if (hasHtml) {
-      // Para el lenguaje "code", mostrar las etiquetas como texto literal
-      if (currentLang === 'code') {
-        this.renderer.setProperty(this.elementRef.nativeElement, 'textContent', translatedText);
-      } else {
-        // Para otros idiomas, renderizar como HTML
-        this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', '');
-        
-        // Sanitizar y establecer el HTML
-        const sanitizedHtml = this.sanitizer.sanitize(SecurityContext.HTML, translatedText);
-        if (sanitizedHtml) {
-          this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', sanitizedHtml);
-        }
+      // Renderizar como HTML
+      this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', '');
+      
+      // Sanitizar y establecer el HTML
+      const sanitizedHtml = this.sanitizer.sanitize(SecurityContext.HTML, translatedText);
+      if (sanitizedHtml) {
+        this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', sanitizedHtml);
       }
     } else {
       // Renderizar como texto normal
