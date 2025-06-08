@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -8,10 +8,11 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [CommonModule, TranslateModule],
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   isAssistantModalOpen = false;
   isAssistantLoading = false;
   isAssistantVisible = true;
+  showAssistantMessage = false;
 
   openAssistantModal(): void {
     this.isAssistantModalOpen = true;
@@ -28,12 +29,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Inicializar la visibilidad del asistente
     this.checkAssistantVisibility();
+    this.startAssistantMessageAnimation();
   }
 
-  ngOnDestroy(): void {
-    // Cleanup si es necesario
+  private startAssistantMessageAnimation(): void {
+    setTimeout(() => {
+      this.showAssistantMessage = true;
+      
+      setTimeout(() => {
+        this.showAssistantMessage = false;
+      }, 6000);
+    }, 2000);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -46,12 +53,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     const windowHeight = window.innerHeight;
     
     // El asistente se oculta cuando el usuario ha hecho scroll más del 120% de la altura de la ventana
-    // Esto significa que está saliendo de la sección home
     this.isAssistantVisible = scrollY < windowHeight * 1.2;
   }
 
   onIframeLoad(): void {
-    // Simular un pequeño delay para mejor UX
     setTimeout(() => {
       this.isAssistantLoading = false;
     }, 1000);

@@ -2,7 +2,7 @@
   class="fixed top-6 left-1/2 z-50 -translate-x-1/2 w-[95%] md:w-[85%] max-w-4xl flex items-center justify-between px-6 py-3 bg-gradient-to-r from-background-light-secondary/80 via-background-light/80 to-background-light/70 dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 backdrop-blur-xl border border-border-light-base dark:border-border-card/60 rounded-2xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-light-focus/20 dark:ring-border-base/10 transition-all duration-500"
 >
   <!-- Logo Section -->
-  <div class="flex items-center group">
+  <div class="flex items-center">
     <div
       class="relative overflow-hidden rounded-xl bg-background-light-accent/30 dark:bg-background-card/30"
     >
@@ -13,11 +13,8 @@
             : '/assets/img/logos/logo_claro.png'
         "
         alt="Logo Diego Arnanz"
-        class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+        class="h-10 w-auto"
       />
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-action-light-default/20 to-action-light-focus/20 dark:from-action-default/20 dark:to-text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      ></div>
     </div>
   </div>
 
@@ -145,136 +142,7 @@
         </a>
       </div>
 
-      <!-- Mobile Controls Section -->
-      <div
-        class="px-4 pt-4 mt-4 border-t border-border-light-base dark:border-border-card/30"
-      >
-        <div class="flex items-center justify-center gap-4">
-          <!-- Mobile Theme Toggle -->
-          <button
-            (click)="toggleTheme()"
-            class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
-            [attr.aria-label]="'nav.changeTheme' | translate"
-          >
-            <!-- Sol (visible en modo oscuro para cambiar a claro) -->
-            <div
-              class="absolute top-1/2 left-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
-              [class.opacity-100]="isDark"
-              [class.opacity-30]="!isDark"
-              [class.scale-100]="isDark"
-              [class.scale-75]="!isDark"
-              [class.rotate-0]="isDark"
-              [class.rotate-180]="!isDark"
-            >
-              <svg
-                class="w-4 h-4 text-accent-yellow"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
 
-            <!-- Luna (visible en modo claro para cambiar a oscuro) -->
-            <div
-              class="absolute top-1/2 right-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
-              [class.opacity-100]="!isDark"
-              [class.opacity-30]="isDark"
-              [class.scale-100]="!isDark"
-              [class.scale-75]="isDark"
-              [class.rotate-0]="!isDark"
-              [class.rotate-180]="isDark"
-            >
-              <svg
-                class="w-4 h-4 text-text-accent"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                ></path>
-              </svg>
-            </div>
-
-            <!-- Toggle Slider -->
-            <div
-              class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500 group-hover:scale-110"
-              [class.translate-x-8]="isDark"
-              [class.translate-x-0]="!isDark"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-action-hover to-text-neon rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
-            </div>
-          </button>
-
-          <!-- Mobile Language Selector -->
-          <div class="relative language-selector">
-            <button
-              (click)="toggleLanguageDropdown()"
-              (keydown.enter)="toggleLanguageDropdown()"
-              (keydown.space)="toggleLanguageDropdown()"
-              class="w-12 h-8 flex items-center justify-center rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
-              [attr.aria-label]="'nav.selectLanguage' | translate"
-              [attr.aria-expanded]="showLangs"
-              aria-haspopup="true"
-            >
-              <span
-                class="text-xs font-bold text-text-light dark:text-text-base"
-                >{{ currentLanguage.code.toUpperCase() }}</span
-              >
-            </button>
-
-            @if (showLangs) {
-            <div
-              class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-background-light-secondary/80 via-background-light/80 to-background-light/70 dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 backdrop-blur-xl border border-border-light-base dark:border-border-card/60 rounded-xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-light-focus/20 dark:ring-border-base/10 overflow-hidden text-sm min-w-[140px]"
-              role="menu"
-              [attr.aria-label]="'nav.selectLanguage' | translate"
-            >
-              @for (lang of langs; track lang.code) {
-              <button
-                class="w-full px-4 py-3 text-left transition-colors duration-200 focus:outline-none flex items-center gap-2"
-                [ngClass]="{
-                  'bg-action-default/20': isLanguageActive(lang.code),
-                  'hover:bg-action-default/10': !isLanguageActive(lang.code),
-                  'dark:hover:bg-action-default/10': !isLanguageActive(
-                    lang.code
-                  ),
-                  'focus:bg-action-default/20': !isLanguageActive(lang.code),
-                  'dark:focus:bg-action-default/20': !isLanguageActive(
-                    lang.code
-                  )
-                }"
-                (click)="changeLang(lang.code)"
-                (keydown.enter)="changeLang(lang.code)"
-                (keydown.space)="changeLang(lang.code)"
-                role="menuitem"
-                [attr.aria-label]="'Cambiar idioma a ' + lang.name"
-              >
-                <span class="text-lg">{{ lang.flag }}</span>
-                <span
-                  class="text-sm font-medium"
-                  [class.text-action-default]="isLanguageActive(lang.code)"
-                  [class.font-semibold]="isLanguageActive(lang.code)"
-                  [class.text-text-light]="!isLanguageActive(lang.code)"
-                  [class.dark:text-text-base]="!isLanguageActive(lang.code)"
-                >
-                  {{ lang.name }}
-                </span>
-                @if (isLanguageActive(lang.code)) {
-                <span class="ml-auto text-action-default">✓</span>
-                }
-              </button>
-              }
-            </div>
-            }
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   }
