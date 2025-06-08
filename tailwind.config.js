@@ -6,96 +6,76 @@ module.exports = {
     extend: {
       colors: {
         // Colores de fondo - modo oscuro
-        "background-base": "#0A0A0B", // Negro más profundo y elegante
-        "background-card": "#1A1A1D", // Paneles con mejor contraste
-        "background-input": "#2A2A2F", // Campos de formulario más elegantes
-        "background-overlay": "#000000E6", // Overlay más sutil
-        "background-blur": "#0A0A0BCC", // Para efectos de blur en navbar
+        "background-base": "#0A0A0B",
+        "background-card": "#1A1A1D",
+        "background-input": "#2A2A2F",
+        "background-overlay": "#000000E6",
+        "background-blur": "#0A0A0BCC",
 
-        // Colores de fondo - modo claro - Paleta "Future Dawn" 2025
-        "background-light": "#EEF4FA", // Azul muy claro en lugar de blanco
-        "background-light-card": "#F9FBFD", // Azul grisáceo muy tenue para contraste
-        "background-light-input": "#E3EBF3", // Azul gris claro para inputs
-        "background-light-overlay": "#EEF4FA95", // Overlay sutil con tinte azul
-        "background-light-blur": "#EEF4FA99", // Blur elegante y azulado
-        "background-light-secondary": "#DCE5EF", // Fondo secundario más fresco
-        "background-light-accent": "#C8D8E8", // Acento sutil azul grisáceo
+        // Colores de fondo - modo claro
+        "background-light": "#EEF4FA",
+        "background-light-card": "#F9FBFD",
+        "background-light-input": "#E3EBF3",
+        "background-light-overlay": "#EEF4FA95",
+        "background-light-blur": "#EEF4FA99",
+        "background-light-secondary": "#DCE5EF",
+        "background-light-accent": "#C8D8E8",
 
         // Colores de texto - modo oscuro
-        "text-base": "#F8F8F8", // Texto principal más brillante
-        "text-muted": "#9CA3AF", // Texto secundario más legible
-        "text-error": "#EF4444", // Rojo más moderno
-        "text-neon": "#06FFA5", // Verde neón más vibrante
-        "text-accent": "#3B82F6", // Azul para acentos
+        "text-base": "#F8F8F8",
+        "text-muted": "#9CA3AF",
+        "text-error": "#EF4444",
+        "text-neon": "#06FFA5",
+        "text-accent": "#3B82F6",
 
-        // Colores de texto - modo claro - Inspirados en "Future Dusk"
-        "text-light": "#0A0A0B", // Negro elegante ya presente como fondo en modo oscuro
-        "text-light-muted": "#1A1A1D", // Contraste suave y legible
+        // Colores de texto - modo claro
+        "text-light": "#0A0A0B",
+        "text-light-muted": "#1A1A1D",
         "text-light-subtle": "#2A2A2F",
-        "text-light-error": "#DC2626", // Rojo clásico para errores
-        "text-light-neon": "#059669", // Verde esmeralda tecnológico
-        "text-light-accent": "#3B82F6", // Azul vibrante para acentos
+        "text-light-error": "#DC2626",
+        "text-light-neon": "#059669",
+        "text-light-accent": "#3B82F6",
 
         // Colores de acción - modo oscuro
-        "action-default": "#06B6D4", // Cian más moderno
-        "action-hover": "#0891B2", // Hover más elegante
-        "action-disabled": "#4B5563", // Estado desactivado mejorado
-        "action-focus": "#06FFA5", // Verde neón para focus
+        "action-default": "#06B6D4",
+        "action-hover": "#0891B2",
+        "action-disabled": "#4B5563",
+        "action-focus": "#06FFA5",
         "action-gradient-from": "#06B6D4",
         "action-gradient-to": "#3B82F6",
 
-        // Colores de acción - modo claro - Inspirados en "Retro Blue" y "Celestial Yellow"
-        "action-light-default": "#71ADBA", // Retro Blue - nostálgico pero fresco
-        "action-light-hover": "#5A9AAA", // Retro Blue más profundo
-        "action-light-disabled": "#9CA3AF", // Gris neutro elegante
-        "action-light-focus": "#EDEAB1", // Celestial Yellow para focus - optimista
+        // Colores de acción - modo claro
+        "action-light-default": "#71ADBA",
+        "action-light-hover": "#5A9AAA",
+        "action-light-disabled": "#9CA3AF",
+        "action-light-focus": "#EDEAB1",
         "action-light-gradient-from": "#71ADBA",
         "action-light-gradient-to": "#EDEAB1",
 
         // Colores de borde - modo oscuro
-        "border-base": "#374151", // Bordes más suaves
-        "border-focus": "#06FFA5", // Borde en focus
-        "border-card": "#2D2D30", // Bordes para cards
+        "border-base": "#374151",
+        "border-focus": "#06FFA5",
+        "border-card": "#2D2D30",
 
-        // Colores de borde - modo claro - Sutiles y modernos
-        "border-light-base": "#E5E7EB", // Gris muy sutil
-        "border-light-focus": "#71ADBA", // Retro Blue para focus
-        "border-light-card": "#F3F4F6", // Casi imperceptible
-        "border-light-strong": "#D1D5DB", // Más visible cuando se necesite
+        // Colores de borde - modo claro
+        "border-light-base": "#E5E7EB",
+        "border-light-focus": "#71ADBA",
+        "border-light-card": "#F3F4F6",
+        "border-light-strong": "#D1D5DB",
 
         // Colores de acento
-        "accent-yellow": "#FCD34D", // Amarillo suave para highlights
-        "accent-blue": "#60A5FA", // Azul suave
-        "accent-purple": "#A78BFA", // Púrpura elegante
+        "accent-yellow": "#FCD34D",
+        "accent-blue": "#60A5FA",
+        "accent-purple": "#A78BFA",
 
-        // Acentos para modo claro - Paleta "Future Dawn" 2025
-        "accent-light-yellow": "#EDEAB1", // Celestial Yellow - optimista y cálido
-        "accent-light-blue": "#71ADBA", // Retro Blue - nostálgico y versátil
-        "accent-light-purple": "#4C5578", // Future Dusk - sofisticado y profundo
+        // Acentos para modo claro
+        "accent-light-yellow": "#EDEAB1",
+        "accent-light-blue": "#71ADBA",
+        "accent-light-purple": "#4C5578",
 
-        // Colores espaciales adicionales
-        "accent-cosmic": "#6366F1", // Índigo cósmico
-        "accent-nebula": "#EC4899", // Rosa nebulosa
-        "accent-stellar": "#F97316", // Naranja estelar
-        "accent-quantum": "#06B6D4", // Cian cuántico
-
-        // Colores inspirados en el espacio
-        "space-deep-void": "#0C0C0D", // Vacío profundo
-        "space-star-field": "#1E293B", // Campo estelar
-        "space-nebula-pink": "#EC4899", // Rosa nebulosa
-        "space-nebula-blue": "#3B82F6", // Azul nebulosa
-        "space-cosmic-purple": "#8B5CF6", // Púrpura cósmico
-        "space-solar-orange": "#F97316", // Naranja solar
-        "space-quantum-cyan": "#06B6D4", // Cian cuántico
-        "space-plasma-green": "#10B981", // Verde plasma
-
-        // Colores tecnológicos
-        "tech-circuit-green": "#22C55E", // Verde circuito
-        "tech-hologram-blue": "#3B82F6", // Azul holograma
-        "tech-laser-red": "#EF4444", // Rojo láser
-        "tech-energy-yellow": "#EAB308", // Amarillo energía
-        "tech-matrix-cyan": "#06B6D4", // Cian matrix
-        "tech-neon-purple": "#A855F7", // Púrpura neón
+        // Colores tecnológicos (solo los que se usan)
+        "tech-hologram-blue": "#3B82F6",
+        "tech-energy-yellow": "#EAB308",
       },
       fontFamily: {
         sans: ["Inter", "Manrope", "system-ui", "sans-serif"],
@@ -310,10 +290,6 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "main-bg": "url(/assets/img/main-bg.svg)",
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-pattern":
           "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)",
       },
