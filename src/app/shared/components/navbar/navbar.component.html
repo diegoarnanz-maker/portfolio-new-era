@@ -82,7 +82,7 @@
   <!-- Mobile Menu Button - Tablets and Mobile -->
   <button
     (click)="toggleMobileMenu()"
-    class="lg:hidden mobile-menu-button p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-border-light-base dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
+    class="lg:hidden mobile-menu-button p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-border-light-base dark:border-border-card/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
     [attr.aria-label]="'nav.toggleMenu' | translate"
     [attr.aria-expanded]="isMobileMenuOpen"
   >
@@ -118,7 +118,7 @@
         <a
           href="#about-me"
           (click)="closeMobileMenu()"
-          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base rounded-xl transition-all duration-300 focus:bg-action-light-default/10 dark:focus:bg-action-default/10 focus:text-action-light-default dark:focus:text-action-default"
           role="menuitem"
         >
           {{ "nav.about" | translate }}
@@ -126,7 +126,7 @@
         <a
           href="#projects"
           (click)="closeMobileMenu()"
-          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base rounded-xl transition-all duration-300 focus:bg-action-light-default/10 dark:focus:bg-action-default/10 focus:text-action-light-default dark:focus:text-action-default"
           role="menuitem"
         >
           {{ "nav.projects" | translate }}
@@ -134,7 +134,7 @@
         <a
           href="#experience"
           (click)="closeMobileMenu()"
-          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base rounded-xl transition-all duration-300 focus:bg-action-light-default/10 dark:focus:bg-action-default/10 focus:text-action-light-default dark:focus:text-action-default"
           role="menuitem"
         >
           {{ "nav.experience" | translate }}
@@ -142,7 +142,7 @@
         <a
           href="#contact"
           (click)="closeMobileMenu()"
-          class="block px-4 py-3 text-base font-semibold text-text-light dark:text-white bg-gradient-to-r from-action-light-default to-action-light-focus dark:from-action-default dark:to-text-accent rounded-xl hover:from-action-light-hover hover:to-action-light-default dark:hover:from-action-hover dark:hover:to-action-default transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-glow text-center"
+          class="block px-4 py-3 text-base font-semibold text-text-light dark:text-white bg-gradient-to-r from-action-light-default to-action-light-focus dark:from-action-default dark:to-text-accent rounded-xl transition-all duration-300 shadow-md text-center focus:from-action-light-hover focus:to-action-light-default dark:focus:from-action-hover dark:focus:to-action-default"
           role="menuitem"
         >
           {{ "nav.contact" | translate }}
@@ -159,7 +159,7 @@
     <!-- Theme Toggle -->
     <button
       (click)="toggleTheme()"
-      class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
+      class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner group backdrop-blur-sm focus:shadow-lg"
       [attr.aria-label]="'nav.changeTheme' | translate"
     >
       <!-- Sol -->
@@ -208,7 +208,7 @@
 
       <!-- Toggle Slider -->
       <div
-        class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500 group-hover:scale-110"
+        class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500"
         [class.translate-x-8]="isDark"
         [class.translate-x-0]="!isDark"
       >
@@ -224,7 +224,7 @@
         (click)="toggleLanguageDropdown()"
         (keydown.enter)="toggleLanguageDropdown()"
         (keydown.space)="toggleLanguageDropdown()"
-        class="w-12 h-8 flex items-center justify-center rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
+        class="w-12 h-8 flex items-center justify-center rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50 focus:shadow-lg hover:shadow-lg"
         [attr.aria-label]="'nav.selectLanguage' | translate"
         [attr.aria-expanded]="showLangs"
         aria-haspopup="true"

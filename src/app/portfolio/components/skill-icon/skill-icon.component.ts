@@ -29,8 +29,14 @@ export class SkillIconComponent {
       ? 'w-12 h-12' 
       : 'w-10 h-10 md:w-3 md:h-3 lg:w-12 lg:h-12';
     
-    const baseClasses = `${sizeClasses} p-2 rounded-xl border transition-all duration-300 hover:scale-110 flex items-center justify-center`;
+    // Solo agregar hover en desktop (cuando no es mobile-view)
+    const hoverClasses = isMobileView ? '' : 'hover:scale-110';
+    const baseClasses = `${sizeClasses} p-2 rounded-xl border transition-all duration-300 ${hoverClasses} flex items-center justify-center`;
     const colorClass = this.colorClasses[this.skill.color] || 'bg-black/10 border-black shadow-lg shadow-black/30 dark:bg-gray-500/10 dark:border-gray-500 dark:shadow-lg dark:shadow-gray-500/30';
     return `${baseClasses} ${colorClass}`;
+  }
+
+  isMobileView(): boolean {
+    return this.elementRef.nativeElement.classList.contains('mobile-view');
   }
 } 

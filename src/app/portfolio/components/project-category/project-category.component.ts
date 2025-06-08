@@ -106,10 +106,10 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
               spacing: this.getSpacing(768),
             },
           },
-          '(min-width: 1024px)': {
+          '(min-width: 1080px)': {
             slides: {
-              perView: this.getSlidesPerView(1024),
-              spacing: this.getSpacing(1024),
+              perView: this.getSlidesPerView(1080),
+              spacing: this.getSpacing(1080),
             },
           },
         },
@@ -125,15 +125,15 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
   }
 
   private getSlidesPerView(breakpoint?: number): number {
-    if (breakpoint && breakpoint >= 1024) return 3;
-    if (breakpoint && breakpoint >= 768) return 2;
-    return 1;
+    if (breakpoint && breakpoint >= 1080) return 3; // Desktop 1080px+
+    if (breakpoint && breakpoint >= 768) return 2;  // Tablets y desktop mediano
+    return 1; // Mobile
   }
 
   private getSpacing(breakpoint?: number): number {
-    if (breakpoint && breakpoint >= 1024) return 24;
-    if (breakpoint && breakpoint >= 768) return 20;
-    return 16;
+    if (breakpoint && breakpoint >= 1080) return 24; // Desktop 1080px+
+    if (breakpoint && breakpoint >= 768) return 20;  // Tablets y desktop mediano
+    return 16; // Mobile
   }
 
   // Getter para determinar si deben mostrarse los puntos

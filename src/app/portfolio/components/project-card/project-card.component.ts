@@ -87,15 +87,18 @@ export class ProjectCardComponent {
     if (typeof window === 'undefined') return 3;
     
     const width = window.innerWidth;
+    if (width < 768) return this.project.technologies.length; // Mobile: mostrar todas
     if (width >= 1280) return 3; // xl
     if (width >= 1024) return 2; // lg
-    if (width >= 768) return 3;  // md
-    return 2; // sm y menor
+    return 3; // md
   }
 
-  toggleTechnologies(): void {
-    this.technologiesExpanded = !this.technologiesExpanded;
-    console.log('🔄 Tecnologías expandidas:', this.technologiesExpanded);
+  onHoverStart(): void {
+    this.technologiesExpanded = true;
+  }
+
+  onHoverEnd(): void {
+    this.technologiesExpanded = false;
   }
 
   getVisibleTechnologies(): Technology[] {
@@ -106,6 +109,18 @@ export class ProjectCardComponent {
   }
 
   hasHiddenTechnologies(): boolean {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return false; // En móviles nunca hay tecnologías ocultas
+    }
     return this.project.technologies.length > this.getMaxVisibleTechnologies();
+  }
+
+  getHiddenTechnologies(): Technology[] {
+    return this.project.technologies.slice(this.getMaxVisibleTechnologies());
+  }
+
+  isMobile(): boolean {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768;
   }
 } 
