@@ -18,18 +18,18 @@
     <div class="relative mt-10">
       <!-- Línea izquierda -->
       <div
-        class="absolute top-0 bottom-16 left-8 lg:left-12 xl:left-8 w-0.5 bg-gradient-to-b from-text-light-neon/60 via-action-light-default/40 to-action-light-default/20 dark:from-text-neon/60 dark:via-action-default/40 dark:to-action-default/20 rounded-full"
+        class="absolute top-0 bottom-16 left-4 sm:left-8 lg:left-12 xl:left-8 w-0.5 bg-gradient-to-b from-text-light-neon/60 via-action-light-default/40 to-action-light-default/20 dark:from-text-neon/60 dark:via-action-default/40 dark:to-action-default/20 rounded-full"
       ></div>
 
       <!-- Línea derecha -->
       <div
-        class="absolute top-0 bottom-16 right-8 lg:right-12 xl:right-8 w-0.5 bg-gradient-to-b from-text-light-neon/60 via-action-light-default/40 to-action-light-default/20 dark:from-text-neon/60 dark:via-action-default/40 dark:to-action-default/20 rounded-full"
+        class="absolute top-0 bottom-16 right-4 sm:right-8 lg:right-12 xl:right-8 w-0.5 bg-gradient-to-b from-text-light-neon/60 via-action-light-default/40 to-action-light-default/20 dark:from-text-neon/60 dark:via-action-default/40 dark:to-action-default/20 rounded-full"
       ></div>
 
       <!-- Punto del presente -->
       <div class="relative mb-12">
         <!-- Punto izquierdo -->
-        <div class="absolute z-20 left-[calc(2rem-8px)] lg:left-[calc(3rem-8px)] xl:left-[calc(2rem-8px)] top-5">
+        <div class="absolute z-20 left-[calc(1rem-8px)] sm:left-[calc(2rem-8px)] lg:left-[calc(3rem-8px)] xl:left-[calc(2rem-8px)] top-5">
           <div class="absolute w-8 h-8 bg-text-light-neon/20 dark:bg-text-neon/20 rounded-full animate-ping" style="left: -6px; top: -6px;"></div>
           <div class="absolute w-5 h-5 bg-text-light-neon/40 dark:bg-text-neon/40 rounded-full animate-pulse" style="left: -2px; top: -2px;"></div>
           <div class="w-4 h-4 bg-gradient-to-r from-text-light-neon to-action-light-default dark:from-text-neon dark:to-action-default rounded-full shadow-lg shadow-text-light-neon/50 dark:shadow-text-neon/50"></div>
@@ -37,7 +37,7 @@
         </div>
 
         <!-- Punto derecho -->
-        <div class="absolute z-20 left-[calc(100%-2rem-8px)] lg:left-[calc(100%-3rem-8px)] xl:left-[calc(100%-2rem-8px)] top-5">
+        <div class="absolute z-20 left-[calc(100%-1rem-8px)] sm:left-[calc(100%-2rem-8px)] lg:left-[calc(100%-3rem-8px)] xl:left-[calc(100%-2rem-8px)] top-5">
           <div class="absolute w-8 h-8 bg-text-light-neon/20 dark:bg-text-neon/20 rounded-full animate-ping" style="left: -6px; top: -6px;"></div>
           <div class="absolute w-5 h-5 bg-text-light-neon/40 dark:bg-text-neon/40 rounded-full animate-pulse" style="left: -2px; top: -2px;"></div>
           <div class="w-4 h-4 bg-gradient-to-r from-text-light-neon to-action-light-default dark:from-text-neon dark:to-action-default rounded-full shadow-lg shadow-text-light-neon/50 dark:shadow-text-neon/50"></div>
@@ -45,7 +45,7 @@
         </div>
 
         <!-- Card del presente -->
-        <div class="mx-auto px-12 sm:px-16 max-w-md">
+        <div class="mx-auto px-16 sm:px-16 max-w-md">
           <app-experience-card [experience]="currentStatus" [isCurrentStatus]="true"></app-experience-card>
         </div>
       </div>
@@ -54,7 +54,7 @@
       @for (item of experiences; track item.id) {
       <div class="relative mb-12">
         <!-- Punto izquierdo -->
-        <div class="absolute z-20 left-[calc(2rem-8px)] lg:left-[calc(3rem-8px)] xl:left-[calc(2rem-8px)] top-5">
+        <div class="absolute z-20 left-[calc(1rem-8px)] sm:left-[calc(2rem-8px)] lg:left-[calc(3rem-8px)] xl:left-[calc(2rem-8px)] top-5">
           <div class="absolute w-4 h-4 bg-action-light-default/30 dark:bg-action-default/30 rounded-full"></div>
           <div
             class="absolute left-1 top-1 w-2 h-2 bg-action-light-default dark:bg-action-default rounded-full shadow-sm"
@@ -65,7 +65,7 @@
         </div>
 
         <!-- Punto derecho -->
-        <div class="absolute z-20 left-[calc(100%-2rem-8px)] lg:left-[calc(100%-3rem-8px)] xl:left-[calc(100%-2rem-8px)] top-5">
+        <div class="absolute z-20 left-[calc(100%-1rem-8px)] sm:left-[calc(100%-2rem-8px)] lg:left-[calc(100%-3rem-8px)] xl:left-[calc(100%-2rem-8px)] top-5">
           <div class="absolute w-4 h-4 bg-action-light-default/30 dark:bg-action-default/30 rounded-full"></div>
           <div
             class="absolute left-1 top-1 w-2 h-2 bg-action-light-default dark:bg-action-default rounded-full shadow-sm"
@@ -76,7 +76,7 @@
         </div>
 
         <!-- Card centrada y estrecha -->
-        <div class="mx-auto px-12 sm:px-16 max-w-md">
+        <div class="mx-auto px-16 sm:px-16 max-w-md">
           <app-experience-card [experience]="item" [isCurrentStatus]="false"></app-experience-card>
         </div>
       </div>

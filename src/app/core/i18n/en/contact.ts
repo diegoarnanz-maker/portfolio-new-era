@@ -1,7 +1,7 @@
 export const contact = {
   'contact.title': 'Contact',
   'contact.subtitle': 'Let\'s talk about your next project',
-  'contact.description': 'If you\'re interested in my profile or want to discuss any opportunity, you can write to me directly at:',
+  'contact.description': 'Open to new professional opportunities or collaborations on projects.',
   'contact.copy': 'Copy',
   'contact.name': 'Name',
   'contact.email': 'Email',

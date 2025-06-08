@@ -17,7 +17,7 @@
       <button
         (click)="goToPrevSlide($event)"
         [disabled]="!canGoPrevious()"
-        class="flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
+        class="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="Proyecto anterior"
       >
         <svg class="w-6 h-6 md:w-8 md:h-8 text-action-light-default dark:text-action-default group-hover:text-action-light-hover dark:group-hover:text-action-hover transition-all duration-300 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@
       <button
         (click)="goToNextSlide($event)"
         [disabled]="!canGoNext()"
-        class="flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
+        class="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="Proyecto siguiente"
       >
         <svg class="w-6 h-6 md:w-8 md:h-8 text-action-light-default dark:text-action-default group-hover:text-action-light-hover dark:group-hover:text-action-hover transition-all duration-300 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
