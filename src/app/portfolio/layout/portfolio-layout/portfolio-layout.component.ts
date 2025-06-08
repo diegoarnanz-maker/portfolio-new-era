@@ -1,25 +1,20 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
-import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { ContactComponent } from '../../pages/contact/contact.component';
 import { ExperienceComponent } from '../../pages/experience/experience.component';
 import { HomeComponent } from '../../pages/home/home.component';
 import { AboutMeComponent } from '../../pages/about-me/about-me.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
-import { SkillsComponent } from '../../pages/skills/skills.component';
 
 @Component({
   selector: 'app-portfolio-layout',
   standalone: true,
   imports: [
     NavbarComponent,
-    FooterComponent,
     HomeComponent,
     AboutMeComponent,
     ProjectsComponent,
-    ExperienceComponent,
-    SkillsComponent,
-    ContactComponent
+    ExperienceComponent,    ContactComponent
   ],
   templateUrl: './portfolio-layout.component.html'
 })
