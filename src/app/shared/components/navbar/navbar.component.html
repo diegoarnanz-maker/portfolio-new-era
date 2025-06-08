@@ -3,8 +3,9 @@
 >
   <!-- Logo Section -->
   <div class="flex items-center">
-    <div
-      class="relative overflow-hidden rounded-xl bg-background-light-accent/30 dark:bg-background-card/30"
+    <a
+      href="#home"
+      class="relative p-2 rounded-xl bg-background-light-accent/30 dark:bg-background-card/30 transition-all duration-300 group"
     >
       <img
         [src]="
@@ -15,17 +16,23 @@
         alt="Logo Diego Arnanz"
         class="h-10 w-auto"
       />
-    </div>
+      <div
+        class="absolute inset-0 bg-action-light-default/10 dark:bg-action-default/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-action-light-default to-action-light-focus dark:from-action-default dark:to-text-accent group-hover:w-full transition-all duration-300"
+      ></div>
+    </a>
   </div>
 
   <!-- Navigation Links - Desktop -->
   <ul class="hidden lg:flex items-center space-x-8">
     <li>
       <a
-        href="#home"
+        href="#about-me"
         class="relative px-3 py-2 text-sm font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default transition-all duration-300 group"
       >
-        <span class="relative z-10">{{ "nav.home" | translate }}</span>
+        <span class="relative z-10">{{ "nav.about" | translate }}</span>
         <div
           class="absolute inset-0 bg-action-light-default/10 dark:bg-action-default/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center"
         ></div>
@@ -109,12 +116,12 @@
       <!-- Mobile Navigation Links -->
       <div class="px-4 space-y-2">
         <a
-          href="#home"
+          href="#about-me"
           (click)="closeMobileMenu()"
           class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
           role="menuitem"
         >
-          {{ "nav.home" | translate }}
+          {{ "nav.about" | translate }}
         </a>
         <a
           href="#projects"
