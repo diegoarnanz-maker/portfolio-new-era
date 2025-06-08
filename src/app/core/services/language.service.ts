@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface Language {
   code: string;
@@ -11,6 +12,7 @@ export interface Language {
   providedIn: 'root'
 })
 export class LanguageService {
+  private translateService = inject(TranslateService);
   private currentLanguage: Language;
   private languageSubject: BehaviorSubject<Language>;
 
@@ -23,6 +25,7 @@ export class LanguageService {
   constructor() {
     this.currentLanguage = this.getInitialLanguage();
     this.languageSubject = new BehaviorSubject<Language>(this.currentLanguage);
+    this.translateService.use(this.currentLanguage.code);
   }
 
   public get language$() {
@@ -52,6 +55,7 @@ export class LanguageService {
     this.currentLanguage = language;
     localStorage.setItem('language', language.code);
     this.languageSubject.next(this.currentLanguage);
+    this.translateService.use(language.code);
   }
 
   getLanguageCode(): string {
