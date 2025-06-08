@@ -351,141 +351,184 @@
 
   <!-- Modal del Asistente IA -->
   @if (isAssistantModalOpen) {
+  <!-- Versión móvil: Pantalla completa -->
   <div
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+    class="fixed inset-0 z-50 bg-background-light-card dark:bg-background-card sm:hidden flex flex-col"
+    style="height: 100vh; height: 100dvh;"
+  >
+    <!-- Header móvil compacto -->
+    <div
+      class="flex items-center justify-between p-3 border-b border-action-light-default/20 dark:border-action-default/20 bg-gradient-to-r from-background-light-card to-background-light-secondary dark:from-background-card dark:to-background-base flex-shrink-0 min-h-[60px]"
+    >
+      <div class="flex items-center space-x-2">
+        <div
+          class="w-6 h-6 rounded-full overflow-hidden border-2 border-action-light-default/40 dark:border-action-default/40"
+        >
+          <img
+            src="/assets/img/asistente/asistente.png"
+            alt="Asistente"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <h3
+            class="text-base font-semibold text-text-light dark:text-text-base"
+          >
+            Asistente IA
+          </h3>
+        </div>
+      </div>
+
+      <button
+        (click)="closeAssistantModal()"
+        class="p-2 rounded-full hover:bg-action-light-default/10 dark:hover:bg-action-default/10 transition-colors duration-200 group"
+        aria-label="Cerrar asistente"
+      >
+        <svg
+          class="w-5 h-5 text-text-light dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-colors duration-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido iframe móvil -->
+    <div class="flex-1 relative overflow-hidden">
+      @if (isAssistantLoading) {
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center bg-background-light-card/95 dark:bg-background-card/95 z-10"
+      >
+        <div class="relative mb-4">
+          <div
+            class="w-12 h-12 border-4 border-action-light-default/20 dark:border-action-default/20 rounded-full animate-spin-orbital-slow"
+          ></div>
+          <div
+            class="absolute inset-2 w-8 h-8 border-3 border-t-action-light-default dark:border-t-action-default border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"
+          ></div>
+        </div>
+        <div class="text-center px-4">
+          <h4
+            class="text-base font-semibold text-text-light dark:text-text-base mb-2"
+          >
+            Cargando Asistente...
+          </h4>
+        </div>
+      </div>
+      }
+
+                <iframe
+            src="https://diegodev96-mi-asistente-personal.hf.space"
+            class="w-full h-full border-0"
+            title="Asistente Personal IA"
+            loading="lazy"
+            (load)="onIframeLoad()"
+          >
+          </iframe>
+    </div>
+  </div>
+
+    <!-- Versión desktop: Modal centrado -->
+  <div
+    class="hidden sm:flex fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm p-2"
     (click)="closeAssistantModal()"
   >
     <div
-      class="relative w-full max-w-4xl h-[80vh] mx-4 bg-background-light-card dark:bg-background-card rounded-2xl border-2 border-action-light-default/40 dark:border-action-default/40 shadow-[0_0_50px_rgba(14,165,233,0.3)] dark:shadow-[0_0_50px_rgba(6,182,212,0.3)] overflow-hidden"
+      class="relative w-full h-[95vh] max-w-4xl bg-background-light-card dark:bg-background-card rounded-2xl border-2 border-action-light-default/40 dark:border-action-default/40 shadow-[0_0_50px_rgba(14,165,233,0.3)] dark:shadow-[0_0_50px_rgba(6,182,212,0.3)] overflow-hidden flex flex-col"
       (click)="$event.stopPropagation()"
     >
-      <!-- Header del modal -->
-      <div
-        class="flex items-center justify-between p-4 border-b border-action-light-default/20 dark:border-action-default/20 bg-gradient-to-r from-background-light-card to-background-light-secondary dark:from-background-card dark:to-background-base"
-      >
-        <div class="flex items-center space-x-3">
-          <div
-            class="w-8 h-8 rounded-full overflow-hidden border-2 border-action-light-default/40 dark:border-action-default/40"
-          >
-            <img
-              src="/assets/img/asistente/asistente.png"
-              alt="Asistente"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <h3
-              class="text-lg font-semibold text-text-light dark:text-text-base"
-            >
-              Mi Asistente Personal
-            </h3>
-            <p class="text-sm text-text-light/70 dark:text-text-base/70">
-              Powered by IA
-            </p>
-          </div>
-        </div>
-
+        <!-- Botón cerrar flotante -->
         <button
           (click)="closeAssistantModal()"
-          class="p-2 rounded-full hover:bg-action-light-default/10 dark:hover:bg-action-default/10 transition-colors duration-200 group"
+          class="absolute top-4 right-8 z-10 p-3 rounded-full bg-action-light-default/90 dark:bg-action-default/90 hover:bg-action-light-hover dark:hover:bg-action-hover backdrop-blur-sm border border-action-light-default/30 dark:border-action-default/30 transition-all duration-200 group shadow-xl hover:shadow-2xl hover:scale-105"
           aria-label="Cerrar asistente"
         >
           <svg
-            class="w-6 h-6 text-text-light dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-colors duration-200"
+            class="w-6 h-6 text-white group-hover:text-white transition-colors duration-200"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            stroke-width="2.5"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
               d="M6 18L18 6M6 6l12 12"
             ></path>
           </svg>
         </button>
-      </div>
 
-      <!-- Contenido del iframe -->
-      <div class="relative h-full pb-16">
-        @if (isAssistantLoading) {
-        <div
-          class="absolute inset-0 flex flex-col items-center justify-center bg-background-light-card/95 dark:bg-background-card/95 backdrop-blur-sm z-10"
-        >
-          <div class="relative mb-6">
-            <div
-              class="w-16 h-16 border-4 border-action-light-default/20 dark:border-action-default/20 rounded-full animate-spin-orbital-slow"
-            ></div>
-            <div
-              class="absolute inset-2 w-12 h-12 border-3 border-t-action-light-default dark:border-t-action-default border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"
-            ></div>
-            <div
-              class="absolute inset-4 w-8 h-8 border-2 border-accent-light-blue/60 dark:border-accent-blue/60 rounded-full animate-spin-orbital-reverse"
-            ></div>
-            <div
-              class="absolute inset-6 w-4 h-4 bg-gradient-to-r from-action-light-default to-accent-light-blue dark:from-action-default dark:to-accent-blue rounded-full animate-pulse shadow-glow"
-            ></div>
-          </div>
-
-          <div class="text-center space-y-2">
-            <h4
-              class="text-lg font-semibold text-text-light dark:text-text-base"
-            >
-              Iniciando Asistente IA
-            </h4>
-            <p
-              class="text-sm text-text-light/70 dark:text-text-base/70 animate-pulse"
-            >
-              Conectando con la inteligencia artificial...
-            </p>
-          </div>
-
-          <div class="absolute inset-0 pointer-events-none">
-            <div
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
+        <!-- Contenido del iframe desktop -->
+        <div class="relative w-full h-full">
+          @if (isAssistantLoading) {
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center bg-background-light-card/95 dark:bg-background-card/95 backdrop-blur-sm z-10"
+          >
+            <div class="relative mb-6">
               <div
-                class="w-2 h-2 bg-action-light-default dark:bg-action-default rounded-full animate-orbit-1 opacity-60"
+                class="w-16 h-16 border-4 border-action-light-default/20 dark:border-action-default/20 rounded-full animate-spin-orbital-slow"
               ></div>
               <div
-                class="w-1.5 h-1.5 bg-accent-light-blue dark:bg-accent-blue rounded-full animate-orbit-2 opacity-40"
+                class="absolute inset-2 w-12 h-12 border-3 border-t-action-light-default dark:border-t-action-default border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"
               ></div>
               <div
-                class="w-1 h-1 bg-accent-light-yellow dark:bg-accent-yellow rounded-full animate-orbit-3 opacity-80"
+                class="absolute inset-4 w-8 h-8 border-2 border-accent-light-blue/60 dark:border-accent-blue/60 rounded-full animate-spin-orbital-reverse"
+              ></div>
+              <div
+                class="absolute inset-6 w-4 h-4 bg-gradient-to-r from-action-light-default to-accent-light-blue dark:from-action-default dark:to-accent-blue rounded-full animate-pulse shadow-glow"
               ></div>
             </div>
+
+            <div class="text-center space-y-2">
+              <h4
+                class="text-lg font-semibold text-text-light dark:text-text-base"
+              >
+                Iniciando Asistente IA
+              </h4>
+              <p
+                class="text-sm text-text-light/70 dark:text-text-base/70 animate-pulse"
+              >
+                Conectando con la inteligencia artificial...
+              </p>
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none">
+              <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              >
+                <div
+                  class="w-2 h-2 bg-action-light-default dark:bg-action-default rounded-full animate-orbit-1 opacity-60"
+                ></div>
+                <div
+                  class="w-1.5 h-1.5 bg-accent-light-blue dark:bg-accent-blue rounded-full animate-orbit-2 opacity-40"
+                ></div>
+                <div
+                  class="w-1 h-1 bg-accent-light-yellow dark:bg-accent-yellow rounded-full animate-orbit-3 opacity-80"
+                ></div>
+              </div>
+            </div>
           </div>
-        </div>
-        }
+          }
 
-        <iframe
-          src="https://diegodev96-mi-asistente-personal.hf.space"
-          class="w-full h-full border-0"
-          title="Asistente Personal IA"
-          loading="lazy"
-          (load)="onIframeLoad()"
-        >
-        </iframe>
-      </div>
-
-      <!-- Footer con información -->
-      <div
-        class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background-light-card/95 to-transparent dark:from-background-card/95 dark:to-transparent backdrop-blur-sm"
-      >
-        <p
-          class="text-xs text-center text-text-light/60 dark:text-text-base/60"
-        >
-          Asistente IA integrado desde
-          <a
-            href="https://huggingface.co/spaces/diegodev96/mi-asistente-personal"
-            target="_blank"
-            class="text-action-light-default dark:text-action-default hover:underline"
+          <iframe
+            src="https://diegodev96-mi-asistente-personal.hf.space"
+            class="w-full h-full border-0"
+            title="Asistente Personal IA"
+            loading="lazy"
+            (load)="onIframeLoad()"
           >
-            Hugging Face
-          </a>
-        </p>
+          </iframe>
+        </div>
+
+
       </div>
     </div>
-  </div>
-  }
+    }
 </section>
