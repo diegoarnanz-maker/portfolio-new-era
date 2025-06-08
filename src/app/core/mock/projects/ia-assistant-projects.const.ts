@@ -11,6 +11,7 @@ export const IA_ASSISTANT_PROJECTS: Project[] = [
     ],
     imageUrl:
       '/assets/img/projects/ia_assistants/ai_career_conversation/DESKTOP_ai_career_conversation.png',
+    demoUrl: 'https://huggingface.co/spaces/diegodev96/mi-asistente-personal',
     category: 'ia_assistants',
     aiEngine: 'python',
     status: 'completed',

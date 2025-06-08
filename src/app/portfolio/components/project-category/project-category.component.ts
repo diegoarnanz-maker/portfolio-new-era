@@ -31,7 +31,6 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
   
   slider: any = null;
   currentSlide = 0;
-  dotHelper: Array<number> = [];
   particles: Particle[] = [];
   animationFrame: number | null = null;
   resizeTimeout: any;
@@ -47,9 +46,11 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['category'] && this.category) {
-      // Actualizar puntos cuando cambie la categoría
+      // Actualizar cuando cambie la categoría
       setTimeout(() => {
-        this.updateDots();
+        if (this.slider) {
+          this.slider.update();
+        }
       }, 100);
     }
   }
@@ -58,8 +59,6 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
     setTimeout(() => {
       this.initializeSlider();
       this.startParticleAnimation();
-      // Forzar actualización de puntos después de la inicialización
-      this.updateDots();
     }, 100);
 
     // Listener para resize de ventana
@@ -81,7 +80,9 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
     // Debounce para evitar demasiadas actualizaciones
     clearTimeout(this.resizeTimeout);
     this.resizeTimeout = setTimeout(() => {
-      this.updateDots();
+      if (this.slider) {
+        this.slider.update();
+      }
     }, 150);
   }
 
@@ -115,13 +116,8 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
       },
       [
         (slider: any) => {
-          slider.on('created', () => {
-            this.updateDots();
-          });
-          
           slider.on('slideChanged', () => {
             this.currentSlide = slider.track.details.rel;
-            this.updateDots();
           });
         },
       ]
@@ -138,43 +134,6 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
     if (breakpoint && breakpoint >= 1024) return 24;
     if (breakpoint && breakpoint >= 768) return 20;
     return 16;
-  }
-
-  private updateDots() {
-    if (!this.slider) {
-      // Si no hay slider inicializado, calcular puntos basándose en la lógica básica
-      this.calculateDotsBasedOnProjects();
-      return;
-    }
-    
-    const slidesPerView = this.getSlidesPerView(window.innerWidth);
-    const totalSlides = this.category.projects.length;
-    const dotsCount = Math.max(1, totalSlides - slidesPerView + 1);
-    
-    this.dotHelper = Array.from({ length: dotsCount }, (_, i) => i);
-  }
-
-  private calculateDotsBasedOnProjects() {
-    if (!this.category?.projects) return;
-    
-    const slidesPerView = this.getSlidesPerView(window.innerWidth);
-    const totalSlides = this.category.projects.length;
-    
-    // Lógica simplificada: si hay más proyectos que los visibles, mostrar puntos
-    if (totalSlides > slidesPerView) {
-      const dotsCount = Math.max(1, totalSlides - slidesPerView + 1);
-      this.dotHelper = Array.from({ length: dotsCount }, (_, i) => i);
-    } else if (totalSlides > 1) {
-      // Mostrar al menos un punto si hay múltiples proyectos
-      this.dotHelper = [0];
-    } else {
-      this.dotHelper = [];
-    }
-  }
-
-  // Función pública para forzar actualización de puntos
-  public forceUpdateDots() {
-    this.updateDots();
   }
 
   // Getter para determinar si deben mostrarse los puntos
@@ -209,7 +168,6 @@ export class ProjectCategoryComponent implements AfterViewInit, OnDestroy, OnCha
     const particleCount = Math.floor(Math.random() * 5) + 8;
     
     for (let i = 0; i < particleCount; i++) {
-      const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.5;
       const speed = Math.random() * 3 + 2;
       const size = Math.random() * 4 + 2;
       const life = Math.random() * 60 + 40;
