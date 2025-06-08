@@ -49,11 +49,20 @@ export class HomeComponent implements OnInit {
   }
 
   private checkAssistantVisibility(): void {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
+    const aboutMeSection = document.getElementById('about-me');
     
-    // El asistente se oculta cuando el usuario ha hecho scroll más del 120% de la altura de la ventana
-    this.isAssistantVisible = scrollY < windowHeight * 1.2;
+    if (aboutMeSection) {
+      const aboutMeRect = aboutMeSection.getBoundingClientRect();
+      const aboutMeTop = aboutMeRect.top + window.scrollY;
+      
+      // El asistente se oculta cuando se llega al inicio del componente "Sobre mí"
+      this.isAssistantVisible = window.scrollY < aboutMeTop;
+    } else {
+      // Fallback: usar el método anterior si no encuentra la sección
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      this.isAssistantVisible = scrollY < windowHeight * 1.2;
+    }
   }
 
   onIframeLoad(): void {

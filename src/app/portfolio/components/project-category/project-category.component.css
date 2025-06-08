@@ -30,39 +30,13 @@
 
 /* Estilos para los botones externos */
 .keen-slider-container button {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
-}
-
-.keen-slider-container button:hover:not(:disabled) {
-  background-color: rgba(6, 182, 212, 0.2) !important;
-  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3) !important;
-}
-
-.keen-slider-container button:active:not(:disabled) {
-  background-color: rgba(6, 182, 212, 0.3) !important;
 }
 
 /* Estados disabled para botones */
 .keen-slider-container button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.keen-slider-container button:disabled:hover {
-  background-color: inherit !important;
-  box-shadow: inherit !important;
-}
-
-/* Modo oscuro para botones */
-.dark .keen-slider-container button:hover:not(:disabled) {
-  background-color: rgba(6, 255, 165, 0.2) !important;
-  box-shadow: 0 4px 15px rgba(6, 255, 165, 0.2) !important;
-}
-
-.dark .keen-slider-container button:active:not(:disabled) {
-  background-color: rgba(6, 255, 165, 0.3) !important;
 }
 
 /* Estilos para la paginación personalizada */
@@ -91,10 +65,5 @@
 
 /* Mejorar la accesibilidad con focus visible */
 .keen-slider-container button:focus-visible {
-  outline: 2px solid rgba(6, 182, 212, 0.5);
-  outline-offset: 2px;
-}
-
-.dark .keen-slider-container button:focus-visible {
-  outline-color: rgba(6, 255, 165, 0.5);
+  outline: none;
 } 
