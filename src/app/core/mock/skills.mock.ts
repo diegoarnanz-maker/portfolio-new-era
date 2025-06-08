@@ -4,7 +4,7 @@ export const FRONTEND_SKILLS: SkillIcon[] = [
   {
     name: 'Angular',
     color: 'red',
-    iconPath: 'https://angular.io/assets/images/logos/angular/angular.svg',
+    iconPath: 'assets/img/icons/angular.svg',
     alt: 'Angular'
   },
   {
@@ -84,13 +84,13 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: FRONTEND_SKILLS,
   },
   {
-    title: 'Tools',
-    color: 'action-hover',
-    skills: TOOLS_SKILLS,
-  },
-  {
     title: 'IA',
     color: 'text-emerald-500',
     skills: AI_SKILLS,
+  },
+  {
+    title: 'Tools',
+    color: 'action-hover',
+    skills: TOOLS_SKILLS,
   },
 ];
