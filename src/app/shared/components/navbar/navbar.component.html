@@ -3,7 +3,9 @@
 >
   <!-- Logo Section -->
   <div class="flex items-center group">
-    <div class="relative overflow-hidden rounded-xl bg-background-light-accent/30 dark:bg-background-card/30">
+    <div
+      class="relative overflow-hidden rounded-xl bg-background-light-accent/30 dark:bg-background-card/30"
+    >
       <img
         [src]="
           isDark
@@ -19,8 +21,8 @@
     </div>
   </div>
 
-  <!-- Navigation Links -->
-  <ul class="hidden md:flex items-center space-x-8">
+  <!-- Navigation Links - Desktop -->
+  <ul class="hidden lg:flex items-center space-x-8">
     <li>
       <a
         href="#home"
@@ -73,24 +75,209 @@
     </li>
   </ul>
 
-  <!-- Mobile Menu Button (for future implementation) -->
+  <!-- Mobile Menu Button - Tablets and Mobile -->
   <button
-    class="md:hidden p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-border-light-base dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300"
+    (click)="toggleMobileMenu()"
+    class="lg:hidden mobile-menu-button p-2 rounded-lg bg-white/50 dark:bg-background-card/50 border border-border-light-base dark:border-border-card/30 hover:bg-white dark:hover:bg-background-card transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
+    [attr.aria-label]="'nav.toggleMenu' | translate"
+    [attr.aria-expanded]="isMobileMenuOpen"
   >
-    <svg
-      class="w-5 h-5 text-text-light dark:text-text-base"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16"
-      ></path>
-    </svg>
+    <!-- Hamburger Icon -->
+    <div class="relative w-5 h-5">
+      <span
+        class="absolute top-1 left-0 w-5 h-0.5 bg-text-light dark:bg-text-base transition-all duration-300 transform origin-center"
+        [class.rotate-45]="isMobileMenuOpen"
+        [class.translate-y-1.5]="isMobileMenuOpen"
+      ></span>
+      <span
+        class="absolute top-2.5 left-0 w-5 h-0.5 bg-text-light dark:bg-text-base transition-all duration-300"
+        [class.opacity-0]="isMobileMenuOpen"
+      ></span>
+      <span
+        class="absolute top-4 left-0 w-5 h-0.5 bg-text-light dark:bg-text-base transition-all duration-300 transform origin-center"
+        [class.-rotate-45]="isMobileMenuOpen"
+        [class.-translate-y-1.5]="isMobileMenuOpen"
+      ></span>
+    </div>
   </button>
+
+  <!-- Mobile Menu Dropdown - Tablets and Mobile -->
+  @if (isMobileMenuOpen) {
+  <div
+    class="absolute top-full left-0 right-0 mt-2 mx-4 lg:hidden mobile-menu-container bg-gradient-to-r from-background-light-secondary/95 via-background-light/95 to-background-light/90 dark:bg-gradient-to-r dark:from-[#04313e]/95 dark:via-background-card/95 dark:to-background-base/90 backdrop-blur-xl border border-border-light-base dark:border-border-card/60 rounded-2xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-light-focus/20 dark:ring-border-base/10 overflow-hidden z-40 animate-slide-down"
+    role="menu"
+    [attr.aria-label]="'nav.mobileMenu' | translate"
+  >
+    <div class="py-4">
+      <!-- Mobile Navigation Links -->
+      <div class="px-4 space-y-2">
+        <a
+          href="#home"
+          (click)="closeMobileMenu()"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          role="menuitem"
+        >
+          {{ "nav.home" | translate }}
+        </a>
+        <a
+          href="#projects"
+          (click)="closeMobileMenu()"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          role="menuitem"
+        >
+          {{ "nav.projects" | translate }}
+        </a>
+        <a
+          href="#experience"
+          (click)="closeMobileMenu()"
+          class="block px-4 py-3 text-base font-medium text-text-light dark:text-text-base hover:text-action-light-default dark:hover:text-action-default hover:bg-action-light-default/10 dark:hover:bg-action-default/10 rounded-xl transition-all duration-300"
+          role="menuitem"
+        >
+          {{ "nav.experience" | translate }}
+        </a>
+        <a
+          href="#contact"
+          (click)="closeMobileMenu()"
+          class="block px-4 py-3 text-base font-semibold text-text-light dark:text-white bg-gradient-to-r from-action-light-default to-action-light-focus dark:from-action-default dark:to-text-accent rounded-xl hover:from-action-light-hover hover:to-action-light-default dark:hover:from-action-hover dark:hover:to-action-default transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-glow text-center"
+          role="menuitem"
+        >
+          {{ "nav.contact" | translate }}
+        </a>
+      </div>
+
+      <!-- Mobile Controls Section -->
+      <div
+        class="px-4 pt-4 mt-4 border-t border-border-light-base dark:border-border-card/30"
+      >
+        <div class="flex items-center justify-center gap-4">
+          <!-- Mobile Theme Toggle -->
+          <button
+            (click)="toggleTheme()"
+            class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
+            [attr.aria-label]="'nav.changeTheme' | translate"
+          >
+            <!-- Sol (visible en modo oscuro para cambiar a claro) -->
+            <div
+              class="absolute top-1/2 left-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
+              [class.opacity-100]="isDark"
+              [class.opacity-30]="!isDark"
+              [class.scale-100]="isDark"
+              [class.scale-75]="!isDark"
+              [class.rotate-0]="isDark"
+              [class.rotate-180]="!isDark"
+            >
+              <svg
+                class="w-4 h-4 text-accent-yellow"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+
+            <!-- Luna (visible en modo claro para cambiar a oscuro) -->
+            <div
+              class="absolute top-1/2 right-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
+              [class.opacity-100]="!isDark"
+              [class.opacity-30]="isDark"
+              [class.scale-100]="!isDark"
+              [class.scale-75]="isDark"
+              [class.rotate-0]="!isDark"
+              [class.rotate-180]="isDark"
+            >
+              <svg
+                class="w-4 h-4 text-text-accent"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+            </div>
+
+            <!-- Toggle Slider -->
+            <div
+              class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500 group-hover:scale-110"
+              [class.translate-x-8]="isDark"
+              [class.translate-x-0]="!isDark"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-action-hover to-text-neon rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </div>
+          </button>
+
+          <!-- Mobile Language Selector -->
+          <div class="relative language-selector">
+            <button
+              (click)="toggleLanguageDropdown()"
+              (keydown.enter)="toggleLanguageDropdown()"
+              (keydown.space)="toggleLanguageDropdown()"
+              class="w-12 h-8 flex items-center justify-center rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-action-light-focus dark:focus:ring-action-default/50"
+              [attr.aria-label]="'nav.selectLanguage' | translate"
+              [attr.aria-expanded]="showLangs"
+              aria-haspopup="true"
+            >
+              <span
+                class="text-xs font-bold text-text-light dark:text-text-base"
+                >{{ currentLanguage.code.toUpperCase() }}</span
+              >
+            </button>
+
+            @if (showLangs) {
+            <div
+              class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-background-light-secondary/80 via-background-light/80 to-background-light/70 dark:bg-gradient-to-r dark:from-[#04313e]/30 dark:via-background-card/80 dark:to-background-base/70 backdrop-blur-xl border border-border-light-base dark:border-border-card/60 rounded-xl shadow-[inset_0_0_0.5px_#ffffff0d,inset_0_1px_1px_#ffffff0a] ring-1 ring-border-light-focus/20 dark:ring-border-base/10 overflow-hidden text-sm min-w-[140px]"
+              role="menu"
+              [attr.aria-label]="'nav.selectLanguage' | translate"
+            >
+              @for (lang of langs; track lang.code) {
+              <button
+                class="w-full px-4 py-3 text-left transition-colors duration-200 focus:outline-none flex items-center gap-2"
+                [ngClass]="{
+                  'bg-action-default/20': isLanguageActive(lang.code),
+                  'hover:bg-action-default/10': !isLanguageActive(lang.code),
+                  'dark:hover:bg-action-default/10': !isLanguageActive(
+                    lang.code
+                  ),
+                  'focus:bg-action-default/20': !isLanguageActive(lang.code),
+                  'dark:focus:bg-action-default/20': !isLanguageActive(
+                    lang.code
+                  )
+                }"
+                (click)="changeLang(lang.code)"
+                (keydown.enter)="changeLang(lang.code)"
+                (keydown.space)="changeLang(lang.code)"
+                role="menuitem"
+                [attr.aria-label]="'Cambiar idioma a ' + lang.name"
+              >
+                <span class="text-lg">{{ lang.flag }}</span>
+                <span
+                  class="text-sm font-medium"
+                  [class.text-action-default]="isLanguageActive(lang.code)"
+                  [class.font-semibold]="isLanguageActive(lang.code)"
+                  [class.text-text-light]="!isLanguageActive(lang.code)"
+                  [class.dark:text-text-base]="!isLanguageActive(lang.code)"
+                >
+                  {{ lang.name }}
+                </span>
+                @if (isLanguageActive(lang.code)) {
+                <span class="ml-auto text-action-default">✓</span>
+                }
+              </button>
+              }
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
 
   <!-- Controls Section -->
   <div class="flex items-center gap-3">
@@ -100,7 +287,7 @@
       class="relative w-16 h-8 flex items-center px-1 rounded-full bg-gray-200/80 dark:bg-background-card/80 border border-border-light-base dark:border-border-card/50 transition-all duration-300 shadow-inner hover:shadow-lg group backdrop-blur-sm"
       [attr.aria-label]="'nav.changeTheme' | translate"
     >
-      <!-- Sol (visible en modo oscuro para cambiar a claro) -->
+      <!-- Sol -->
       <div
         class="absolute top-1/2 left-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
         [class.opacity-100]="isDark"
@@ -123,7 +310,7 @@
         </svg>
       </div>
 
-      <!-- Luna (visible en modo claro para cambiar a oscuro) -->
+      <!-- Luna -->
       <div
         class="absolute top-1/2 right-1 w-6 h-6 flex items-center justify-center transition-all duration-500 z-10 -translate-y-1/2"
         [class.opacity-100]="!isDark"
@@ -144,7 +331,7 @@
         </svg>
       </div>
 
-      <!-- Toggle Slider (se mueve a la derecha en modo oscuro) -->
+      <!-- Toggle Slider -->
       <div
         class="absolute top-1 w-6 h-6 bg-gradient-to-r from-action-default to-text-accent rounded-full shadow-lg transform transition-all duration-500 group-hover:scale-110"
         [class.translate-x-8]="isDark"
@@ -167,7 +354,9 @@
         [attr.aria-expanded]="showLangs"
         aria-haspopup="true"
       >
-        <span class="text-xs font-bold text-text-light dark:text-text-base">{{ currentLanguage.code.toUpperCase() }}</span>
+        <span class="text-xs font-bold text-text-light dark:text-text-base">{{
+          currentLanguage.code.toUpperCase()
+        }}</span>
       </button>
 
       @if (showLangs) {
