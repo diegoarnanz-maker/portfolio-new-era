@@ -17,10 +17,6 @@ export class ProjectsComponent {
   selectedProject: Project | null = null;
   isModalOpen = false;
 
-  trackByCategory(index: number, category: any): string {
-    return category.id;
-  }
-
   onProjectModalOpen(project: Project): void {
     this.selectedProject = project;
     this.isModalOpen = true;

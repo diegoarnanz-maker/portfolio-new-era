@@ -20,9 +20,12 @@
     }
   </div>
 
+  <!-- Tooltip solo en desktop -->
+  @if (!isMobileView()) {
   <div
     class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 text-sm font-medium text-text-light dark:text-text-base whitespace-nowrap transition-opacity duration-300"
   >
     {{ skill.name }}
   </div>
+  }
 </div>

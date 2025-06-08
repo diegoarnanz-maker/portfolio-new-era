@@ -15,32 +15,7 @@ export class ProjectCardComponent {
   @Output() projectModalOpen = new EventEmitter<Project>();
 
   selectedImageType: ImageType = 'desktop';
-
-  getStatusColor(): string {
-    switch (this.project.status) {
-      case 'completed':
-        return 'text-green-500';
-      case 'in-progress':
-        return 'text-yellow-500';
-      case 'planned':
-        return 'text-blue-500';
-      default:
-        return 'text-gray-500';
-    }
-  }
-
-  getStatusText(): string {
-    switch (this.project.status) {
-      case 'completed':
-        return 'Completado';
-      case 'in-progress':
-        return 'En Progreso';
-      case 'planned':
-        return 'Planificado';
-      default:
-        return 'Desconocido';
-    }
-  }
+  technologiesExpanded = false;
 
   getPlaceholderImage(): string {
     const category = this.project.category || 'backend';
@@ -59,17 +34,16 @@ export class ProjectCardComponent {
     if (this.project.images && this.project.images.length >= 3) {
       switch (this.selectedImageType) {
         case 'desktop':
-          return this.project.images[0]; // Primera imagen (desktop)
+          return this.project.images[0];
         case 'tablet':
-          return this.project.images[1]; // Segunda imagen (tablet)
+          return this.project.images[1];
         case 'mobile':
-          return this.project.images[2]; // Tercera imagen (mobile)
+          return this.project.images[2];
         default:
           return this.project.images[0];
       }
     }
     
-    // Fallback: usar imageUrl principal
     return this.project.imageUrl;
   }
 
@@ -86,7 +60,6 @@ export class ProjectCardComponent {
   }
 
   shouldShowDeviceControls(): boolean {
-    // Mostrar controles de dispositivos para proyectos fullstack y frontend
     return this.project.category === 'fullstack' || this.project.category === 'frontend';
   }
 
@@ -98,33 +71,10 @@ export class ProjectCardComponent {
     return this.project.aiEngine === 'python';
   }
 
-  getChatUrl(): string {
-    // Por ahora solo el proyecto AI career conversation tiene chat
-    if (this.project.title === 'AI career conversation') {
-      return 'https://huggingface.co/spaces/diegodev96/mi-asistente-personal';
-    }
-    return '';
-  }
-
-  // Método para determinar si mostrar botón de demo/chat según el tipo de proyecto
-  shouldShowDemoButton(): boolean {
-    // Solo mostrar para proyectos de IA que usen Python (no para N8N FLOWS)
-    return this.project.category === 'ia_assistants' && this.usesPython();
-  }
-
-  // Método para obtener la URL de demo según el tipo de proyecto
   getDemoUrl(): string {
-    if (this.usesPython()) {
-      // Para proyectos de Python, usar la URL de chat si existe
-      return this.getChatUrl();
-    } else {
-      // Para proyectos de n8n, podrías agregar URLs específicas aquí
-      // Por ejemplo, enlaces a workflows de n8n o demos específicas
-      return '';
-    }
+    return this.project.demoUrl || '';
   }
 
-  // Método para obtener el texto del botón según el tipo de proyecto
   getDemoButtonText(): string {
     if (this.usesPython()) {
       return 'Chat en Vivo';
@@ -133,12 +83,44 @@ export class ProjectCardComponent {
     }
   }
 
-  // Método para obtener el icono del botón según el tipo de proyecto
-  getDemoButtonIcon(): string {
-    if (this.usesPython()) {
-      return 'chat'; // Icono de chat para Python
-    } else {
-      return 'workflow'; // Icono de workflow para n8n
+  getMaxVisibleTechnologies(): number {
+    if (typeof window === 'undefined') return 3;
+    
+    const width = window.innerWidth;
+    if (width < 768) return this.project.technologies.length; // Mobile: mostrar todas
+    if (width >= 1280) return 3; // xl
+    if (width >= 1024) return 2; // lg
+    return 3; // md
+  }
+
+  onHoverStart(): void {
+    this.technologiesExpanded = true;
+  }
+
+  onHoverEnd(): void {
+    this.technologiesExpanded = false;
+  }
+
+  getVisibleTechnologies(): Technology[] {
+    if (this.technologiesExpanded) {
+      return this.project.technologies;
     }
+    return this.project.technologies.slice(0, this.getMaxVisibleTechnologies());
+  }
+
+  hasHiddenTechnologies(): boolean {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return false; // En móviles nunca hay tecnologías ocultas
+    }
+    return this.project.technologies.length > this.getMaxVisibleTechnologies();
+  }
+
+  getHiddenTechnologies(): Technology[] {
+    return this.project.technologies.slice(this.getMaxVisibleTechnologies());
+  }
+
+  isMobile(): boolean {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768;
   }
 } 

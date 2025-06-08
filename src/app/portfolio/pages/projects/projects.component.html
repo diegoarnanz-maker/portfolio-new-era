@@ -16,11 +16,12 @@
 
     <!-- Categorías de proyectos -->
     <div class="space-y-20">
-      <app-project-category 
-        *ngFor="let category of projectCategories; trackBy: trackByCategory" 
-        [category]="category"
-        (projectModalOpen)="onProjectModalOpen($event)">
-      </app-project-category>
+      @for (category of projectCategories; track category.id) {
+        <app-project-category 
+          [category]="category"
+          (projectModalOpen)="onProjectModalOpen($event)">
+        </app-project-category>
+      }
     </div>
   </div>
 
