@@ -11,4 +11,4 @@ export const dates = {
   'date.october': 'Octubre',
   'date.november': 'Noviembre',
   'date.december': 'Diciembre',
-}; 
+};

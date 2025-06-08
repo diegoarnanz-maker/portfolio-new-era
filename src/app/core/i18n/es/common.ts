@@ -18,4 +18,4 @@ export const common = {
   'common.previous': 'Anterior',
   'common.first': 'Primero',
   'common.last': 'Último',
-}; 
+};

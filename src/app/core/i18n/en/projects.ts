@@ -6,4 +6,4 @@ export const projects = {
   'projects.technologies': 'Technologies used',
   'projects.features': 'Key features',
   'projects.noProjects': 'No projects available',
-}; 
+};

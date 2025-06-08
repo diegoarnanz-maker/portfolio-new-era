@@ -8,4 +8,4 @@ export const navbar = {
   'nav.selectLanguage': 'Select language',
   'nav.toggleMenu': 'Toggle menu',
   'nav.mobileMenu': 'Mobile menu',
-}; 
+};

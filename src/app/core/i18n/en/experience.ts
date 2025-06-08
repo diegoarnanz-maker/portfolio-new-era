@@ -32,4 +32,4 @@ export const experience = {
   'experience.autodidact.courses.angular': 'Angular & Spring Boot: Creating Full Stack Webapp',
   'experience.autodidact.courses.n8n': 'n8n Course. Create AI Agents Without Programming',
   'experience.autodidact.courses.java': 'Java University - Zero to Expert',
-}; 
+};

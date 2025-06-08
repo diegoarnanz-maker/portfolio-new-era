@@ -3,19 +3,17 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../../core/services/theme.service';
 import { LanguageService, Language } from '../../../core/services/language.service';
-import { TranslationService } from '../../../core/services/translation.service';
-import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
   private languageService = inject(LanguageService);
-  private translationService = inject(TranslationService);
   
   private subscriptions = new Subscription();
   
@@ -99,10 +97,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
-  }
-
-  translate(key: string): string {
-    return this.translationService.translate(key);
   }
 
   isLanguageActive(code: string): boolean {

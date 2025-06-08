@@ -25,6 +25,7 @@ export class LanguageService {
   constructor() {
     this.currentLanguage = this.getInitialLanguage();
     this.languageSubject = new BehaviorSubject<Language>(this.currentLanguage);
+    this.translateService.setDefaultLang('es');
     this.translateService.use(this.currentLanguage.code);
   }
 
