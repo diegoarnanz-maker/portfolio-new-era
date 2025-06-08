@@ -251,7 +251,7 @@
   <!-- Asistente IA -->
   <div
     (click)="openAssistantModal()"
-    class="fixed bottom-20 right-6 sm:bottom-8 sm:right-8 z-20 group flex flex-col items-center space-y-2 cursor-pointer transition-all duration-500 ease-in-out"
+    class="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-20 group flex flex-row sm:flex-col items-center space-x-2 sm:space-x-0 sm:space-y-2 cursor-pointer transition-all duration-500 ease-in-out"
     [class.opacity-100]="isAssistantVisible"
     [class.opacity-0]="!isAssistantVisible"
     [class.translate-y-0]="isAssistantVisible"
@@ -260,7 +260,7 @@
     [class.pointer-events-none]="!isAssistantVisible"
   >
     <div
-      class="transition-all duration-500 transform group-hover:opacity-100 group-hover:translate-y-0"
+      class="transition-all duration-500 transform group-hover:opacity-100 group-hover:translate-y-0 order-first sm:order-none sm:group-hover:mb-4"
       [class.opacity-100]="showAssistantMessage"
       [class.opacity-0]="!showAssistantMessage"
       [class.translate-y-0]="showAssistantMessage"
@@ -279,14 +279,15 @@
           >
         </p>
 
+        <!-- Flecha para desktop (apunta hacia abajo) -->
         <div
-          class="absolute -bottom-1 left-1/2 -translate-x-1 w-2 h-2 bg-background-light-card dark:bg-background-card border-r border-b border-action-light-default/30 dark:border-action-default/30 transform rotate-45"
+          class="hidden sm:block absolute -bottom-1 left-1/2 -translate-x-1 w-2 h-2 bg-background-light-card dark:bg-background-card border-r border-b border-action-light-default/30 dark:border-action-default/30 transform rotate-45"
         ></div>
       </div>
     </div>
 
     <div
-      class="relative w-16 h-16 md:w-20 md:h-20 transition-all duration-300 group-hover:scale-110"
+      class="relative w-16 h-16 md:w-20 md:h-20 transition-all duration-300 group-hover:scale-110 sm:mt-4"
     >
       <div
         class="absolute -inset-2 bg-gradient-to-r from-action-light-default/20 via-text-light-accent/20 to-action-light-hover/20 dark:from-action-default/20 dark:via-text-accent/20 dark:to-action-hover/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
