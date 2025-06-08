@@ -6,4 +6,6 @@ export const navbar = {
   'nav.contact': 'Contact',
   'nav.changeTheme': 'Change theme',
   'nav.selectLanguage': 'Select language',
+  'nav.toggleMenu': 'Toggle menu',
+  'nav.mobileMenu': 'Mobile menu',
 }; 

@@ -6,4 +6,6 @@ export const navbar = {
   'nav.contact': 'Contacto',
   'nav.changeTheme': 'Cambiar tema',
   'nav.selectLanguage': 'Seleccionar idioma',
+  'nav.toggleMenu': 'Alternar menú',
+  'nav.mobileMenu': 'Menú móvil',
 }; 

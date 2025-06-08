@@ -21,14 +21,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   
   isDark = false;
   showLangs = false;
+  isMobileMenuOpen = false;
   currentLanguage!: Language;
 
-  // Usar los idiomas disponibles del servicio
   get langs() {
     return this.languageService.availableLanguages;
   }
 
-  // Obtener lista de idiomas con información de estado activo
   get languageOptions() {
     return this.langs.map(lang => ({
       ...lang,
@@ -37,7 +36,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Suscribirse a cambios de tema
     this.isDark = this.themeService.isDark();
     this.subscriptions.add(
       this.themeService.darkMode$.subscribe((isDark) => {
@@ -45,7 +43,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       })
     );
 
-    // Suscribirse a cambios de idioma
     this.currentLanguage = this.languageService.getCurrentLanguage();
     this.subscriptions.add(
       this.languageService.language$.subscribe((language) => {
@@ -65,11 +62,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (!target.closest('.language-selector')) {
       this.showLangs = false;
     }
+    // Cerrar menú móvil si se hace clic fuera
+    if (!target.closest('.mobile-menu-container') && !target.closest('.mobile-menu-button')) {
+      this.isMobileMenuOpen = false;
+    }
   }
 
   @HostListener('document:keydown.escape')
   onEscapeKey(): void {
     this.showLangs = false;
+    this.isMobileMenuOpen = false;
   }
 
   toggleTheme(): void {
@@ -91,18 +93,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.showLangs = !this.showLangs;
   }
 
-  // Método helper para obtener traducciones
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
   translate(key: string): string {
     return this.translationService.translate(key);
   }
 
-  // Método para verificar si un idioma está activo
   isLanguageActive(code: string): boolean {
     return this.currentLanguage.code === code;
   }
 
-  // Método trackBy para optimizar el *ngFor
-  trackByLangCode(index: number, lang: any): string {
-    return lang.code;
-  }
 }
