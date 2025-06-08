@@ -20,4 +20,4 @@ export const success = {
   'success.updated': 'Updated successfully',
   'success.deleted': 'Deleted successfully',
   'success.sent': 'Sent successfully'
-}; 
+};

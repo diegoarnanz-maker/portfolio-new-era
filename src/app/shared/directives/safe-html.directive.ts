@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit, inject, Renderer2, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
-import { TranslationService } from '../../core/services/translation.service';
+import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../core/services/language.service';
 
 @Directive({
@@ -14,7 +14,7 @@ export class SafeHtmlDirective implements OnInit, OnDestroy {
   private elementRef = inject(ElementRef);
   private renderer = inject(Renderer2);
   private sanitizer = inject(DomSanitizer);
-  private translationService = inject(TranslationService);
+  private translateService = inject(TranslateService);
   private languageService = inject(LanguageService);
   
   private subscription?: Subscription;
@@ -37,7 +37,7 @@ export class SafeHtmlDirective implements OnInit, OnDestroy {
   private updateContent(): void {
     if (!this.translationKey) return;
     
-    const translatedText = this.translationService.translate(this.translationKey);
+    const translatedText = this.translateService.instant(this.translationKey);
     const currentLang = this.languageService.getLanguageCode();
     
     // Detectar si el contenido contiene HTML

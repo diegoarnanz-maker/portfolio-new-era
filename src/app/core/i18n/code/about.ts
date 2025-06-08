@@ -6,4 +6,4 @@ export const about = {
   'about.stats.yearsTraining': '<span>Años de Formación</span>',
   'about.stats.repositories': '<span>Repositorios</span>',
   'about.stats.contributions': '<span>Contribuciones</span>',
-}; 
+};

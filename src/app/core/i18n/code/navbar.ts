@@ -5,4 +5,4 @@ export const navbar = {
   'navbar.projects': '<nav>Proyectos</nav>',
   'navbar.skills': '<nav>Habilidades</nav>',
   'navbar.contact': '<nav>Contacto</nav>',
-}; 
+};

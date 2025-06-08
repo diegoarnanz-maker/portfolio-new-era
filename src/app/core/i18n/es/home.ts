@@ -5,4 +5,4 @@ export const home = {
   'home.downloadCV': 'Descargar CV',
   'home.viewProjects': 'Ver Proyectos',
   'home.contactMe': 'Contáctame',
-}; 
+};

@@ -13,4 +13,4 @@ export const contact = {
   'contact.error': 'Error al enviar el mensaje',
   'contact.required': 'Este campo es obligatorio',
   'contact.invalidEmail': 'Email no válido',
-}; 
+};

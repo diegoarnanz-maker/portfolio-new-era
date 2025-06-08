@@ -18,4 +18,4 @@ export const common = {
   'common.previous': '<button>Anterior</button>',
   'common.first': '<button>Primero</button>',
   'common.last': '<button>Último</button>',
-}; 
+};

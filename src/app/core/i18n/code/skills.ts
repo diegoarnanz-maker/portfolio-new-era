@@ -6,4 +6,4 @@ export const skills = {
   'skills.database': '<h3>Base de Datos</h3>',
   'skills.tools': '<h3>Herramientas</h3>',
   'skills.other': '<h3>Otras</h3>',
-}; 
+};

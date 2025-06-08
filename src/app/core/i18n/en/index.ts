@@ -22,4 +22,4 @@ export const EN_TRANSLATIONS = {
   ...validation,
   ...errors,
   ...success
-}; 
+};
