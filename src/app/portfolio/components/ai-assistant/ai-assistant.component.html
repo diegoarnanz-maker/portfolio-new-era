@@ -22,10 +22,10 @@
       <p
         class="text-xs md:text-sm text-text-light dark:text-text-base font-medium leading-tight"
       >
-        Mi portfolio cobra vida:<br />
+        {{ 'aiAssistant.message.intro' | translate }}<br />
         <span
           class="text-action-light-default dark:text-action-default font-semibold"
-          >¡Háblame cuando quieras!</span
+          >{{ 'aiAssistant.message.cta' | translate }}</span
         >
       </p>
 
@@ -52,7 +52,7 @@
     >
       <img
         src="/assets/img/asistente/asistente.png"
-        alt="Asistente Virtual"
+        [alt]="'aiAssistant.alt.image' | translate"
         class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105"
       />
       <div
@@ -86,7 +86,7 @@
       <span
         class="text-xs md:text-sm font-semibold text-text-light dark:text-text-base tracking-wide"
       >
-        IA Assistant
+        {{ 'aiAssistant.subtitle' | translate }}
       </span>
       <div
         class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"
@@ -116,7 +116,7 @@
       >
         <img
           src="/assets/img/asistente/asistente.png"
-          alt="Asistente"
+          [alt]="'aiAssistant.alt.image' | translate"
           class="w-full h-full object-cover"
         />
       </div>
@@ -124,7 +124,7 @@
         <h3
           class="text-base font-semibold text-text-light dark:text-text-base"
         >
-          Asistente IA
+          {{ 'aiAssistant.title' | translate }}
         </h3>
       </div>
     </div>
@@ -132,7 +132,7 @@
     <button
       (click)="closeAssistantModal()"
       class="p-2 rounded-full hover:bg-action-light-default/10 dark:hover:bg-action-default/10 transition-colors duration-200 group"
-      aria-label="Cerrar asistente"
+      [attr.aria-label]="'aiAssistant.button.close' | translate"
     >
       <svg
         class="w-5 h-5 text-text-light dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-colors duration-200"
@@ -168,7 +168,7 @@
         <h4
           class="text-base font-semibold text-text-light dark:text-text-base mb-2"
         >
-          Cargando Asistente...
+          {{ 'aiAssistant.loading.title' | translate }}
         </h4>
       </div>
     </div>
@@ -177,7 +177,7 @@
     <iframe
       src="https://diegodev96-mi-asistente-personal.hf.space"
       class="w-full h-full border-0"
-      title="Asistente Personal IA"
+      [title]="'aiAssistant.iframe.title' | translate"
       loading="lazy"
       (load)="onIframeLoad()"
     >
@@ -198,7 +198,7 @@
     <button
       (click)="closeAssistantModal()"
       class="absolute top-4 right-8 z-10 p-3 rounded-full bg-action-light-default/90 dark:bg-action-default/90 hover:bg-action-light-hover dark:hover:bg-action-hover backdrop-blur-sm border border-action-light-default/30 dark:border-action-default/30 transition-all duration-200 group shadow-xl hover:shadow-2xl hover:scale-105"
-      aria-label="Cerrar asistente"
+      [attr.aria-label]="'aiAssistant.button.close' | translate"
     >
       <svg
         class="w-6 h-6 text-white group-hover:text-white transition-colors duration-200"

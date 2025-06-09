@@ -72,13 +72,13 @@
 
       <img
         src="/assets/img/profile/espacial-diego_clear.png"
-        alt="Foto Diego Arnanz Espacial"
+        [alt]="'home.profile.alt.light' | translate"
         class="w-full h-full object-cover relative z-10 transition-all duration-700 group-hover:brightness-110 group-hover:contrast-110 group-hover:saturate-110 dark:hidden"
       />
 
       <img
         src="/assets/img/profile/espacial-diego_dark.png"
-        alt="Foto Diego Arnanz Espacial"
+        [alt]="'home.profile.alt.dark' | translate"
         class="w-full h-full object-cover relative z-10 transition-all duration-700 group-hover:brightness-110 group-hover:contrast-110 group-hover:saturate-110 hidden dark:block"
       />
 
@@ -177,9 +177,9 @@
       <a
         href="https://github.com/diegoarnanz-maker"
         target="_blank"
-        aria-label="Ver GitHub"
+        [attr.aria-label]="'home.social.github.aria' | translate"
         class="group relative p-3 sm:p-4 rounded-2xl bg-background-light-card/10 dark:bg-background-card/20 border border-action-light-default/20 dark:border-action-default/20 hover:border-action-light-default/50 dark:hover:border-action-default/50 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] backdrop-blur-sm"
-        title="Ver mi GitHub"
+        [title]="'home.social.github.title' | translate"
       >
         <svg
           class="w-6 h-6 sm:w-7 sm:h-7 text-black dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-all duration-300 group-hover:scale-110"
@@ -201,9 +201,9 @@
       <a
         href="https://www.linkedin.com/in/diegodev96"
         target="_blank"
-        aria-label="Ver LinkedIn"
+        [attr.aria-label]="'home.social.linkedin.aria' | translate"
         class="group relative p-3 sm:p-4 rounded-2xl bg-background-light-card/10 dark:bg-background-card/20 border border-action-light-default/20 dark:border-action-default/20 hover:border-action-light-default/50 dark:hover:border-action-default/50 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] backdrop-blur-sm"
-        title="Ver mi LinkedIn"
+        [title]="'home.social.linkedin.title' | translate"
       >
         <svg
           class="w-6 h-6 sm:w-7 sm:h-7 text-text-light dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-all duration-300 group-hover:scale-110"
@@ -225,9 +225,9 @@
       <a
         href="/assets/img/docs/CV-Diego.docx"
         download
-        aria-label="Descargar CV"
+        [attr.aria-label]="'home.social.cv.aria' | translate"
         class="group relative p-3 sm:p-4 rounded-2xl bg-background-light-card/10 dark:bg-background-card/20 border border-action-light-default/20 dark:border-action-default/20 hover:border-action-light-default/50 dark:hover:border-action-default/50 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] dark:hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] backdrop-blur-sm"
-        title="Descargar mi CV"
+        [title]="'home.social.cv.title' | translate"
       >
         <svg
           class="w-6 h-6 sm:w-7 sm:h-7 text-text-light dark:text-text-base group-hover:text-action-light-default dark:group-hover:text-action-default transition-all duration-300 group-hover:scale-110"

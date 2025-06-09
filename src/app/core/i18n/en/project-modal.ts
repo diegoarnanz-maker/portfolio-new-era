@@ -1,0 +1,17 @@
+export const projectModal = {
+  'projectModal.button.close': 'Close',
+  'projectModal.gallery.main': 'Main Views',
+  'projectModal.gallery.demo': 'Functional Demo',
+  'projectModal.gallery.counter': '{{current}} / {{total}}',
+  'projectModal.sections.description': 'Detailed Description',
+  'projectModal.sections.technical': 'Technical Details',
+  'projectModal.sections.challenges': 'Challenges Overcome',
+  'projectModal.buttons.viewProject': 'View Project',
+  'projectModal.buttons.viewCode': 'View Code',
+  'projectModal.buttons.viewDemo': 'View Demo',
+  'projectModal.loading.image': 'Loading image...',
+  'projectModal.alt.thumbnail': 'Thumbnail {{index}}',
+  'projectModal.alt.projectImage': '{{title}} - Image {{index}}',
+  'projectModal.navigation.previous': 'Previous image',
+  'projectModal.navigation.next': 'Next image',
+}; 

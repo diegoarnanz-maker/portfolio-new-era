@@ -5,12 +5,13 @@ import { SkillIconComponent } from '../../components/skill-icon/skill-icon.compo
 import { SKILL_CATEGORIES } from '../../../core/data/skills.data';
 import { TranslateModule } from '@ngx-translate/core';
 import { SafeHtmlDirective } from '../../../shared/directives/safe-html.directive';
+import { SafeTranslatePipe } from '../../../shared/pipes/safe-translate.pipe';
 import { SkillIcon } from '../../../core/interfaces/skill.interface';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [CommonModule, SkillCategoryComponent, SkillIconComponent, TranslateModule, SafeHtmlDirective],
+  imports: [CommonModule, SkillCategoryComponent, SkillIconComponent, TranslateModule, SafeHtmlDirective, SafeTranslatePipe],
   templateUrl: './about-me.component.html'
 })
 export class AboutMeComponent {

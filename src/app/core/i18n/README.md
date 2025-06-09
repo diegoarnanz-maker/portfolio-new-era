@@ -1,198 +1,233 @@
-# Sistema de Internacionalización (i18n)
+# 🌍 Sistema de Internacionalización (i18n)
 
-Este directorio contiene el sistema de traducciones de la aplicación, organizado de manera modular y escalable.
+## 📋 Descripción
 
-## 📁 Estructura de Archivos
+Sistema profesional de internacionalización implementado con **ngx-translate** para el portfolio de Diego. Soporta múltiples idiomas con detección automática del navegador, persistencia en localStorage y arquitectura modular.
+
+## 🏗️ Arquitectura
+
+### Componentes Principales
+
+1. **LanguageService** - Servicio principal para gestión de idiomas
+2. **TranslationLoader** - Cargador personalizado de traducciones
+3. **SafeTranslatePipe** - Pipe personalizado con sanitización HTML
+4. **LanguageInterceptor** - Interceptor HTTP para headers de idioma
+5. **LanguageGuard** - Guard para validación de rutas con idiomas
+
+### Estructura de Archivos
 
 ```
 src/app/core/i18n/
-├── index.ts                 # Exportación principal de todas las traducciones
-├── README.md               # Documentación del sistema
-├── es/                     # Traducciones en Español
-│   ├── index.ts           # Exportación combinada del español
-│   ├── navbar.ts          # Navegación
-│   ├── home.ts            # Página de inicio
-│   ├── about.ts           # Sobre mí
-│   ├── projects.ts        # Proyectos
-│   ├── experience.ts      # Experiencia
-│   ├── skills.ts          # Habilidades
-│   ├── contact.ts         # Contacto
-│   ├── common.ts          # Elementos comunes
-│   ├── dates.ts           # Fechas y meses
-│   └── validation.ts      # Validaciones, errores y éxito
-├── en/                     # Traducciones en Inglés
-│   ├── index.ts           # Exportación combinada del inglés
-│   ├── navbar.ts          # Navigation
-│   ├── home.ts            # Home page
-│   ├── about.ts           # About me
-│   ├── projects.ts        # Projects
-│   ├── experience.ts      # Experience
-│   ├── skills.ts          # Skills
-│   ├── contact.ts         # Contact
-│   ├── common.ts          # Common elements
-│   ├── dates.ts           # Dates and months
-│   └── validation.ts      # Validations, errors and success
-└── code/                   # Traducciones en Code 💻
-    ├── index.ts           # Exportación combinada del idioma code
-    ├── navbar.ts          # Navegación en HTML
-    ├── home.ts            # Inicio con etiquetas
-    ├── about.ts           # Sobre mí en formato code
-    ├── projects.ts        # Proyectos con código
-    ├── experience.ts      # Experiencia en HTML
-    ├── skills.ts          # Habilidades en HTML
-    ├── contact.ts         # Contacto en HTML
-    ├── common.ts          # Elementos comunes en code
-    ├── dates.ts           # Fechas en HTML
-    └── validation.ts      # Validaciones en HTML
+├── es/                     # Traducciones en español
+│   ├── navbar.ts
+│   ├── home.ts
+│   ├── about.ts
+│   ├── projects.ts
+│   ├── experience.ts
+│   ├── skills.ts
+│   ├── contact.ts
+│   ├── common.ts
+│   ├── dates.ts
+│   ├── validation.ts
+│   └── index.ts
+├── en/                     # Traducciones en inglés
+│   └── [mismos archivos]
+├── translation-loader.ts   # Cargador personalizado
+├── index.ts               # Exportaciones principales
+└── README.md              # Esta documentación
 ```
 
-## 🌐 Idiomas Disponibles
+## 🚀 Uso
 
-| Código | Idioma | Bandera | Estado |
-|--------|--------|---------|--------|
-| `es` | Español | 🇪🇸 | ✅ Completo |
-| `en` | English | 🇺🇸 | ✅ Completo |
-| `code` | Code | 💻 | ✅ Completo |
+### En Templates (HTML)
 
-## 📝 Organización por Apartados
-
-### 🧭 **Navbar** (`navbar.ts`)
-Elementos de navegación principal:
-- Enlaces del menú
-- Cambio de tema
-- Selector de idioma
-
-### 🏠 **Home** (`home.ts`)
-Página de inicio:
-- Título principal
-- Descripción
-- Botones de acción
-
-### 👤 **About** (`about.ts`)
-Sección sobre mí:
-- Título y descripción
-- Párrafos informativos
-- Estadísticas (años, repositorios, contribuciones)
-
-### 💼 **Projects** (`projects.ts`)
-Sección de proyectos:
-- Títulos y descripciones
-- Botones de acción
-- Tecnologías y características
-
-### 🎯 **Experience** (`experience.ts`)
-Experiencia profesional:
-- Títulos de sección
-- Estados temporales
-- Responsabilidades y logros
-
-### ⚡ **Skills** (`skills.ts`)
-Habilidades técnicas:
-- Categorías de skills
-- Tipos de tecnologías
-
-### 📧 **Contact** (`contact.ts`)
-Página de contacto:
-- Formularios
-- Mensajes de estado
-- Validaciones
-
-### 🔧 **Common** (`common.ts`)
-Elementos comunes:
-- Botones genéricos
-- Estados de carga
-- Acciones básicas
-
-### 📅 **Dates** (`dates.ts`)
-Fechas y tiempo:
-- Nombres de meses
-- Unidades de tiempo
-
-### ✅ **Validation** (`validation.ts`)
-Sistema de validación:
-- Mensajes de error
-- Mensajes de éxito
-- Reglas de validación
-
-## 🚀 Uso del Sistema
-
-### Importación
-```typescript
-import { TRANSLATIONS } from './core/i18n';
-```
-
-### Uso en Componentes
-```typescript
-// En el template
+```html
+<!-- Pipe básico -->
 {{ 'nav.home' | translate }}
-{{ 'about.title' | translate }}
-{{ 'contact.success' | translate }}
 
-// Con parámetros
-{{ 'validation.minLength' | translate:'5' }}
+<!-- Pipe con parámetros -->
+{{ 'welcome.message' | translate: {name: userName} }}
+
+<!-- Pipe personalizado con HTML -->
+{{ 'about.description' | safeTranslate: null: true }}
+
+<!-- Directiva personalizada (legacy) -->
+<div [appSafeHtml]="'about.description.paragraph1'"></div>
 ```
 
-### Agregar Nuevas Traducciones
+### En Componentes (TypeScript)
 
-1. **Agregar a un apartado existente:**
-   ```typescript
-   // En es/navbar.ts
-   export const navbar = {
-     'nav.home': 'Inicio',
-     'nav.newItem': 'Nuevo Elemento', // ← Nueva traducción
-   };
-   ```
-
-2. **Crear nuevo apartado:**
-   ```typescript
-   // Crear es/newSection.ts
-   export const newSection = {
-     'newSection.title': 'Título',
-     'newSection.description': 'Descripción',
-   };
-   
-   // Agregar a es/index.ts
-   import { newSection } from './newSection';
-   export const ES_TRANSLATIONS = {
-     ...navbar,
-     ...newSection, // ← Incluir nueva sección
-   };
-   ```
-
-## 🎨 Características Especiales
-
-### 💻 Idioma Code
-Este modo de traducción muestra las cadenas envueltas en etiquetas HTML. Ejemplos:
-- `<h1>` = Encabezado principal
-- `<p>` = Párrafo de texto
-- `<button>` = Botón de acción
-
-### 🔄 Interpolación de Parámetros
-Soporte para parámetros dinámicos:
 ```typescript
-'validation.minLength': 'Mínimo {0} caracteres'
+import { LanguageService } from '@core/services/language.service';
+
+export class MyComponent {
+  private languageService = inject(LanguageService);
+
+  // Obtener traducción programáticamente
+  getTranslation(key: string): string {
+    return this.languageService.getTranslation(key);
+  }
+
+  // Cambiar idioma
+  async changeLanguage(langCode: string) {
+    const language = this.languageService.getLanguageByCode(langCode);
+    if (language) {
+      await this.languageService.setLanguage(language);
+    }
+  }
+
+  // Suscribirse a cambios de idioma
+  ngOnInit() {
+    this.languageService.language$.subscribe(lang => {
+      console.log('Idioma actual:', lang.name);
+    });
+  }
+}
 ```
 
-### 🎯 Claves Organizadas
-Sistema de claves jerárquico:
+## 🔧 Configuración
+
+### app.config.ts
+
+```typescript
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslationLoader } from './core/i18n/translation-loader';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // ... otros providers
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        defaultLanguage: 'es',
+        loader: { provide: TranslateLoader, useClass: TranslationLoader }
+      })
+    )
+  ]
+};
 ```
-apartado.subseccion.elemento
-├── nav.home
-├── about.stats.repositories
-├── contact.validation.required
-└── common.actions.save
+
+### Importar en Componentes
+
+```typescript
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  imports: [CommonModule, TranslateModule], // Importar TranslateModule
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent { }
 ```
 
-## 🔧 Mantenimiento
+## 📝 Agregar Nuevas Traducciones
 
-- **Consistencia**: Mantener la misma estructura en todos los idiomas
-- **Nomenclatura**: Usar nombres descriptivos para las claves
-- **Organización**: Agrupar traducciones relacionadas en el mismo archivo
-- **Documentación**: Actualizar este README al agregar nuevos apartados
+### 1. Crear archivo de traducción
 
-## 📊 Estadísticas
+```typescript
+// src/app/core/i18n/es/nueva-seccion.ts
+export const nuevaSeccion = {
+  'nuevaSeccion.titulo': 'Mi Título',
+  'nuevaSeccion.descripcion': 'Mi descripción con <strong>HTML</strong>',
+  'nuevaSeccion.mensaje': 'Hola {{nombre}}, bienvenido'
+};
+```
 
-- **Total de idiomas**: 3
-- **Total de apartados**: 10 por idioma
-- **Total de traducciones**: ~130 por idioma
-- **Cobertura**: 100% en todos los idiomas
+### 2. Exportar en index.ts
+
+```typescript
+// src/app/core/i18n/es/index.ts
+import { nuevaSeccion } from './nueva-seccion';
+
+export const ES_TRANSLATIONS = {
+  // ... otras traducciones
+  ...nuevaSeccion
+};
+```
+
+### 3. Repetir para otros idiomas
+
+Crear el mismo archivo en `en/nueva-seccion.ts` con las traducciones correspondientes.
+
+## 🎯 Mejores Prácticas
+
+### Nomenclatura de Claves
+
+```typescript
+// ✅ Bueno - Jerárquico y descriptivo
+'nav.home': 'Inicio'
+'about.description.paragraph1': 'Mi descripción...'
+'contact.form.validation.email.required': 'Email es requerido'
+
+// ❌ Malo - Plano y confuso
+'home': 'Inicio'
+'desc1': 'Mi descripción...'
+'emailReq': 'Email es requerido'
+```
+
+### Organización por Módulos
+
+- Cada sección/página tiene su propio archivo
+- Archivos comunes para elementos compartidos
+- Validaciones y errores en archivos separados
+
+### Uso de Parámetros
+
+```typescript
+// Definir con parámetros
+'welcome.message': 'Bienvenido {{name}}, tienes {{count}} mensajes'
+
+// Usar en template
+{{ 'welcome.message' | translate: {name: user.name, count: messages.length} }}
+```
+
+## 🔍 Debugging
+
+### Verificar Traducciones Faltantes
+
+```typescript
+// El servicio automáticamente logea advertencias
+if (!this.languageService.hasTranslation('mi.clave')) {
+  console.warn('Traducción faltante');
+}
+```
+
+### Inspeccionar Estado Actual
+
+```typescript
+console.log('Idioma actual:', this.languageService.getCurrentLanguage());
+console.log('Código de idioma:', this.languageService.getLanguageCode());
+```
+
+## 🌟 Características Avanzadas
+
+### Detección Automática del Navegador
+- Detecta automáticamente el idioma preferido del usuario
+- Fallback al idioma por defecto si no está soportado
+
+### Persistencia
+- Guarda la preferencia del usuario en localStorage
+- Restaura el idioma seleccionado en futuras visitas
+
+### Sanitización HTML
+- Soporte seguro para HTML en traducciones
+- Pipe personalizado `safeTranslate` para contenido HTML
+
+### Headers HTTP
+- Interceptor automático que agrega headers de idioma
+- Útil para APIs que soportan internacionalización
+
+## 🚨 Troubleshooting
+
+### Problema: Traducciones no se actualizan
+**Solución:** Verificar que el componente importe `TranslateModule`
+
+### Problema: HTML no se renderiza
+**Solución:** Usar `safeTranslate` pipe con parámetro `true` o directiva `appSafeHtml`
+
+### Problema: Idioma no persiste
+**Solución:** Verificar que localStorage esté disponible y no bloqueado
+
+## 📚 Referencias
+
+- [ngx-translate Documentation](https://github.com/ngx-translate/core)
+- [Angular i18n Guide](https://angular.io/guide/i18n)
+- [MDN Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
