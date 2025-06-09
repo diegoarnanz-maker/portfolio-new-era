@@ -4,7 +4,4 @@ export interface SkillIcon {
   svgContent?: string;
   color: string;
   alt?: string;
-  imageDesktop?: string;
-  imageMobile?: string;
-  imageTablet?: string;
 }

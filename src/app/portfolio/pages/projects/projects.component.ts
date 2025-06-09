@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectCategoryComponent } from '../../components/project-category/project-category.component';
 import { ProjectModalComponent } from '../../components/project-modal/project-modal.component';
 import { PROJECT_CATEGORIES } from '../../../core/mock/projects.mock';
-import { Project } from '../../../core/interfaces/project.interface';
+import { Project } from '../../../core/interfaces';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

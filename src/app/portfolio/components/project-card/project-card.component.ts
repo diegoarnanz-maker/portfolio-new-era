@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../core/services/language.service';
-import { Project, Technology } from '../../../core/interfaces/project.interface';
+import { Project, Technology } from '../../../core/interfaces';
 
 type ImageType = 'desktop' | 'tablet' | 'mobile';
 

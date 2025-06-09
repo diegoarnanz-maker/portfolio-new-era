@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SkillIcon } from '../../../core/interfaces/skill.interface';
+import { SkillIcon } from '../../../core/interfaces';
 
 @Component({
   selector: 'app-skill-icon',

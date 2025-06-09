@@ -1,4 +1,4 @@
-import { Experience } from "../interfaces/experience.interface";
+import { Experience } from "../interfaces";
 import { FRONTEND_SKILLS, BACKEND_SKILLS, TOOLS_SKILLS } from "./skills.mock";
 
 export const currentStatus: Experience = {

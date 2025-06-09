@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterVie
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { ProjectCategory, Project } from '../../../core/interfaces/project.interface';
+import { ProjectCategory, Project } from '../../../core/interfaces';
 import KeenSlider from 'keen-slider';
 
 interface Particle {

@@ -1,0 +1,25 @@
+{
+  "name": "Diego Arnanz - Portfolio",
+  "short_name": "DA Portfolio",
+  "description": "Portfolio de Diego Arnanz - Desarrollador Full Stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es"
+} 

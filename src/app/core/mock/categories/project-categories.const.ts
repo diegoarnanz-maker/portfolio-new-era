@@ -1,4 +1,4 @@
-import { ProjectCategory } from '../../interfaces/project-category.interface';
+import { ProjectCategory } from '../../interfaces';
 import { FULLSTACK_PROJECTS } from '../projects/fullstack-projects.const';
 import { BACKEND_PROJECTS } from '../projects/backend-projects.const';
 import { FRONTEND_PROJECTS } from '../projects/frontend-projects.const';
