@@ -11,7 +11,7 @@ export const FULLSTACK_PROJECTS: Project[] = [
       AVAILABLE_TECHNOLOGIES['jwt'],
       AVAILABLE_TECHNOLOGIES['tailwind'],
     ],
-    imageUrl: '/assets/img/projects/fullstack/indimetra/DESKTOP_indimetra.png',
+    imageUrl: '/assets/img/projects/fullstack/indimetra/DESKTOP_indimetra.webp',
     imageTitles: [
       'Vista Desktop - Interfaz principal optimizada para pantallas grandes',
       'Vista Tablet - Diseño adaptativo para dispositivos medianos',

@@ -13,7 +13,5 @@ export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);
 
   ngOnInit(): void {
-    // Inicializar el servicio de tema
-    console.log('App iniciada, tema actual:', this.themeService.isDark());
   }
 }

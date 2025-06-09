@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.languageService.language$.subscribe((language) => {
         this.currentLanguage = language;
-        console.log('Idioma actualizado en navbar:', language.name);
+        
       })
     );
   }

@@ -97,8 +97,6 @@ export class LanguageService {
       this.languageSubject.next(this.currentLanguage);
       
       await this.translateService.use(language.code).toPromise();
-      
-      console.log(`Idioma cambiado a: ${language.name} (${language.code})`);
     } catch (error) {
       console.error('Error al cambiar idioma:', error);
       throw error;
