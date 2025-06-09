@@ -1,5 +1,5 @@
 export const home = {
-  'home.title': 'Full Stack Developer & AI Specialist',
+  'home.title': 'Full Stack Developer & AI',
   'home.social.github.aria': 'View my GitHub profile',
   'home.social.github.title': 'View my GitHub',
   'home.social.linkedin.aria': 'View my LinkedIn profile',

@@ -15,26 +15,16 @@ export class SafeTranslatePipe implements PipeTransform, OnDestroy {
   private sanitizer = inject(DomSanitizer);
   
   private subscription?: Subscription;
-  private lastKey = '';
-  private lastValue = '';
-  private lastLang = '';
 
   constructor() {
     // Suscribirse a cambios de idioma para forzar actualización
     this.subscription = this.languageService.language$.subscribe(() => {
-      this.lastLang = this.languageService.getLanguageCode();
+      // Forzar actualización cuando cambie el idioma
     });
   }
 
   transform(key: string, params?: any, sanitize: boolean = false): string | SafeHtml {
     if (!key) return '';
-
-    const currentLang = this.languageService.getLanguageCode();
-    
-    // Optimización: solo traducir si cambió la clave, parámetros o idioma
-    if (key === this.lastKey && currentLang === this.lastLang) {
-      return sanitize ? this.sanitizer.bypassSecurityTrustHtml(this.lastValue) : this.lastValue;
-    }
 
     const translation = this.translateService.instant(key, params);
     
@@ -42,10 +32,6 @@ export class SafeTranslatePipe implements PipeTransform, OnDestroy {
     if (translation === key && !this.languageService.hasTranslation(key)) {
       console.warn(`Traducción no encontrada para la clave: ${key}`);
     }
-
-    this.lastKey = key;
-    this.lastValue = translation;
-    this.lastLang = currentLang;
 
     return sanitize ? this.sanitizer.bypassSecurityTrustHtml(translation) : translation;
   }

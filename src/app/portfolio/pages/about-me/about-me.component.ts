@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SkillCategoryComponent } from '../../components/skill-category/skill-category.component';
 import { SkillIconComponent } from '../../components/skill-icon/skill-icon.component';
 import { SKILL_CATEGORIES } from '../../../core/data/skills.data';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SafeHtmlDirective } from '../../../shared/directives/safe-html.directive';
 import { SafeTranslatePipe } from '../../../shared/pipes/safe-translate.pipe';
 import { SkillIcon } from '../../../core/interfaces/skill.interface';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-about-me',
@@ -19,4 +21,15 @@ export class AboutMeComponent {
   
   // Todos los iconos juntos para móviles
   allSkills: SkillIcon[] = SKILL_CATEGORIES.flatMap(category => category.skills);
+
+  constructor(
+    private translateService: TranslateService,
+    private sanitizer: DomSanitizer,
+    private languageService: LanguageService
+  ) {}
+
+  getSafeHtml(key: string): SafeHtml {
+    const translation = this.translateService.instant(key);
+    return this.sanitizer.bypassSecurityTrustHtml(translation);
+  }
 } 
