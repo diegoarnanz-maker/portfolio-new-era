@@ -1,4 +1,4 @@
-import { Technology } from '../../interfaces/technology.interface';
+import { Technology } from '../../interfaces';
 
 // Tecnologías adicionales no disponibles en iconos
 export const ADDITIONAL_TECHNOLOGIES: { [key: string]: Technology } = {

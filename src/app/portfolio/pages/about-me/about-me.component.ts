@@ -6,7 +6,7 @@ import { SKILL_CATEGORIES } from '../../../core/data/skills.data';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SafeHtmlDirective } from '../../../shared/directives/safe-html.directive';
 import { SafeTranslatePipe } from '../../../shared/pipes/safe-translate.pipe';
-import { SkillIcon } from '../../../core/interfaces/skill.interface';
+import { SkillIcon } from '../../../core/interfaces';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LanguageService } from '../../../core/services/language.service';
 

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Project } from '../../../core/interfaces/project.interface';
+import { Project } from '../../../core/interfaces';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

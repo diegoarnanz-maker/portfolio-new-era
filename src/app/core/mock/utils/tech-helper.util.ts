@@ -1,4 +1,4 @@
-import { Technology } from '../../interfaces/technology.interface';
+import { Technology } from '../../interfaces';
 import { AVAILABLE_TECHNOLOGIES } from '../../interfaces/available-technologies.const';
 import { ADDITIONAL_TECHNOLOGIES } from '../constants/additional-technologies.const';
 

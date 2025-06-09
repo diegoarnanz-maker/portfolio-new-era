@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { LanguageService } from './language.service';
-import { Project } from '../interfaces/project.interface';
+import { Project } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,4 @@
-import { SkillIcon } from '../interfaces/skill.interface';
+import { SkillIcon } from '../interfaces';
 
 export const FRONTEND_SKILLS: SkillIcon[] = [
   {

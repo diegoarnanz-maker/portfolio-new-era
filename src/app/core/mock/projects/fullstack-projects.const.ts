@@ -1,4 +1,4 @@
-import { Project } from '../../interfaces/project.interface';
+import { Project } from '../../interfaces';
 import { AVAILABLE_TECHNOLOGIES } from '../../interfaces/available-technologies.const';
 
 export const FULLSTACK_PROJECTS: Project[] = [

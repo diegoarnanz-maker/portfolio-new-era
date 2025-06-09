@@ -6,7 +6,6 @@ import { experience } from './experience';
 import { contact } from './contact';
 import { aiAssistant } from './ai-assistant';
 import { projectModal } from './project-modal';
-import { projectsData } from './projects-data';
 import { projectCard } from './project-card';
 import { projectCategory } from './project-category';
 
@@ -19,7 +18,6 @@ export const EN_TRANSLATIONS = {
   ...contact,
   ...aiAssistant,
   ...projectModal,
-  ...projectsData,
   ...projectCard,
   ...projectCategory
 };

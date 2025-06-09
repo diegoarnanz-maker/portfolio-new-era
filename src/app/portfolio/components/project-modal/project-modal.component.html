@@ -1,6 +1,6 @@
 <!-- Modal Backdrop -->
+@if (isOpen && project) {
 <div 
-  *ngIf="isOpen && project" 
   class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 dark:bg-black/80 backdrop-blur-sm"
   (click)="onBackdropClick($event)"
   (keydown)="onKeyDown($event)"
@@ -34,8 +34,8 @@
         
         <!-- Gallery Type Selector -->
         <div class="flex border-b border-border-light-base dark:border-border-base bg-background-light/50 dark:bg-background-card/50">
+          @if (hasMainImages) {
           <button
-            *ngIf="hasMainImages"
             (click)="switchGallery('main')"
             [class]="'px-4 py-3 text-sm font-medium transition-all duration-200 border-b-2 ' + 
                      (currentGalleryType === 'main' 
@@ -47,9 +47,10 @@
             </svg>
             {{ 'projectModal.gallery.main' | translate }} ({{ project.images?.length || 0 }})
           </button>
+          }
           
+          @if (hasDemoImages) {
           <button
-            *ngIf="hasDemoImages"
             (click)="switchGallery('demo')"
             [class]="'px-4 py-3 text-sm font-medium transition-all duration-200 border-b-2 ' + 
                      (currentGalleryType === 'demo' 
@@ -61,6 +62,7 @@
             </svg>
             {{ 'projectModal.gallery.demo' | translate }} ({{ project.demoImages?.length || 0 }})
           </button>
+          }
         </div>
 
         <!-- Main Image Display -->
@@ -72,13 +74,15 @@
         >
           
           <!-- Loading Spinner -->
-          <div *ngIf="isImageLoading" class="absolute inset-0 flex items-center justify-center">
+          @if (isImageLoading) {
+          <div class="absolute inset-0 flex items-center justify-center">
             <div class="w-8 h-8 border-2 border-action-light-default dark:border-action-default border-t-transparent rounded-full animate-spin"></div>
           </div>
+          }
 
           <!-- Main Image -->
+          @if (currentImage) {
           <img
-            *ngIf="currentImage"
             [src]="currentImage"
             [alt]="project.title + ' - Imagen ' + (currentImageIndex + 1)"
             class="max-w-full max-h-full object-contain transition-opacity duration-300 pointer-events-none"
@@ -88,10 +92,11 @@
             (loadstart)="onImageStart()"
             draggable="false"
           />
+          }
 
           <!-- Navigation Arrows -->
+          @if (currentImages.length > 1) {
           <button
-            *ngIf="currentImages.length > 1"
             (click)="previousImage()"
             class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 z-10"
           >
@@ -99,9 +104,10 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
+          }
 
+          @if (currentImages.length > 1) {
           <button
-            *ngIf="currentImages.length > 1"
             (click)="nextImage()"
             class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 z-10"
           >
@@ -109,6 +115,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
+          }
 
           <!-- Image Counter -->
           <div class="absolute bottom-4 right-4 px-3 py-1 bg-black/70 text-white text-sm rounded-full">
@@ -124,32 +131,36 @@
         </div>
 
         <!-- Thumbnail Gallery -->
-        <div *ngIf="currentImages.length > 1" class="hidden lg:block p-4 bg-background-light/30 dark:bg-background-card/30">
+        @if (currentImages.length > 1) {
+        <div class="hidden lg:block p-4 bg-background-light/30 dark:bg-background-card/30">
           <div class="flex gap-2 overflow-x-auto pb-2">
+            @for (image of currentImages; track $index) {
             <button
-              *ngFor="let image of currentImages; let i = index"
-              (click)="selectImage(i)"
+              (click)="selectImage($index)"
               [class]="'flex-shrink-0 w-16 h-12 rounded border-2 overflow-hidden transition-all duration-200 ' + 
-                       (i === currentImageIndex 
+                       ($index === currentImageIndex 
                          ? 'border-action-light-default dark:border-action-default shadow-lg' 
                          : 'border-border-light-base dark:border-border-base hover:border-action-light-default/50 dark:hover:border-action-default/50')"
             >
               <img
                 [src]="image"
-                [alt]="'Miniatura ' + (i + 1)"
+                [alt]="'Miniatura ' + ($index + 1)"
                 class="w-full h-full object-cover"
                 (error)="onThumbnailError($event)"
               />
             </button>
+            }
           </div>
         </div>
+        }
       </div>
 
       <!-- Information Section -->
       <div class="lg:w-1/3 p-6 overflow-y-auto bg-background-light dark:bg-background-card overscroll-contain flex-1">
         
         <!-- Long Description -->
-        <div *ngIf="project.longDescription" class="mb-6">
+        @if (project.longDescription) {
+        <div class="mb-6">
           <h3 class="text-lg font-semibold text-text-light dark:text-text-base mb-3">
             {{ 'projectModal.sections.description' | translate }}
           </h3>
@@ -157,15 +168,17 @@
             {{ project.longDescription }}
           </p>
         </div>
+        }
 
         <!-- Technical Details -->
-        <div *ngIf="project.technicalDetails?.length" class="mb-6">
+        @if (project.technicalDetails?.length) {
+        <div class="mb-6">
           <h3 class="text-lg font-semibold text-text-light dark:text-text-base mb-3">
             {{ 'projectModal.sections.technical' | translate }}
           </h3>
           <ul class="space-y-2">
+            @for (detail of project.technicalDetails; track $index) {
             <li
-              *ngFor="let detail of project.technicalDetails"
               class="flex items-start gap-2 text-sm text-text-light-muted dark:text-text-muted"
             >
               <svg class="w-4 h-4 text-tech-hologram-blue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -173,17 +186,20 @@
               </svg>
               {{ detail }}
             </li>
+            }
           </ul>
         </div>
+        }
 
         <!-- Challenges -->
-        <div *ngIf="project.challenges?.length" class="mb-6">
+        @if (project.challenges?.length) {
+        <div class="mb-6">
           <h3 class="text-lg font-semibold text-text-light dark:text-text-base mb-3">
             {{ 'projectModal.sections.challenges' | translate }}
           </h3>
           <ul class="space-y-2">
+            @for (challenge of project.challenges; track $index) {
             <li
-              *ngFor="let challenge of project.challenges"
               class="flex items-start gap-2 text-sm text-text-light-muted dark:text-text-muted"
             >
               <svg class="w-4 h-4 text-tech-energy-yellow mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -191,13 +207,15 @@
               </svg>
               {{ challenge }}
             </li>
+            }
           </ul>
         </div>
+        }
 
         <!-- Action Buttons -->
         <div class="flex gap-2 pt-4 border-t border-border-light-base dark:border-border-base">
+          @if (project.githubUrl) {
           <a
-            *ngIf="project.githubUrl"
             [href]="project.githubUrl"
             target="_blank"
             class="flex items-center justify-center gap-1 px-3 py-2 text-xs font-medium text-text-light dark:text-text-base border border-border-light-base dark:border-border-base transition-all duration-300 flex-1 hover:bg-action-light-default/5 dark:hover:bg-action-default/5 rounded h-8"
@@ -207,6 +225,7 @@
             </svg>
             Código
           </a>
+          }
           
           <button
             (click)="close()"
@@ -221,4 +240,5 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
+}
