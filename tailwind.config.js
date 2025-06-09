@@ -29,7 +29,7 @@ module.exports = {
         "text-accent": "#3B82F6",
 
         // Colores de texto - modo claro
-        "text-light": "#0A0A0B",
+        "text-light": "#252525",
         "text-light-muted": "#1A1A1D",
         "text-light-subtle": "#2A2A2F",
         "text-light-error": "#DC2626",
