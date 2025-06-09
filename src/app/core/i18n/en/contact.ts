@@ -1,23 +1,5 @@
 export const contact = {
   'contact.title': 'Contact',
-  'contact.subtitle': 'Let\'s talk about your next project',
   'contact.description': 'Do you have a project in mind? I\'d love to hear your ideas and collaborate with you.',
-  'contact.copy': 'Copy',
-  'contact.copied': 'Copied!',
-  'contact.email.label': 'Email',
-  'contact.email.placeholder': 'your@email.com',
-  'contact.message.label': 'Message',
-  'contact.message.placeholder': 'Tell me about your project...',
-  'contact.send': 'Send Message',
-  'contact.sending': 'Sending...',
-  'contact.success': 'Message sent successfully!',
-  'contact.error': 'Error sending message. Please try again.',
-  'contact.social.title': 'You can also find me on:',
-  'contact.social.github': 'GitHub',
-  'contact.social.linkedin': 'LinkedIn',
-  'contact.social.email': 'Email',
-  'contact.form.name.label': 'Name',
-  'contact.form.name.placeholder': 'Your name',
-  'contact.form.subject.label': 'Subject',
-  'contact.form.subject.placeholder': 'Message subject'
+  'contact.copy': 'Copy'
 };

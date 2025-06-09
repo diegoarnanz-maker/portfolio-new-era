@@ -1,9 +1,5 @@
 export const experience = {
   'experience.title': 'Professional Experience',
-  'experience.subtitle': 'My journey in software development',
-  'experience.present': 'Present',
-  'experience.responsibilities': 'Responsibilities',
-  'experience.achievements': 'Achievements',
   'experience.categories.practices': 'Internships',
   'experience.categories.education': 'Education',
   'experience.categories.personal': 'Personal',
