@@ -10,4 +10,14 @@ import { AiAssistantComponent } from '../../components/ai-assistant/ai-assistant
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
+  showRocketAnimation = false;
+
+  onDownloadCV(): void {
+    this.showRocketAnimation = true;
+    
+    // Ocultar la animación después de 1.5 segundos
+    setTimeout(() => {
+      this.showRocketAnimation = false;
+    }, 1500);
+  }
 }
