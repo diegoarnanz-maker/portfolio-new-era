@@ -1,5 +1,5 @@
 export const projectCard = {
-  'projectCard.buttons.viewProject': 'Ver Proyecto',
+  'projectCard.buttons.viewProject': 'Ver Demo',
   'projectCard.buttons.viewCode': 'Ver Código',
   'projectCard.buttons.chatLive': 'Chat en Vivo',
   'projectCard.buttons.viewWorkflow': 'Ver Workflow',

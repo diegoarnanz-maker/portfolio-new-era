@@ -13,7 +13,8 @@
     <div class="relative bg-gradient-to-r from-action-light-gradient-from to-action-light-gradient-to dark:from-action-gradient-from dark:to-action-gradient-to p-6">
       <button 
         (click)="close()"
-        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 hover:bg-white/30 rounded-full transition-all duration-200 text-white"
+        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 hover:bg-white/30 dark:bg-white/20 dark:hover:bg-white/30 rounded-full transition-all duration-200 text-text-light dark:text-white"
+        style="text-shadow: 0 0 3px rgba(255,255,255,0.8), 1px 1px 1px rgba(255,255,255,0.6);"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
