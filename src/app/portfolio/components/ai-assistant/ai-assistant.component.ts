@@ -14,24 +14,21 @@ export class AiAssistantComponent implements OnInit, OnDestroy {
   isAssistantModalOpen = false;
   isAssistantLoading = true;
 
-  private assistantTimer?: number;
   private messageTimer?: number;
 
   ngOnInit() {
-    // Mostrar el asistente después de 3 segundos
-    this.assistantTimer = window.setTimeout(() => {
-      this.checkAssistantVisibility();
+    // Mostrar el asistente inmediatamente
+    this.checkAssistantVisibility();
+    
+    // Mostrar el mensaje después de 1.5 segundos
+    this.messageTimer = window.setTimeout(() => {
+      this.showAssistantMessage = true;
       
-      // Mostrar el mensaje después de 1 segundo más
-      this.messageTimer = window.setTimeout(() => {
-        this.showAssistantMessage = true;
-        
-        // Ocultar el mensaje después de 5 segundos
-        window.setTimeout(() => {
-          this.showAssistantMessage = false;
-        }, 5000);
-      }, 1000);
-    }, 3000);
+      // Ocultar el mensaje después de 5 segundos
+      window.setTimeout(() => {
+        this.showAssistantMessage = false;
+      }, 5000);
+    }, 1500);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -57,9 +54,6 @@ export class AiAssistantComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.assistantTimer) {
-      clearTimeout(this.assistantTimer);
-    }
     if (this.messageTimer) {
       clearTimeout(this.messageTimer);
     }
