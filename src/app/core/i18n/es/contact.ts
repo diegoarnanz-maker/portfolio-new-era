@@ -1,16 +1,5 @@
 export const contact = {
   'contact.title': 'Contacto',
-  'contact.subtitle': 'Hablemos sobre tu próximo proyecto',
   'contact.description': 'Abierto a nuevas oportunidades profesionales o colaboraciones en proyectos.',
-  'contact.copy': 'Copiar',
-  'contact.name': 'Nombre',
-  'contact.email': 'Email',
-  'contact.subject': 'Asunto',
-  'contact.message': 'Mensaje',
-  'contact.send': 'Enviar Mensaje',
-  'contact.sending': 'Enviando...',
-  'contact.success': 'Mensaje enviado correctamente',
-  'contact.error': 'Error al enviar el mensaje',
-  'contact.required': 'Este campo es obligatorio',
-  'contact.invalidEmail': 'Email no válido',
+  'contact.copy': 'Copiar'
 };

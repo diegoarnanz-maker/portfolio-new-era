@@ -1,12 +1,11 @@
 export const navbar = {
-  'nav.home': 'Inicio',
-  'nav.about': 'Sobre mí',
+  'nav.about': 'Sobre Mí',
   'nav.projects': 'Proyectos',
   'nav.experience': 'Experiencia',
-  'nav.skills': 'Skills',
   'nav.contact': 'Contacto',
+  'nav.logo.alt': 'Logo de Diego Arnanz',
   'nav.changeTheme': 'Cambiar tema',
-  'nav.selectLanguage': 'Seleccionar idioma',
-  'nav.toggleMenu': 'Alternar menú',
-  'nav.mobileMenu': 'Menú móvil',
+  'nav.selectLanguage': 'Cambiar idioma',
+  'nav.toggleMenu': 'Abrir menú',
+  'nav.mobileMenu': 'Menú de navegación móvil'
 };

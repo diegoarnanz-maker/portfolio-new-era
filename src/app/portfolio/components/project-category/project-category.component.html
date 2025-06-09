@@ -18,7 +18,7 @@
         (click)="goToPrevSlide($event)"
         [disabled]="!canGoPrevious()"
         class="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
-        aria-label="Proyecto anterior"
+        [attr.aria-label]="'projectCategory.navigation.previous' | translate"
       >
         <svg class="w-6 h-6 md:w-8 md:h-8 text-action-light-default dark:text-action-default group-hover:text-action-light-hover dark:group-hover:text-action-hover transition-all duration-300 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" class="group-hover:stroke-[3]"/>
@@ -44,7 +44,7 @@
         (click)="goToNextSlide($event)"
         [disabled]="!canGoNext()"
         class="hidden sm:flex flex-shrink-0 w-10 h-10 md:w-12 md:h-12 items-center justify-center group outline-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 active:scale-95 transition-all duration-300"
-        aria-label="Proyecto siguiente"
+        [attr.aria-label]="'projectCategory.navigation.next' | translate"
       >
         <svg class="w-6 h-6 md:w-8 md:h-8 text-action-light-default dark:text-action-default group-hover:text-action-light-hover dark:group-hover:text-action-hover transition-all duration-300 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" class="group-hover:stroke-[3]"/>
@@ -63,7 +63,7 @@
                  (currentSlide === $index ? 
                    'bg-action-default dark:bg-text-accent shadow-lg scale-110' : 
                    'bg-gray-300 dark:bg-gray-600 hover:bg-action-default/50 dark:hover:bg-text-accent/50')"
-        [attr.aria-label]="'Ir al grupo de proyectos ' + ($index + 1)"
+        [attr.aria-label]="'projectCategory.navigation.goToGroup' | translate: {index: $index + 1}"
       ></button>
       }
     </div>
@@ -81,10 +81,10 @@
           </svg>
         </div>
         <p class="text-text-light/60 dark:text-text-base/60 font-medium">
-          No hay proyectos en esta categoría aún.
+          {{ 'projectCategory.empty.title' | translate }}
         </p>
         <p class="text-text-light/40 dark:text-text-base/40 text-sm mt-2">
-          ¡Pronto habrá contenido increíble aquí!
+          {{ 'projectCategory.empty.subtitle' | translate }}
         </p>
       </div>
     </div>

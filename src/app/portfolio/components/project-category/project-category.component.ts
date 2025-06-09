@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { ProjectCategory, Project } from '../../../core/interfaces/project.interface';
 import KeenSlider from 'keen-slider';
@@ -19,7 +20,7 @@ interface Particle {
 @Component({
   selector: 'app-project-category',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent],
+  imports: [CommonModule, TranslateModule, ProjectCardComponent],
   templateUrl: './project-category.component.html',
   styleUrls: ['./project-category.component.css']
 })

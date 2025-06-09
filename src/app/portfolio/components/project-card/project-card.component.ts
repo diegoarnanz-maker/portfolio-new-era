@@ -1,5 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../../core/services/language.service';
 import { Project, Technology } from '../../../core/interfaces/project.interface';
 
 type ImageType = 'desktop' | 'tablet' | 'mobile';
@@ -7,13 +9,15 @@ type ImageType = 'desktop' | 'tablet' | 'mobile';
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './project-card.component.html'
 })
 export class ProjectCardComponent {
   @Input() project!: Project;
   @Output() projectModalOpen = new EventEmitter<Project>();
 
+  private languageService = inject(LanguageService);
+  
   selectedImageType: ImageType = 'desktop';
   technologiesExpanded = false;
 
@@ -64,7 +68,9 @@ export class ProjectCardComponent {
   }
 
   getIAAssistantLabel(): string {
-    return this.project.aiEngine === 'python' ? 'PYTHON ENGINE' : 'N8N FLOWS';
+    return this.project.aiEngine === 'python' 
+      ? this.languageService.getTranslation('projectCard.engines.python')
+      : this.languageService.getTranslation('projectCard.engines.n8n');
   }
 
   usesPython(): boolean {
@@ -77,9 +83,9 @@ export class ProjectCardComponent {
 
   getDemoButtonText(): string {
     if (this.usesPython()) {
-      return 'Chat en Vivo';
+      return this.languageService.getTranslation('projectCard.buttons.chatLive');
     } else {
-      return 'Ver Workflow';
+      return this.languageService.getTranslation('projectCard.buttons.viewWorkflow');
     }
   }
 

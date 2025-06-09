@@ -76,15 +76,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.themeService.toggleTheme();
   }
 
-  changeLang(code: string) {
-    const selectedLanguage = this.languageService.availableLanguages.find(lang => lang.code === code);
-    if (selectedLanguage) {
-      this.languageService.setLanguage(selectedLanguage);
-      console.log('Idioma cambiado a:', selectedLanguage.name);
-    } else {
-      console.warn('Idioma no encontrado:', code);
+  async changeLang(code: string) {
+    try {
+      const selectedLanguage = this.languageService.getLanguageByCode(code);
+      if (selectedLanguage) {
+        await this.languageService.setLanguage(selectedLanguage);
+      } else {
+        console.warn('Idioma no encontrado:', code);
+      }
+    } catch (error) {
+      console.error('Error al cambiar idioma:', error);
+    } finally {
+      this.showLangs = false;
     }
-    this.showLangs = false;
   }
 
   toggleLanguageDropdown(): void {
