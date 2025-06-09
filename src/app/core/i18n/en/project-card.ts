@@ -1,7 +1,7 @@
 export const projectCard = {
   'projectCard.buttons.viewProject': 'View Demo',
   'projectCard.buttons.viewCode': 'View Code',
-  'projectCard.buttons.chatLive': 'Live Chat',
+  'projectCard.buttons.chatLive': 'Chat',
   'projectCard.buttons.viewWorkflow': 'View Workflow',
   'projectCard.devices.desktop': 'Desktop',
   'projectCard.devices.tablet': 'Tablet',

@@ -7,5 +7,7 @@ export const home = {
   'home.social.cv.aria': 'Descargar mi CV',
   'home.social.cv.title': 'Descargar mi CV',
   'home.profile.alt.light': 'Foto de perfil de Diego Arnanz - Tema claro',
-  'home.profile.alt.dark': 'Foto de perfil de Diego Arnanz - Tema oscuro'
+  'home.profile.alt.dark': 'Foto de perfil de Diego Arnanz - Tema oscuro',
+  'home.download.launching': '¡Despegando!',
+  'home.download.message': 'Mi CV se está descargando...'
 };

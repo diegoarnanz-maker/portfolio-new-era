@@ -202,6 +202,12 @@ module.exports = {
         "energy-pulse-1": "energy-pulse-1 2s ease-out infinite",
         "energy-pulse-2": "energy-pulse-2 2.5s ease-out infinite",
         "energy-pulse-3": "energy-pulse-3 3s ease-out infinite",
+        "rocket-launch": "rocket-launch 2s ease-out",
+        "rocket-flame": "rocket-flame 0.3s ease-in-out infinite alternate",
+        "smoke-1": "smoke-1 1s ease-out infinite",
+        "smoke-2": "smoke-2 1.2s ease-out infinite",
+        "smoke-3": "smoke-3 0.8s ease-out infinite",
+        "fade-in-up": "fade-in-up 0.8s ease-out",
       },
       keyframes: {
         fadeIn: {
@@ -289,6 +295,68 @@ module.exports = {
           "0%": { transform: "scale(1)", opacity: "0.6" },
           "50%": { transform: "scale(1.2)", opacity: "0.3" },
           "100%": { transform: "scale(1.4)", opacity: "0" },
+        },
+        "rocket-launch": {
+          "0%": { 
+            transform: "translateY(100px) scale(0.8)", 
+            opacity: "0" 
+          },
+          "20%": { 
+            transform: "translateY(50px) scale(0.9)", 
+            opacity: "1" 
+          },
+          "80%": { 
+            transform: "translateY(-50px) scale(1.1)", 
+            opacity: "1" 
+          },
+          "100%": { 
+            transform: "translateY(-200px) scale(1.2)", 
+            opacity: "0" 
+          },
+        },
+        "rocket-flame": {
+          "0%": { transform: "scaleY(1)" },
+          "100%": { transform: "scaleY(1.3)" },
+        },
+        "smoke-1": {
+          "0%": { 
+            transform: "translateY(0) translateX(0) scale(1)", 
+            opacity: "0.6" 
+          },
+          "100%": { 
+            transform: "translateY(20px) translateX(-5px) scale(1.5)", 
+            opacity: "0" 
+          },
+        },
+        "smoke-2": {
+          "0%": { 
+            transform: "translateY(0) translateX(0) scale(1)", 
+            opacity: "0.4" 
+          },
+          "100%": { 
+            transform: "translateY(25px) translateX(3px) scale(1.8)", 
+            opacity: "0" 
+          },
+        },
+        "smoke-3": {
+          "0%": { 
+            transform: "translateY(0) translateX(0) scale(1)", 
+            opacity: "0.5" 
+          },
+          "100%": { 
+            transform: "translateY(18px) translateX(-2px) scale(1.3)", 
+            opacity: "0" 
+          },
+        },
+        "fade-in-up": {
+          "0%": { 
+            transform: "translateY(20px)", 
+            opacity: "0" 
+          },
+          "100%": { 
+            transform: "translateY(0)", 
+            opacity: "1" 
+          },
         },
       },
       backgroundImage: {
