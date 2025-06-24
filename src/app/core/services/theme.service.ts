@@ -25,11 +25,13 @@ export class ThemeService {
       return savedTheme === 'dark';
     }
     
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return true;
-    }
+    // Comentado: detección automática de preferencias del sistema
+    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    //   return true;
+    // }
     
-    return false;
+    // Por defecto siempre tema oscuro para nuevos usuarios
+    return true;
   }
 
   private applyTheme(): void {

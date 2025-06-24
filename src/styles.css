@@ -29,6 +29,9 @@
   
   body {
     @apply min-h-screen;
+    /* Prevenir scroll horizontal en mobile */
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 
@@ -51,7 +54,19 @@
   /* Mejoras para el scroll suave */
   html {
     scroll-behavior: smooth;
+    /* Prevenir scroll horizontal global */
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
+  /* Prevenir elementos que se salgan del viewport en mobile */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Asegurar que ningún elemento cause overflow horizontal */
+  .container, main, section, div {
+    max-width: 100%;
+  }
 
 }
